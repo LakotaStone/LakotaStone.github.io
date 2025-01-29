@@ -84,3 +84,6 @@ button:hover {
         padding: 15px;
     }
 }
+body {
+    font-family: 'Poppins', sans-serif;
+}
