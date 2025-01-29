@@ -12,6 +12,9 @@ header {
     color: white;
     padding: 20px;
     font-size: 24px;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
 }
 
 .container {
