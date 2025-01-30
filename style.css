@@ -1,11 +1,72 @@
+/* style.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Fallback color */
-    background-image: url('AdobeStock_54535145-1622x1081.jpg'); /* Use the correct filename */
+    background-image: url('AdobeStock_54535145-1622x1081.jpg'); /* Replace with your image file name */
     background-size: cover; /* Cover the entire background */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent repeating */
-    color: white; /* Change text color for better contrast */
+    color: #ffffff; /* Change text color for better contrast */
+}
+
+header {
+    background-color: #2e5d34; /* Pine green color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* White text for links */
+    font-weight: bold; /* Make links bold */
+}
+
+nav ul li a:hover {
+    color: #a8e6cf; /* Light green for hover effect */
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2e5d34; /* Pine green color */
+    color: white;
+    position: relative; /* Position footer */
+    bottom: 0; /* Stick to bottom */
+    width: 100%; /* Full width */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    header {
+        font-size: 20px;
+        padding: 15px;
+    }
 }
