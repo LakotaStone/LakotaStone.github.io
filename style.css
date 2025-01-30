@@ -1,26 +1,125 @@
-/* General Styles */
+/* style.css */ 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    background-image: url('Mahogany.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #ffffff;
+    background-color: #f4f4f4; /* Fallback color */
+    background-image: url('chisil.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent repeating */
+    color: #ffffff; /* Default text color */
 }
 
-/* Header */
 header {
-    background-color: white;
+    background-color: #2e5d34; /* Pine green background */
+    color: #fff; /* White text for contrast */
     padding: 20px;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: left; /* Align text to the left */
+    position: relative; /* Position relative for absolute elements */
 }
 
-/* Sign Up / Login Link */
+.website-title {
+    font-family: 'Playfair Display', serif; /* Classy font for title */
+    font-size: 36px; /* Font size for the title */
+    margin: 0; /* Remove default margin */
+}
+
 .top-right {
- 
+    position: absolute; /* Position absolute for top right corner */
+    top: 10px;
+    right: 20px;
+}
+
+.login-link {
+    text-decoration: none;
+    color: #ffffff; /* White color for the link */
+    font-weight: bold; /* Bold text for the link */
+}
+
+.main-nav {
+    background-color: #000000; /* Black background for navigation */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* White text for links */
+    font-weight: bold; /* Make links bold */
+}
+
+nav ul li a:hover {
+    color: #a8e6cf; /* Light green for hover effect */
+}
+
+.cart-icon {
+    width: 20px; /* Adjust cart icon size */
+    vertical-align: middle; /* Align icon with text */
+}
+
+.tagline {
+    background-color: #2e5d34; /* Pine green background */
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2e5d34; /* Pine green color */
+    color: white;
+    position: relative; /* Position footer */
+    bottom: 0; /* Stick to bottom */
+    width: 100%; /* Full width */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    header {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center items */
+    }
+
+    nav ul li {
+        margin: 0.5em 0; /* Adjust margin for list items */
+    }
+
+    nav ul li a {
+        font-size: 16px; /* Adjust font size for links */
+    }
+
+    footer {
+        font-size: 14px; /* Smaller footer font size */
+        padding: 5px; /* Less padding for footer */
+    }
+}
