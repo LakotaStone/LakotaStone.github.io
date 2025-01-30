@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2C1B0E; /* Dark Brown */
+    color: #EDE0D4; /* Light beige text for contrast */
+}
+
+/* Header */
+header {
+    background-color: #4E342E; /* Medium Brown */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Navigation */
+nav {
+    background-color: #3E2723; /* Darker Brown */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+nav ul li a:hover {
+    background-color: #795548; /* Lighter brown hover effect */
+    border-radius: 5px;
+}
+
+/* Main Content */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #5D4037; /* Medium Brown */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #3E2723;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    header {
+        font-size: 20px;
+        padding: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+}
