@@ -3,41 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Fallback color */
-    background-image: url('wood.jpeg'); /* Use your image filename */
+    background-image: url('wood.jpeg'); /* Ensure this matches the image filename */
     background-size: cover; /* Cover the entire background */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent repeating */
     color: white; /* Change text color for better contrast */
-}
-
-header {
-    background-color: rgba(0, 123, 255, 0.7); /* Slightly transparent background */
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 1em;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #007bff;
 }
