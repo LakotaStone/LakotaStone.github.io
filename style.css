@@ -3,9 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Fallback color */
-    background-image:body {
-    background-image: url('wood.jpeg'); /* Use the JPEG filename */
-}
+    background-image: url('wood.jpeg'); /* Use your image filename */
     background-size: cover; /* Cover the entire background */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent repeating */
