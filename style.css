@@ -15,10 +15,18 @@ body {
 header {
     background-color: white;
     padding: 20px;
-    text-align: left;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Website Title (Lakotawoodworks) */
+.website-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #b68c5a; /* Light Brown */
+    font-weight: bold;
+    margin-left: 20px;
 }
 
 /* Sign Up / Login Link */
@@ -34,15 +42,6 @@ header {
 
 .login-link:hover {
     text-decoration: underline;
-}
-
-/* Website Title (Lakotawoodworks) */
-.website-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: #b68c5a; /* Light Brown */
-    margin-left: 20px;
-    font-weight: bold;
 }
 
 /* Navigation Bar */
@@ -120,12 +119,18 @@ footer {
     }
 
     header {
-        font-size: 20px;
-        padding: 15px;
+        flex-direction: column;
+        align-items: center;
     }
 
     .website-title {
-        font-size: 28px; /* Smaller on mobile */
+        font-size: 28px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .top-right {
+        margin-top: 10px;
         text-align: center;
     }
 
