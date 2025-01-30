@@ -1,6 +1,6 @@
 /* style.css */
 body {
-    font-family: 'Roboto', sans-serif; /* Default font */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Fallback color */
@@ -9,9 +9,6 @@ body {
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent repeating */
     color: #ffffff; /* Change text color for better contrast */
-    display: flex; /* Use flexbox for body */
-    flex-direction: column; /* Arrange children in a column */
-    min-height: 100vh; /* Make sure the body takes full height */
 }
 
 header {
@@ -23,21 +20,11 @@ header {
     align-items: center; /* Center items vertically */
 }
 
-.login-link a {
-    color: #D3B59B; /* Light brown color for the login link */
-    text-decoration: none; /* No underline */
-}
-
-nav {
-    background-color: black; /* Black background for the navigation bar */
-}
-
 nav ul {
     display: flex;
     justify-content: center;
     list-style-type: none;
     padding: 0;
-    margin: 0; /* Remove margin for better alignment */
 }
 
 nav ul li {
@@ -54,18 +41,11 @@ nav ul li a:hover {
     color: #a8e6cf; /* Light green for hover effect */
 }
 
-.slogan-bar {
-    background-color: #2e5d34; /* Pine green background for the slogan */
-    color: #ffffff; /* White text for slogan */
-    text-align: center; /* Center align text */
-    padding: 5px; /* Thinner padding for slogan bar */
-}
-
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background: rgba(255, 255, 255, 0.8); /* White background with slight transparency */
-    padding: 10px; /* Thinner padding for container */
+    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -75,6 +55,8 @@ footer {
     padding: 10px;
     background-color: #2e5d34; /* Pine green color */
     color: white;
+    position: relative; /* Position footer */
+    bottom: 0; /* Stick to bottom */
     width: 100%; /* Full width */
 }
 
