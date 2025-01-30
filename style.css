@@ -12,11 +12,17 @@ body {
 }
 
 header {
-    background-color: rgba(255, 228, 196, 0.9); /* Light brown background */
-    color: #2e5d34; /* Pine green text */
+    background-color: #2e5d34; /* Pine green background */
+    color: #fff; /* White text for contrast */
     padding: 20px;
-    text-align: center;
+    text-align: left; /* Align text to the left */
     position: relative; /* Position relative for absolute elements */
+}
+
+.website-title {
+    font-family: 'Playfair Display', serif; /* Classy font for title */
+    font-size: 36px; /* Font size for the title */
+    margin: 0; /* Remove default margin */
 }
 
 .top-right {
@@ -27,8 +33,8 @@ header {
 
 .login-link {
     text-decoration: none;
-    color: #2e5d34; /* Pine green color for the link */
-    font-weight: bold;
+    color: #ffffff; /* White color for the link */
+    font-weight: bold; /* Bold text for the link */
 }
 
 .main-nav {
