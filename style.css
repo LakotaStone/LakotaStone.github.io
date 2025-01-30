@@ -1,9 +1,10 @@
+/* style.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Fallback color */
-    background-image:('Mahogany.jpg'); /* Replace with your image file name */
+    background-image: url('Mahogany.jpg'); /* Updated image file name */
     background-size: cover; /* Cover the entire background */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent repeating */
