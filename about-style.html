@@ -1,37 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Lakotawoodworks</title>
-    <link rel="stylesheet" href="about-style.css"> <!-- Link to separate CSS -->
-</head>
-<body>
-    <header>
-        <h1>About Lakotawoodworks</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2C1B0E; /* Dark Brown */
+    color: #EDE0D4; /* Light beige text for contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    <main class="container">
-        <h2>Our Story</h2>
-        <p>Lakotawoodworks is built on a passion for craftsmanship and high-quality, handcrafted wood products. Every piece is made with care and attention to detail.</p>
-        
-        <h2>Our Craft</h2>
-        <p>We source sustainable wood and create unique, long-lasting furniture and decor. Whether it’s a custom piece or a timeless classic, our work speaks for itself.</p>
-        
-        <h2>Meet the Maker</h2>
-        <p>Founded by a dedicated artisan, Lakotawoodworks stands for excellence, authenticity, and love for woodworking.</p>
-    </main>
+/* Header */
+header {
+    background-color: #4E342E; /* Medium Brown */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
 
-    <footer>
-        <p>&copy; 2025 Lakotawoodworks. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+/* Navigation */
+nav {
+    background-color: #3E2723; /* Darker Brown */
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+nav ul li a:hover {
+    background-color: #795548; /* Lighter brown hover effect */
+    border-radius: 5px;
+}
+
+/* Main Content (Centered) */
+.container {
+    max-width: 600px;
+    background: #5D4037; /* Medium Brown */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 40px auto;
+}
+
+/* Footer */
+footer {
+    background-color: #3E2723;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
