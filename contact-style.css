@@ -10,10 +10,30 @@ body {
 }
 
 header {
-    background-color: #2E8B57; /* Pine green */
+    background-color: #2C6A4D; /* Pine green */
     color: white;
     padding: 20px;
     font-size: 24px;
+}
+
+nav ul {
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: center; /* Center the nav links */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+nav ul li {
+    margin: 0 15px; /* Spacing between links */
+}
+
+nav ul li a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
 .container {
@@ -68,7 +88,6 @@ button:hover {
 
 .social-links a {
     margin: 0 10px;
-    color: #2E8B57; /* Pine green for icons */
+    color: #2C6A4D; /* Pine green for icons */
     font-size: 24px;
 }
-
