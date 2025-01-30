@@ -1,0 +1,71 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background */
+    text-align: center;
+}
+
+header {
+    background-color: #2E8B57; /* Pine green */
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-image {
+    width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #4CAF50; /* Darker green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #388E3C; /* Darker green on hover */
+}
+
+.contact-info {
+    margin-top: 20px;
+    background-color: #D3C6A8; /* Light brown */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #2E8B57; /* Pine green for icons */
+    font-size: 24px;
+}
