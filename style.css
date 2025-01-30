@@ -23,6 +23,11 @@ header {
     align-items: center; /* Center items vertically */
 }
 
+.login-link a {
+    color: #D3B59B; /* Light brown color for the login link */
+    text-decoration: none; /* No underline */
+}
+
 nav ul {
     display: flex;
     justify-content: center;
@@ -74,3 +79,4 @@ footer {
         padding: 15px;
     }
 }
+
