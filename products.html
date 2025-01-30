@@ -3,37 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products - Lakotawoodworks</title>
-    <link rel="stylesheet" href="style.css"> <!-- Links to your CSS -->
+    <title>Lakotawoodworks - Products</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Top Bar with Login/Signup -->
+    <div class="top-bar">
+        <a href="#" class="login">Sign Up / Login</a>
+    </div>
+
+    <!-- Header with Site Name -->
     <header>
         <h1>Lakotawoodworks</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
-    
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="cart"><a href="#" id="cart-icon">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sub Banner -->
+    <div class="sub-banner">
+        <p>Built to Withstand, Designed to Excite.</p>
+    </div>
+
+    <!-- Main Content -->
     <div class="container">
-        <h2>Our Products</h2>
-        <p>Browse our selection of handcrafted wood products.</p>
-        <div class="product">
-            <h3>Wooden Bowl</h3>
-            <p>Price: $25</p>
-            <p>Description: Handmade wooden bowl, perfect for serving or decoration.</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <h3>Cutting Board</h3>
-            <p>Price: $30</p>
-            <p>Description: Durable cutting board made from high-quality wood.</p>
-            <button>Add to Cart</button>
+        <h2>Products</h2>
+        <div id="product-list">
+            <div class="product">
+                <h3>Wooden Chair</h3>
+                <p>Price: $50</p>
+                <button class="add-to-cart" data-name="Wooden Chair" data-price="50">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h3>Wooden Table</h3>
+                <p>Price: $150</p>
+                <button class="add-to-cart" data-name="Wooden Table" data-price="150">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h3>Wooden Shelf</h3>
+                <p>Price: $75</p>
+                <button class="add-to-cart" data-name="Wooden Shelf" data-price="75">Add to Cart</button>
+            </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cartCount = 0;
+
+        // Function to update cart count
+        function updateCartCount() {
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+
+        // Add event listeners to "Add to Cart" buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                cartCount++;
+                updateCartCount();
+                alert(`${button.dataset.name} has been added to your cart!`);
+            });
+        });
+    </script>
+
 </body>
 </html>
