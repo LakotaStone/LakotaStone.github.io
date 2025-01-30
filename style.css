@@ -1,99 +1,118 @@
-/* style.css */ 
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Fallback color */
-    background-image: url('chisil.jpg'); /* Background image */
-    background-size: cover; /* Cover the entire background */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent repeating */
-    color: #ffffff; /* Default text color */
+    background-color: #f4f4f4;
+    background-image: url('Mahogany.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
 }
 
+/* Header */
 header {
-    background-color: #2e5d34; /* Pine green background */
-    color: #fff; /* White text for contrast */
+    background-color: white;
     padding: 20px;
-    text-align: left; /* Align text to the left */
-    position: relative; /* Position relative for absolute elements */
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.website-title {
-    font-family: 'Playfair Display', serif; /* Classy font for title */
-    font-size: 36px; /* Font size for the title */
-    margin: 0; /* Remove default margin */
-}
-
+/* Sign Up / Login Link */
 .top-right {
-    position: absolute; /* Position absolute for top right corner */
-    top: 10px;
-    right: 20px;
+    margin-right: 20px;
 }
 
 .login-link {
     text-decoration: none;
-    color: #ffffff; /* White color for the link */
-    font-weight: bold; /* Bold text for the link */
+    color: #2e5d34; /* Pine Green */
+    font-weight: bold;
 }
 
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Website Title (Lakotawoodworks) */
+.website-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #b68c5a; /* Light Brown */
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/* Navigation Bar */
 .main-nav {
-    background-color: #000000; /* Black background for navigation */
+    background-color: black;
+    padding: 10px;
 }
 
 nav ul {
     display: flex;
     justify-content: center;
     list-style-type: none;
-    padding: 10px 0;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
-    margin: 0 1em;
+    margin: 0 15px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #ffffff; /* White text for links */
-    font-weight: bold; /* Make links bold */
+    color: white;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
-    color: #a8e6cf; /* Light green for hover effect */
+    color: #a8e6cf; /* Light Green */
 }
 
+/* Cart Icon */
 .cart-icon {
-    width: 20px; /* Adjust cart icon size */
-    vertical-align: middle; /* Align icon with text */
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
+/* Tagline */
 .tagline {
-    background-color: #2e5d34; /* Pine green background */
-    color: white;
+    background-color: #2e5d34; /* Pine Green */
     text-align: center;
     padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
+/* Main Content */
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #2e5d34; /* Pine green color */
+    background-color: #2e5d34;
     color: white;
-    position: relative; /* Position footer */
-    bottom: 0; /* Stick to bottom */
-    width: 100%; /* Full width */
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Responsive Design */
+/* Responsive Design for Mobile */
 @media (max-width: 600px) {
     .container {
         width: 90%;
@@ -105,21 +124,17 @@ footer {
         padding: 15px;
     }
 
+    .website-title {
+        font-size: 28px; /* Smaller on mobile */
+        text-align: center;
+    }
+
     nav ul {
-        flex-direction: column; /* Stack navigation items vertically */
-        align-items: center; /* Center items */
+        flex-direction: column;
+        text-align: center;
     }
 
     nav ul li {
-        margin: 0.5em 0; /* Adjust margin for list items */
-    }
-
-    nav ul li a {
-        font-size: 16px; /* Adjust font size for links */
-    }
-
-    footer {
-        font-size: 14px; /* Smaller footer font size */
-        padding: 5px; /* Less padding for footer */
+        margin: 5px 0;
     }
 }
