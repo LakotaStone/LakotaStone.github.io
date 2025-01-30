@@ -4,11 +4,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    background-image: url('Mahogany.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #ffffff;
 }
 
 /* Header */
@@ -18,18 +13,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid #2e5d34;
 }
 
-/* Website Title (Lakotawoodworks) */
+/* Lakotawoodworks Title */
 .website-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: #b68c5a; /* Light Brown */
+    font-size: 28px;
     font-weight: bold;
+    color: #A67B5B; /* Light Brown */
     margin-left: 20px;
+    font-family: 'Georgia', serif; /* Classier Font */
 }
 
-/* Sign Up / Login Link */
+/* Sign Up / Login */
 .top-right {
     margin-right: 20px;
 }
@@ -40,22 +36,19 @@ header {
     font-weight: bold;
 }
 
-.login-link:hover {
-    text-decoration: underline;
-}
-
 /* Navigation Bar */
-.main-nav {
+nav {
     background-color: black;
-    padding: 10px;
+    padding: 10px 0;
+    text-align: center;
 }
 
 nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
 }
 
 nav ul li {
@@ -63,75 +56,41 @@ nav ul li {
 }
 
 nav ul li a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
     font-weight: bold;
 }
 
 nav ul li a:hover {
-    color: #a8e6cf; /* Light Green */
+    color: #A67B5B; /* Light Brown */
 }
 
-/* Cart Icon */
-.cart-icon {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-/* Tagline */
-.tagline {
+/* Slogan Bar */
+.slogan-bar {
     background-color: #2e5d34; /* Pine Green */
+    color: white;
     text-align: center;
     padding: 10px;
     font-size: 18px;
     font-weight: bold;
 }
 
-/* Main Content */
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+/* Background Image */
+.background-image {
+    background-image: url('Mahogany.jpg'); /* Make sure this image is in the same folder */
+    background-size: cover;
+    background-position: center;
+    height: 500px; /* Adjust height as needed */
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #2e5d34;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Responsive Design for Mobile */
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 15px;
-    }
-
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-
+/* Responsive Design */
+@media (max-width: 768px) {
     .website-title {
-        font-size: 28px;
-        margin-left: 0;
-        text-align: center;
+        font-size: 22px;
     }
 
-    .top-right {
-        margin-top: 10px;
-        text-align: center;
+    .login-link {
+        font-size: 14px;
     }
 
     nav ul {
@@ -141,5 +100,9 @@ footer {
 
     nav ul li {
         margin: 5px 0;
+    }
+
+    .background-image {
+        height: 300px; /* Smaller height for mobile */
     }
 }
