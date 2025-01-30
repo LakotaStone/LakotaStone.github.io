@@ -1,75 +1,57 @@
-/* General Styles */
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #2C1B0E; /* Dark Brown */
-    color: #EDE0D4; /* Light beige text for contrast */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #2A4D38; /* Pine Green */
+    color: white;
+    text-align: center;
 }
 
-/* Header */
+/* Centered Content */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #1E3A2F; /* Darker Pine Green */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Styling */
 header {
-    background-color: #4E342E; /* Medium Brown */
+    background-color: #144D2F; /* Deep Pine Green */
     color: white;
     padding: 20px;
-    text-align: center;
-    width: 100%;
+    font-size: 24px;
 }
 
-/* Navigation */
-nav {
-    background-color: #3E2723; /* Darker Brown */
-    padding: 10px 0;
-    text-align: center;
-    width: 100%;
-}
-
+/* Navigation Menu */
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
-    margin: 0;
     display: flex;
     justify-content: center;
+    gap: 15px;
 }
 
 nav ul li {
-    margin: 0 15px;
+    display: inline;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: white;
-    font-size: 18px;
+    color: #A8E6A3; /* Soft Green for contrast */
     font-weight: bold;
-    padding: 8px 12px;
 }
 
 nav ul li a:hover {
-    background-color: #795548; /* Lighter brown hover effect */
-    border-radius: 5px;
+    color: #D4F8D4; /* Lighter Green on hover */
 }
 
-/* Main Content (Centered) */
-.container {
-    max-width: 600px;
-    background: #5D4037; /* Medium Brown */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin: 40px auto;
-}
-
-/* Footer */
+/* Footer Styling */
 footer {
-    background-color: #3E2723;
-    color: white;
-    text-align: center;
+    margin-top: 20px;
     padding: 15px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+    background-color: #144D2F;
 }
