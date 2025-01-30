@@ -54,6 +54,13 @@ nav ul li a:hover {
     color: #a8e6cf; /* Light green for hover effect */
 }
 
+.slogan-bar {
+    background-color: #2e5d34; /* Pine green background for the slogan */
+    color: #ffffff; /* White text for slogan */
+    text-align: center; /* Center align text */
+    padding: 10px; /* Padding for slogan bar */
+}
+
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -84,3 +91,4 @@ footer {
         padding: 15px;
     }
 }
+
