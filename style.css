@@ -1,6 +1,6 @@
 /* style.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Default font */
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Fallback color */
@@ -58,17 +58,16 @@ nav ul li a:hover {
     background-color: #2e5d34; /* Pine green background for the slogan */
     color: #ffffff; /* White text for slogan */
     text-align: center; /* Center align text */
-    padding: 10px; /* Padding for slogan bar */
+    padding: 5px; /* Thinner padding for slogan bar */
 }
 
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* White background with slight transparency */
+    padding: 10px; /* Thinner padding for container */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex: 1; /* Allows the container to grow and push footer down */
 }
 
 footer {
@@ -91,4 +90,3 @@ footer {
         padding: 15px;
     }
 }
-
