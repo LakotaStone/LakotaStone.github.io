@@ -26,7 +26,7 @@
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li class="cart"><a href="#" id="cart-icon">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+            <li class="cart"><a href="#">🛒 Cart</a></li>
         </ul>
     </nav>
 
@@ -37,48 +37,13 @@
 
     <!-- Main Content -->
     <div class="container">
-        <h2>Products</h2>
-        <div id="product-list">
-            <div class="product">
-                <h3>Wooden Chair</h3>
-                <p>Price: $50</p>
-                <button class="add-to-cart" data-name="Wooden Chair" data-price="50">Add to Cart</button>
-            </div>
-            <div class="product">
-                <h3>Wooden Table</h3>
-                <p>Price: $150</p>
-                <button class="add-to-cart" data-name="Wooden Table" data-price="150">Add to Cart</button>
-            </div>
-            <div class="product">
-                <h3>Wooden Shelf</h3>
-                <p>Price: $75</p>
-                <button class="add-to-cart" data-name="Wooden Shelf" data-price="75">Add to Cart</button>
-            </div>
-        </div>
+        <p>Welcome to Lakotawoodworks, where craftsmanship meets quality.</p>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
     </footer>
-
-    <script>
-        let cartCount = 0;
-
-        // Function to update cart count
-        function updateCartCount() {
-            document.getElementById('cart-count').textContent = cartCount;
-        }
-
-        // Add event listeners to "Add to Cart" buttons
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                cartCount++;
-                updateCartCount();
-                alert(`${button.dataset.name} has been added to your cart!`);
-            });
-        });
-    </script>
 
 </body>
 </html>
