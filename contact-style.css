@@ -1,3 +1,5 @@
+/* contact-style.css */
+
 /* General styles */
 body {
     font-family: Arial, sans-serif;
@@ -69,3 +71,4 @@ button:hover {
     color: #2E8B57; /* Pine green for icons */
     font-size: 24px;
 }
+
