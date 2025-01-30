@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css */ 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -23,6 +23,7 @@ nav ul {
     justify-content: center;
     list-style-type: none;
     padding: 0;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 nav ul li {
@@ -60,13 +61,35 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 600px) {
+    body {
+        background-size: contain; /* Adjust background image size for mobile */
+    }
+
     .container {
-        width: 90%;
-        padding: 15px;
+        width: 90%; /* Make container width 90% */
+        padding: 15px; /* Adjust padding */
     }
 
     header {
-        font-size: 20px;
-        padding: 15px;
+        font-size: 20px; /* Smaller font size for header */
+        padding: 15px; /* Less padding for header */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center items */
+    }
+
+    nav ul li {
+        margin: 0.5em 0; /* Adjust margin for list items */
+    }
+
+    nav ul li a {
+        font-size: 16px; /* Adjust font size for links */
+    }
+
+    footer {
+        font-size: 14px; /* Smaller footer font size */
+        padding: 5px; /* Less padding for footer */
     }
 }
