@@ -8,66 +8,97 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Top Bar with Free Shipping Message -->
     <div class="top-bar">
         <p class="shipping-message">Enjoy Free Shipping on Select Domestic Orders Over $100!</p>
     </div>
 
-    <!-- Header with Site Name -->
     <header>
         <h1>Lakotawoodworks</h1>
         <p class="catchphrase">Built to withstand, designed to excite</p>
     </header>
 
-    <!-- Navigation Menu -->
     <nav>
         <div class="nav-container">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a>
                     <ul class="dropdown">
-                        <li><a href="products.html#all">All</a></li>
-                        <li><a href="products.html#paddles">Paddles</a></li>
-                        <li><a href="products.html#bedframes">Bedframes</a></li>
-                        <li><a href="products.html#tables">Tables</a></li>
-                        <li><a href="products.html#chairs">Chairs</a></li>
-                        <li><a href="products.html#shelves">Shelves</a></li>
+                        <li><a href="#all">All</a></li>
+                        <li><a href="#paddles">Paddles</a></li>
+                        <li><a href="#bedframes">Bedframes</a></li>
+                        <li><a href="#tables">Tables</a></li>
+                        <li><a href="#chairs">Chairs</a></li>
+                        <li><a href="#shelves">Shelves</a></li>
                     </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li class="cart"><a href="cart.html">🛒 Cart</a></li>
             </ul>
-            <!-- Right Side: Login Button and Search Bar -->
-            <div class="right-side">
-                <div class="login">
-                    <a href="#" class="login-link">Log in</a>
-                </div>
-                <div class="search-bar">
-                    <form id="search-form" action="search.html" method="GET">
-                        <input type="text" id="search" name="search" placeholder="Search..." required>
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
+            <div class="login">
+                <a href="#" class="login-link">Log in</a>
+            </div>
+            <div class="search-bar">
+                <form id="search-form" action="search.html" method="GET">
+                    <input type="text" id="search" name="search" placeholder="Search..." required>
+                    <button type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
 
-    <!-- Sub Banner -->
     <div class="sub-banner">
-        <p></p>
+        <p>Our Products</p>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
-        <!-- Product listings will go here -->
+        <div id="all" class="product-category">
+            <h2>All Products</h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="images/paddle.jpg" alt="Wooden Paddle">
+                    <h3>Handcrafted Wooden Paddle</h3>
+                    <p>$120.00</p>
+                    <button class="add-to-cart" data-name="Wooden Paddle" data-price="120">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="images/bedframe.jpg" alt="Wooden Bedframe">
+                    <h3>Solid Oak Bedframe</h3>
+                    <p>$450.00</p>
+                    <button class="add-to-cart" data-name="Oak Bedframe" data-price="450">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="paddles" class="product-category">
+            <h2>Paddles</h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="images/paddle.jpg" alt="Wooden Paddle">
+                    <h3>Handcrafted Wooden Paddle</h3>
+                    <p>$120.00</p>
+                    <button class="add-to-cart" data-name="Wooden Paddle" data-price="120">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="bedframes" class="product-category">
+            <h2>Bedframes</h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="images/bedframe.jpg" alt="Wooden Bedframe">
+                    <h3>Solid Oak Bedframe</h3>
+                    <p>$450.00</p>
+                    <button class="add-to-cart" data-name="Oak Bedframe" data-price="450">Add to Cart</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
