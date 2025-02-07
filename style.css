@@ -1,82 +1,78 @@
+/* General Reset */
+body, h1, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Image */
 body {
     font-family: 'Merriweather', serif;
     background: url('chisil.jpg') no-repeat center center fixed;
     background-size: cover;
-    margin: 0; /* Remove default body margin */
+    color: #ffffff;
 }
 
 /* Top Bar */
 .top-bar {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.top-bar .login {
     color: white;
-    padding: 10px; /* Larger padding for top bar */
-    text-align: center; /* Center the text */
-    width: 100%; /* Full width */
-    position: relative; /* Position relative to page */
-    left: 0; /* Align to the left */
-    right: 0; /* Align to the right */
-    font-size: 12px; /* Slightly larger font size */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.top-bar .login:hover {
+    text-decoration: underline;
 }
 
 /* Header */
 header {
+    background-color: #D2B48C; /* Light Brown */
     text-align: left;
-    padding: 10px; /* Thinner padding */
-    display: flex; /* Flexbox for horizontal alignment */
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the start */
+    padding: 20px;
 }
 
-/* Company Name */
-.company-name {
-    margin: 0; /* Remove default margin */
-    font-size: 18px; /* Adjusted font size */
+header h1 {
+    color: #2e5d34; /* Pine Green */
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
 }
 
-/* Catchphrase */
-.catchphrase {
-    margin: 0; /* Remove default margin */
-    font-size: 10px; /* Smaller font size */
+header p.catchphrase {
+    color: #2e5d34; /* Pine Green */
+    font-size: 20px; /* Font size for catchphrase */
 }
 
 /* Navigation Bar */
 nav {
-    background-color: #2e5d34; /* Pine Green */
-    padding: 10px 0; /* Thicker padding for nav bar */
-    width: 100%; /* Full width */
-    position: relative; /* Position relative to page */
-    left: 0; /* Align to the left */
-    right: 0; /* Align to the right */
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Space out items */
-    max-width: 1200px; /* Limit max width */
-    margin: 0 auto; /* Center the nav container */
-    width: 100%; /* Full width */
+    background-color: black;
+    padding: 10px 0;
+    position: relative; /* Needed for dropdown positioning */
 }
 
 nav ul {
     display: flex;
+    justify-content: center;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%; /* Full width for the list */
 }
 
 nav ul li {
-    margin: 0 15px; /* Space out items */
-    flex: 1; /* Allow items to fill space */
-    text-align: center; /* Center text in each item */
+    margin: 0 15px;
+    position: relative; /* Needed for positioning the dropdown */
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 12px; /* Decrease font size */
+    font-family: 'Merriweather', serif;
 }
 
 nav ul li a:hover {
@@ -84,11 +80,13 @@ nav ul li a:hover {
 }
 
 /* Dropdown Menu */
-.dropdown {
-    display: none;
-    position: absolute; /* Position it below the Products link */
-    background-color: #2e5d34; /* Pine Green */
-    padding: 10px 0;
+nav ul li .dropdown {
+    display: none; /* Hide dropdown by default */
+    position: absolute; /* Position dropdown */
+    top: 100%; /* Position it below the menu item */
+    left: 0;
+    background-color: black; /* Background for dropdown */
+    padding: 10px 0; /* Padding for dropdown */
     z-index: 1; /* Ensure it appears above other elements */
 }
 
@@ -96,28 +94,30 @@ nav ul li:hover .dropdown {
     display: block; /* Show dropdown on hover */
 }
 
-.search-bar {
-    display: flex;
-    margin-left: auto; /* Push search bar to the right */
+nav ul li .dropdown li {
+    margin: 0; /* Remove margin for dropdown items */
 }
 
-.search-bar button {
-    padding: 5px 10px;
-    background-color: #D2B48C; /* Light Brown */
-    border: none;
-    cursor: pointer;
+nav ul li .dropdown li a {
+    padding: 10px 20px; /* Padding for dropdown items */
+    display: block; /* Make dropdown items block elements */
 }
 
-.search-bar input[type="text"] {
-    padding: 5px;
+nav ul li .dropdown li a:hover {
+    background-color: #D2B48C; /* Light Brown on hover */
 }
 
-/* Sub Banner */
+/* Shopping Cart Icon */
+.cart a {
+    font-size: 20px;
+}
+
+/* Sub-Banner */
 .sub-banner {
     background-color: #2e5d34; /* Pine Green */
     text-align: center;
     padding: 10px;
-    font-size: 16px; /* Decrease font size */
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -138,12 +138,16 @@ nav ul li:hover .dropdown {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #2e5d34; /* Pine Green */
+    background-color: #2e5d34;
     color: white;
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+
     nav ul {
         flex-direction: column;
         text-align: center;
