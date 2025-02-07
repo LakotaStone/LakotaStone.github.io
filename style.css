@@ -2,12 +2,11 @@ body {
     font-family: 'Merriweather', serif;
     background: url('chisil.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #ffffff;
 }
 
 /* Top Bar */
 .top-bar {
-    background-color: #2e5d34; /* Pine Green */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
     color: white;
     padding: 10px;
     text-align: center; /* Center the text */
