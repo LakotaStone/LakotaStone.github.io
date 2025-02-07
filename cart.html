@@ -4,35 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - Lakotawoodworks</title>
-    <link rel="stylesheet" href="cart-style.css"> <!-- Link to your new CSS file -->
+    <link rel="stylesheet" href="cart-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <header>
-        <h1 class="catchphrase">Built to withstand, designed to excite</h1> <!-- Catchphrase -->
+        <h1 class="catchphrase">Built to withstand, designed to excite</h1>
     </header>
 
     <nav>
         <div class="nav-container">
-            <div class="logo">
-                <img src="path/to/your/logo.png" alt="."> <!-- Add your logo image here -->
-            </div>
-            <h1 class="company-name">Lakotawoodworks</h1>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
-                <li class="search-bar">
+            </ul>
+            <div class="nav-right">
+                <a href="#" class="login">Log in</a>
+                <div class="search-bar">
                     <form id="search-form" action="search.html" method="GET">
                         <input type="text" id="search" name="search" placeholder="Search..." required>
                         <button type="submit">Search</button>
                     </form>
-                </li>
-                <li><a href="#" class="login">Sign Up / Login</a></li>
-            </ul>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -50,31 +49,5 @@
     <footer>
         <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
     </footer>
-
-    <script>
-        function loadCart() {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            let cartItems = document.getElementById("cart-items");
-            let total = 0;
-            cartItems.innerHTML = "";
-            
-            cart.forEach(item => {
-                let itemElement = document.createElement("p");
-                itemElement.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
-                cartItems.appendChild(itemElement);
-                total += item.price * item.quantity;
-            });
-            
-            document.getElementById("cart-total").textContent = `Total: $${total}`;
-            document.getElementById("cart-count").textContent = cart.length;
-        }
-        
-        document.getElementById("clear-cart").addEventListener("click", () => {
-            localStorage.removeItem("cart");
-            loadCart();
-        });
-        
-        window.onload = loadCart;
-    </script>
 </body>
 </html>
