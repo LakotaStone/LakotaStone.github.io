@@ -8,8 +8,12 @@ body {
 .top-bar {
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
     color: white;
-    padding: 10px;
+    padding: 5px; /* Reduced padding for thinner bar */
     text-align: center; /* Center the text */
+    width: 100%; /* Extend to full width */
+    position: relative; /* Position relative to page */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
 }
 
 /* Header */
@@ -22,7 +26,11 @@ header {
 /* Navigation Bar */
 nav {
     background-color: #2e5d34; /* Pine Green */
-    padding: 10px 0;
+    padding: 5px 0; /* Reduced padding for thinner bar */
+    width: 100%; /* Extend to full width */
+    position: relative; /* Position relative to page */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
 }
 
 .nav-container {
@@ -31,6 +39,7 @@ nav {
     justify-content: space-between; /* Space out items */
     max-width: 1200px; /* Max width to fit within the current size */
     margin: 0 auto; /* Center the nav container */
+    width: 100%; /* Extend to full width */
 }
 
 nav ul {
@@ -110,7 +119,7 @@ nav ul li:hover .dropdown {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #2e5d34;
+    background-color: #2e5d34; /* Pine Green */
     color: white;
 }
 
