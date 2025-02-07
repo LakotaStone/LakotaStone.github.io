@@ -49,6 +49,7 @@ header h1 {
 nav {
     background-color: black;
     padding: 10px 0;
+    position: relative;
 }
 
 nav ul {
@@ -59,8 +60,8 @@ nav ul {
 }
 
 nav ul li {
-    position: relative;
     margin: 0 15px;
+    position: relative;
 }
 
 nav ul li a {
@@ -104,7 +105,8 @@ nav ul li a:hover {
     color: white;
 }
 
-.dropdown:hover .dropdown-menu {
+/* Show dropdown when class is added */
+.dropdown-menu.show {
     display: block;
 }
 
@@ -135,36 +137,48 @@ nav ul li a:hover {
     font-family: 'Merriweather', serif;
 }
 
-/* Product Styling */
+/* Product Styles */
 .product {
     background: white;
-    color: black;
     padding: 15px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin: 15px;
+    display: inline-block;
     text-align: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: black;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .product img {
-    width: 100%;
-    max-width: 200px;
+    max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px;
+}
+
+.product h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.product p {
+    font-size: 16px;
+    color: #2e5d34; /* Pine Green */
 }
 
 .product button {
-    background-color: #2e5d34;
+    background-color: #2e5d34; /* Pine Green */
     color: white;
     border: none;
     padding: 10px 15px;
-    margin-top: 10px;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 .product button:hover {
-    background-color: #1e3e22;
+    background-color: #D2B48C;
 }
 
 /* Footer */
@@ -189,5 +203,10 @@ footer {
     .container {
         width: 90%;
         padding: 15px;
+    }
+
+    .product {
+        width: 90%;
+        margin: 10px auto;
     }
 }
