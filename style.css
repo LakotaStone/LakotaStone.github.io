@@ -6,7 +6,7 @@ body {
 
 /* Top Bar */
 .top-bar {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent Pine Green */
     color: white;
     padding: 5px; /* Reduced padding for thinner bar */
     text-align: center; /* Center the text */
@@ -18,9 +18,9 @@ body {
 
 /* Header */
 header {
-    background-color: #D2B48C; /* Light Brown */
+    background-color: #D2B48C; /* Pine Green */
     text-align: left;
-    padding: 20px;
+    padding: 15px;
 }
 
 /* Navigation Bar */
