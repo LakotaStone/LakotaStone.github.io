@@ -24,7 +24,8 @@ header {
     text-align: left;
     padding: 10px; /* Thinner padding */
     display: flex; /* Flexbox for horizontal alignment */
-    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
 }
 
 /* Company Name */
@@ -35,7 +36,7 @@ header {
 
 /* Catchphrase */
 .catchphrase {
-    margin: 0 0 0 10px; /* Space between name and catchphrase */
+    margin: 0; /* Remove default margin */
     font-size: 10px; /* Smaller font size */
 }
 
@@ -66,8 +67,9 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 5px; /* Decrease spacing between items */
-    position: relative; /* Position for dropdown */
+    margin: 0 10px; /* Space out items */
+    flex: 1; /* Allow items to fill space */
+    text-align: center; /* Center text in each item */
 }
 
 nav ul li a {
@@ -99,15 +101,15 @@ nav ul li:hover .dropdown {
     margin-left: auto; /* Push search bar to the right */
 }
 
-.search-bar input[type="text"] {
-    padding: 5px;
-}
-
 .search-bar button {
     padding: 5px 10px;
     background-color: #D2B48C; /* Light Brown */
     border: none;
     cursor: pointer;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px;
 }
 
 /* Sub Banner */
