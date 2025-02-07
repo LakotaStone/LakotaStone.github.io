@@ -1,7 +1,80 @@
-<script src="script.js"></script>
-// script.js
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("clickMe").addEventListener("click", function() {
-        alert("Thanks for clicking!");
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    loadCart();
+    setupSearch();
+    setupDropdown();
 });
+
+// Shopping Cart Functionality
+function loadCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartItems = document.getElementById("cart-items");
+    let total = 0;
+    
+    if (cartItems) {
+        cartItems.innerHTML = "";
+        cart.forEach((item, index) => {
+            let itemElement = document.createElement("div");
+            itemElement.classList.add("cart-item");
+            itemElement.innerHTML = `
+                <p>${item.name} - $${item.price} x 
+                <input type="number" value="${item.quantity}" min="1" data-index="${index}" class="cart-quantity"> 
+                <button class="remove-item" data-index="${index}">Remove</button></p>
+            `;
+            cartItems.appendChild(itemElement);
+            total += item.price * item.quantity;
+        });
+        document.getElementById("cart-total").textContent = `Total: $${total.toFixed(2)}`;
+        document.getElementById("cart-count").textContent = cart.length;
+    }
+
+    // Update quantities
+    document.querySelectorAll(".cart-quantity").forEach(input => {
+        input.addEventListener("change", updateQuantity);
+    });
+    
+    // Remove items
+    document.querySelectorAll(".remove-item").forEach(button => {
+        button.addEventListener("click", removeFromCart);
+    });
+}
+
+function updateQuantity(event) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let index = event.target.getAttribute("data-index");
+    cart[index].quantity = parseInt(event.target.value);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+function removeFromCart(event) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let index = event.target.getAttribute("data-index");
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+// Search Functionality
+function setupSearch() {
+    let searchForm = document.getElementById("search-form");
+    if (searchForm) {
+        searchForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let query = document.getElementById("search").value.toLowerCase();
+            window.location.href = `products.html?search=${query}`;
+        });
+    }
+}
+
+// Dropdown Menu Functionality
+function setupDropdown() {
+    let dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach(dropdown => {
+        dropdown.parentElement.addEventListener("mouseenter", () => {
+            dropdown.style.display = "block";
+        });
+        dropdown.parentElement.addEventListener("mouseleave", () => {
+            dropdown.style.display = "none";
+        });
+    });
+}
