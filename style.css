@@ -16,13 +16,14 @@ body {
 /* Top Bar */
 .top-bar {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the shipping message */
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Keep transparent black background */
 }
 
 .top-bar .shipping-message {
     color: white;
+    text-align: center; /* Center the text */
 }
 
 /* Header */
