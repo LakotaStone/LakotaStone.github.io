@@ -45,30 +45,29 @@ header h1 {
     font-weight: 700;
 }
 
-/* Catchphrase */
-.catchphrase {
-    font-size: 1.2em;
-    color: #2e5d34; /* Pine Green */
-    text-align: left;
-    padding: 10px 0; /* Space below the catchphrase */
-}
-
 /* Navigation Bar */
 nav {
     background-color: black;
     padding: 10px 0;
 }
 
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    position: relative; /* Positioning for the dropdown */
 }
 
 nav ul li {
     margin: 0 15px;
-    position: relative; /* Positioning for the dropdown */
+    position: relative; /* Positioning for dropdown */
 }
 
 nav ul li a {
@@ -78,27 +77,31 @@ nav ul li a {
     font-family: 'Merriweather', serif;
 }
 
+nav ul li a:hover {
+    color: #D2B48C; /* Light Brown */
+}
+
 /* Dropdown Menu */
-nav ul li .dropdown {
-    display: none; /* Hide dropdown by default */
-    position: absolute; /* Position dropdown */
-    top: 100%; /* Position it below the menu item */
-    left: 0;
+.dropdown {
+    display: none;
+    position: absolute;
     background-color: black;
-    z-index: 1; /* Ensure it appears above other elements */
+    z-index: 1;
+    padding: 10px 0;
+    margin: 0;
 }
 
 nav ul li:hover .dropdown {
     display: block; /* Show dropdown on hover */
 }
 
-nav ul li .dropdown li {
-    margin: 5px 0; /* Space between dropdown items */
+.dropdown li {
+    margin: 0;
 }
 
-/* Shopping Cart Icon */
-.cart a {
-    font-size: 20px;
+.dropdown li a {
+    display: block; /* Make dropdown links block elements */
+    padding: 5px 15px;
 }
 
 /* Sub-Banner */
@@ -147,3 +150,4 @@ footer {
         padding: 15px;
     }
 }
+
