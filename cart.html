@@ -4,41 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - Lakotawoodworks</title>
-    <link rel="stylesheet" href="cart-style.css"> <!-- Link to your new CSS file -->
+    <link rel="stylesheet" href="cart-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="top-bar">
-        <a href="#" class="login">Sign Up / Login</a>
-    </div>
-
     <header>
-        <h1 class="catchphrase">Handcrafted Wooden Products for Your Home</h1> <!-- Catchphrase -->
-    </header>
-
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="path/to/your/logo.png" alt="."> <!-- Add your logo image here -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <img src="logo.png" alt="Lakotawoodworks Logo" class="logo"> 
+                <span class="company-name">Lakotawoodworks</span>
             </div>
-            <h1 class="company-name">Lakotawoodworks</h1>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
-                <li class="search-bar">
-                    <form id="search-form" action="search.html" method="GET">
-                        <input type="text" id="search" name="search" placeholder="Search..." required>
-                        <button type="submit">Search</button>
-                    </form>
-                </li>
-                <li><a href="#" class="login">Sign Up / Login</a></li>
-            </ul>
-        </div>
-    </nav>
+            <div class="nav-center">
+                <input type="text" placeholder="Search..." class="search-bar">
+            </div>
+            <div class="nav-right">
+                <a href="#" class="login">Sign Up / Login</a>
+                <a href="cart.html" class="cart">🛒 Cart (<span id="cart-count">0</span>)</a>
+            </div>
+        </nav>
+    </header>
 
     <div class="sub-banner">
         <p>Your Cart</p>
@@ -52,7 +36,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
+        <p>&copy; 2024 Lakotawoodworks. Built to withstand, designed to excite.</p>
     </footer>
 
     <script>
