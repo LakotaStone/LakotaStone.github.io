@@ -55,7 +55,7 @@ nav {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Spread items evenly */
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -68,7 +68,7 @@ nav {
 
 /* Login Button */
 .login {
-    margin-left: 30px; /* Space between login button and search bar */
+    margin-right: 25px; /* Increased space between login button and search bar */
 }
 
 .login .login-link {
@@ -204,4 +204,3 @@ footer {
         padding: 15px;
     }
 }
-
