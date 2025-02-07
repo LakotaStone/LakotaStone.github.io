@@ -144,9 +144,14 @@ footer {
 }
 
 /* Search Bar */
+.search-login-container {
+    display: flex; /* Use flex to align items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
 .search-bar {
     position: relative; /* Positioning for search button */
-    margin-left: 20px; /* Space between menu items and search bar */
+    margin-left: 20px; /* Space between login button and search bar */
 }
 
 .search-bar input[type="text"] {
@@ -171,7 +176,7 @@ footer {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    margin-right: 20px; /* Space between login button and search bar */
+    margin-right: 10px; /* Space between login button and search bar */
 }
 
 .login:hover {
@@ -194,3 +199,4 @@ footer {
         padding: 15px;
     }
 }
+
