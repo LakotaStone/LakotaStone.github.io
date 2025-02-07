@@ -55,14 +55,20 @@ nav {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Align items to the right */
+    justify-content: space-between; /* Spread items evenly */
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Login Button (Now Right of Search Bar) */
+/* Right Side: Login Button and Search Bar */
+.right-side {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+}
+
+/* Login Button */
 .login {
-    margin-left: 15px; /* Adjusted margin */
+    margin-left: 15px; /* Space between login button and search bar */
 }
 
 .login .login-link {
@@ -198,3 +204,4 @@ footer {
         padding: 15px;
     }
 }
+
