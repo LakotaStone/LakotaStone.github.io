@@ -1,4 +1,25 @@
-/* Cart Item Styles */
+/* General Styles */
+body {
+    font-family: 'Merriweather', serif;
+    background-color: #f7f7f7; /* Light background */
+    color: #333; /* Dark text color */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sub Banner */
+.sub-banner {
+    background-color: #2e5d34; /* Pine Green */
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Cart Items */
 .cart-items {
     display: flex;
     flex-direction: column;
@@ -9,10 +30,10 @@
 .cart-item {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: white;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .cart-item-image {
@@ -21,10 +42,21 @@
     margin-right: 20px;
 }
 
+.cart-item-details {
+    flex-grow: 1;
+}
+
 .cart-item-details h3 {
     margin: 0;
     font-size: 1.25rem;
     color: #2e5d34; /* Pine Green */
+}
+
+/* Cart Actions */
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .btn-clear, .btn-checkout {
@@ -34,9 +66,16 @@
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
 }
 
 .btn-clear:hover, .btn-checkout:hover {
     background-color: #D2B48C; /* Light Brown */
+}
+
+/* Total */
+#cart-total {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    text-align: right;
 }
