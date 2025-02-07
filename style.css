@@ -22,7 +22,7 @@ body {
 }
 
 .top-bar .shipping-message {
-    color: white;
+    color: white; /* Match the homepage style */
 }
 
 /* Header */
@@ -37,11 +37,6 @@ header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 42px;
     font-weight: 700;
-}
-
-header p.catchphrase {
-    color: white; /* Changed to white */
-    font-size: 15px; /* Font size for catchphrase */
 }
 
 /* Navigation Bar */
@@ -66,12 +61,12 @@ nav ul {
 
 nav ul li {
     margin: 0 15px;
-    position: relative; /* Needed for dropdown positioning */
+    position: relative; /* Positioning for dropdown */
 }
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: white; /* Match the other links */
     font-weight: bold;
     font-family: 'Merriweather', serif;
 }
@@ -81,36 +76,26 @@ nav ul li a:hover {
 }
 
 /* Dropdown Menu */
-nav ul li .dropdown {
-    display: none; /* Hide dropdown by default */
-    position: absolute; /* Position dropdown */
-    top: 100%; /* Position it below the menu item */
-    left: 0;
-    background-color: black; /* Background for dropdown */
-    padding: 10px 0; /* Padding for dropdown */
-    z-index: 1; /* Ensure it appears above other elements */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+    padding: 10px 0;
+    margin: 0;
 }
 
 nav ul li:hover .dropdown {
     display: block; /* Show dropdown on hover */
 }
 
-nav ul li .dropdown li {
-    margin: 0; /* Remove margin for dropdown items */
+.dropdown li {
+    margin: 0;
 }
 
-nav ul li .dropdown li a {
-    padding: 10px 20px; /* Padding for dropdown items */
-    display: block; /* Make dropdown items block elements */
-}
-
-nav ul li .dropdown li a:hover {
-    background-color: #D2B48C; /* Light Brown on hover */
-}
-
-/* Shopping Cart Icon */
-.cart a {
-    font-size: 20px;
+.dropdown li a {
+    display: block; /* Make dropdown links block elements */
+    padding: 5px 15px;
 }
 
 /* Sub-Banner */
@@ -143,46 +128,6 @@ footer {
     color: white;
 }
 
-/* Search Bar */
-.search-login-container {
-    display: flex; /* Use flex to align items horizontally */
-    align-items: center; /* Center items vertically */
-}
-
-.search-bar {
-    position: relative; /* Positioning for search button */
-    margin-left: 20px; /* Space between login button and search bar */
-}
-
-.search-bar input[type="text"] {
-    padding: 8px;
-    border: none;
-    border-radius: 4px;
-}
-
-.search-bar button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 8px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: white; /* Search icon color */
-}
-
-/* Login Button */
-.login {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    margin-right: 10px; /* Space between login button and search bar */
-}
-
-.login:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
 /* Responsive Design */
 @media (max-width: 600px) {
     header h1 {
@@ -199,4 +144,3 @@ footer {
         padding: 15px;
     }
 }
-
