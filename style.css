@@ -9,26 +9,40 @@ body {
 .top-bar {
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
     color: white;
-    padding: 3px; /* Reduced padding for thinner bar */
+    padding: 2px; /* Thinner padding for top bar */
     text-align: center; /* Center the text */
     width: 100%; /* Full width */
     position: relative; /* Position relative to page */
     left: 0; /* Align to the left */
     right: 0; /* Align to the right */
-    font-size: 12px; /* Decrease font size */
+    font-size: 10px; /* Smaller font size */
 }
 
 /* Header */
 header {
     background-color: #D2B48C; /* Light Brown */
     text-align: left;
-    padding: 15px; /* Reduced padding */
+    padding: 10px; /* Thinner padding */
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+}
+
+/* Company Name */
+.company-name {
+    margin: 0; /* Remove default margin */
+    font-size: 18px; /* Adjusted font size */
+}
+
+/* Catchphrase */
+.catchphrase {
+    margin: 0 0 0 10px; /* Space between name and catchphrase */
+    font-size: 10px; /* Smaller font size */
 }
 
 /* Navigation Bar */
 nav {
     background-color: #2e5d34; /* Pine Green */
-    padding: 3px 0; /* Reduced padding for thinner bar */
+    padding: 2px 0; /* Thinner padding for nav bar */
     width: 100%; /* Full width */
     position: relative; /* Position relative to page */
     left: 0; /* Align to the left */
