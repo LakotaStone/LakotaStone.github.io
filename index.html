@@ -9,15 +9,15 @@
 </head>
 <body>
 
-    <!-- Top Bar with Free Shipping Message -->
+    <!-- Top Bar -->
     <div class="top-bar">
-        <p class="shipping-message">Enjoy Free Shipping on Select Domestic Orders Over $100!</p>
+        <p>Enjoy Free Shipping on Select Domestic Orders Over $100!</p>
     </div>
 
     <!-- Header with Site Name -->
     <header>
-        <h1>Lakotawoodworks</h1>
-        <p class="catchphrase">Built to withstand, designed to excite</p>
+        <h1 class="company-name">Lakotawoodworks</h1>
+        <h2 class="catchphrase">Built to withstand, designed to excite</h2>
     </header>
 
     <!-- Navigation Menu -->
@@ -26,32 +26,33 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a>
-                    <ul class="dropdown">
-                        <li><a href="products.html#all">All</a></li>
-                        <li><a href="products.html#paddles">Paddles</a></li>
-                        <li><a href="products.html#bedframes">Bedframes</a></li>
-                        <li><a href="products.html#tables">Tables</a></li>
-                        <li><a href="products.html#chairs">Chairs</a></li>
-                        <li><a href="products.html#shelves">Shelves</a></li>
-                    </ul>
+                    <div class="dropdown">
+                        <a href="products.html#all">All</a>
+                        <a href="products.html#paddles">Paddles</a>
+                        <a href="products.html#bedframes">Bedframes</a>
+                        <a href="products.html#tables">Tables</a>
+                        <a href="products.html#chairs">Chairs</a>
+                        <a href="products.html#shelves">Shelves</a>
+                    </div>
                 </li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="cart"><a href="cart.html">🛒 Cart</a></li>
             </ul>
             <div class="search-bar">
-                <form id="search-form" action="search.html" method="GET">
-                    <input type="text" id="search" name="search" placeholder="Search..." required>
-                    <button type="submit">Search</button>
-                </form>
+                <button type="submit">Search</button>
+                <input type="text" id="search" name="search" placeholder="Search..." required>
+                <a href="#" class="login">Sign Up / Login</a>
             </div>
-            <a href="#" class="login">Sign Up / Login</a>
         </div>
     </nav>
 
+    <div class="sub-banner">
+        <p>Your Cart</p>
+    </div>
+
     <!-- Main Content -->
     <div class="container">
-        <!-- Other content can go here -->
+        <p>Your main content goes here.</p>
     </div>
 
     <!-- Footer -->
