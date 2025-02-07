@@ -1,76 +1,38 @@
-body {
-    font-family: 'Merriweather', serif;
-    background-color: white; /* Set background to white */
-    color: #2e5d34; /* Pine Green text */
+/* Navigation Bar */
+nav {
+    background-color: #2e5d34; /* Pine Green */
+    padding: 10px 0;
 }
 
-/* Header styles */
-header {
-    background-color: #D2B48C; /* Light Brown */
-    text-align: center;
-    padding: 20px;
-}
-
-.catchphrase {
-    font-size: 18px;
-    color: #2e5d34; /* Pine Green */
-}
-
-/* Navigation styles */
 nav ul {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Adjust space between items */
+    align-items: center; /* Center items vertically */
     list-style: none;
-    padding: 10px;
-    background-color: black; /* Nav background */
 }
 
 nav ul li {
     margin: 0 15px;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Cart items */
-.cart-item {
+nav .search-bar {
     display: flex;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
 }
 
-.cart-item-image {
-    width: 100px; /* Image width */
-    height: auto;
-    margin-right: 15px;
-}
-
-.cart-item-details {
-    flex-grow: 1;
-}
-
-/* Cart summary */
-.cart-summary {
-    margin-top: 20px;
-    text-align: right;
-}
-
-.checkout-button {
-    background-color: #2e5d34; /* Pine Green button */
-    color: white;
-    padding: 10px 15px;
+nav .search-bar input[type="text"] {
+    padding: 5px;
     border: none;
+    border-radius: 4px 0 0 4px; /* Rounded corners for left side */
+}
+
+nav .search-bar button {
+    padding: 5px 10px;
+    background-color: #D2B48C; /* Light Brown */
+    border: none;
+    border-radius: 0 4px 4px 0; /* Rounded corners for right side */
     cursor: pointer;
 }
 
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #2e5d34;
-    color: white;
+nav .search-bar button:hover {
+    background-color: #b89f6c; /* Darker shade on hover */
 }
