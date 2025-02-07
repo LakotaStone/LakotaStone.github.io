@@ -20,7 +20,6 @@ body {
 
 /* Header */
 header {
-    background-color: #D2B48C; /* Light Brown */
     text-align: left;
     padding: 10px; /* Thinner padding */
     display: flex; /* Flexbox for horizontal alignment */
@@ -43,7 +42,7 @@ header {
 /* Navigation Bar */
 nav {
     background-color: #2e5d34; /* Pine Green */
-    padding: 2px 0; /* Thinner padding for nav bar */
+    padding: 10px 0; /* Thicker padding for nav bar */
     width: 100%; /* Full width */
     position: relative; /* Position relative to page */
     left: 0; /* Align to the left */
@@ -54,8 +53,9 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Space out items */
+    max-width: 1200px; /* Limit max width */
+    margin: 0 auto; /* Center the nav container */
     width: 100%; /* Full width */
-    margin: 0; /* No margin for full width */
 }
 
 nav ul {
@@ -67,7 +67,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 10px; /* Space out items */
+    margin: 0 15px; /* Space out items */
     flex: 1; /* Allow items to fill space */
     text-align: center; /* Center text in each item */
 }
