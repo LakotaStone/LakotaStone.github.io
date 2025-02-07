@@ -1,60 +1,55 @@
+/* Background */
 body {
     font-family: 'Merriweather', serif;
-    background: url('chisil.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #333;
+    background-color: white; /* Change background to white */
+    color: #2e5d34; /* Pine Green for text */
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.9);
+/* Header Styles */
+header {
+    background-color: #D2B48C; /* Light Brown */
+    text-align: center; /* Center align text */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.sub-banner {
-    background-color: #2e5d34;
+header h1 {
+    color: #2e5d34; /* Pine Green */
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.catchphrase {
+    color: #2e5d34; /* Pine Green */
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: black;
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: center; /* Center the items */
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
     color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.cart-item {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-button {
-    background-color: #2e5d34; /* Pine Green */
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #4caf50; /* Lighter Green on hover */
-}
-
-#clear-cart {
-    width: 100%;
-    margin-top: 20px;
-}
-
-#empty-cart-message {
-    color: #e74c3c; /* Red for empty cart message */
     font-weight: bold;
-    text-align: center;
+    font-family: 'Merriweather', serif;
 }
+
+nav ul li a:hover {
+    color: #D2B48C; /* Light Brown */
+}
+
+/* Rest of your existing styles... */
