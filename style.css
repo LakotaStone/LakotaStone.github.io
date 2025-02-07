@@ -9,13 +9,13 @@ body {
 .top-bar {
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
     color: white;
-    padding: 2px; /* Thinner padding for top bar */
+    padding: 10px; /* Larger padding for top bar */
     text-align: center; /* Center the text */
     width: 100%; /* Full width */
     position: relative; /* Position relative to page */
     left: 0; /* Align to the left */
     right: 0; /* Align to the right */
-    font-size: 10px; /* Smaller font size */
+    font-size: 12px; /* Slightly larger font size */
 }
 
 /* Header */
