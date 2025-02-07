@@ -18,8 +18,8 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li class="dropdown">
-                <a href="products.html">Products ▼</a>
-                <ul class="dropdown-menu">
+                <a href="#" id="products-button">Products ▼</a>
+                <ul class="dropdown-menu" id="dropdown-menu">
                     <li><a href="products.html">All</a></li>
                     <li><a href="paddles.html">Paddles</a></li>
                     <li><a href="bedframes.html">Bedframes</a></li>
@@ -45,46 +45,28 @@
                 <p>Price: $50</p>
                 <button class="add-to-cart" data-name="Wooden Chair" data-price="50" data-image="wooden-chair.jpg">Add to Cart</button>
             </div>
-            <div class="product">
-                <img src="wooden-table.jpg" alt="Wooden Table">
-                <h3>Wooden Table</h3>
-                <p>Price: $150</p>
-                <button class="add-to-cart" data-name="Wooden Table" data-price="150" data-image="wooden-table.jpg">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="wooden-shelf.jpg" alt="Wooden Shelf">
-                <h3>Wooden Shelf</h3>
-                <p>Price: $75</p>
-                <button class="add-to-cart" data-name="Wooden Shelf" data-price="75" data-image="wooden-shelf.jpg">Add to Cart</button>
-            </div>
         </div>
     </div>
     <footer>
         <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
     </footer>
     <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        function updateCartCount() {
-            document.getElementById('cart-count').textContent = cart.length;
-        }
-        
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = {
-                    name: button.dataset.name,
-                    price: button.dataset.price,
-                    image: button.dataset.image
-                };
-                cart.push(item);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartCount();
-                alert(`${item.name} has been added to your cart!`);
+        document.addEventListener("DOMContentLoaded", function() {
+            const dropdownButton = document.getElementById("products-button");
+            const dropdownMenu = document.getElementById("dropdown-menu");
+
+            dropdownButton.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                dropdownMenu.classList.toggle("show"); // Toggle dropdown visibility
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function(event) {
+                if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove("show");
+                }
             });
         });
-        
-        updateCartCount();
     </script>
 </body>
 </html>
-
