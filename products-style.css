@@ -16,9 +16,14 @@ body {
 /* Top Bar */
 .top-bar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+.top-bar .shipping-message {
+    color: white;
 }
 
 .top-bar .login {
@@ -150,4 +155,3 @@ footer {
         padding: 15px;
     }
 }
-
