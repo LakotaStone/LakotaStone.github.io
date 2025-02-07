@@ -1,3 +1,4 @@
+<!-- Updated products.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,34 +9,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Top Bar with Login/Signup -->
     <div class="top-bar">
         <a href="#" class="login">Sign Up / Login</a>
     </div>
-
-    <!-- Header with Site Name -->
     <header>
         <h1>Lakotawoodworks</h1>
     </header>
-
-    <!-- Navigation Menu -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li class="cart"><a href="#" id="cart-icon">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+            <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
     </nav>
-
-    <!-- Sub Banner -->
     <div class="sub-banner">
         <p>Built to Withstand, Designed to Excite.</p>
     </div>
-
-    <!-- Main Content -->
     <div class="container">
         <h2>Products</h2>
         <div id="product-list">
@@ -56,29 +47,31 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
     </footer>
-
     <script>
-        let cartCount = 0;
-
-        // Function to update cart count
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
         function updateCartCount() {
-            document.getElementById('cart-count').textContent = cartCount;
+            document.getElementById('cart-count').textContent = cart.length;
         }
-
-        // Add event listeners to "Add to Cart" buttons
+        
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', () => {
-                cartCount++;
+                const item = {
+                    name: button.dataset.name,
+                    price: button.dataset.price
+                };
+                cart.push(item);
+                localStorage.setItem('cart', JSON.stringify(cart));
                 updateCartCount();
-                alert(`${button.dataset.name} has been added to your cart!`);
+                alert(`${item.name} has been added to your cart!`);
             });
         });
+        
+        updateCartCount();
     </script>
-
 </body>
 </html>
+
