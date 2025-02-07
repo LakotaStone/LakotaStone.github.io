@@ -3,107 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lakotawoodworks - Products</title>
+    <title>Products - Lakotawoodworks</title>
     <link rel="stylesheet" href="products-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Top Bar with Login/Signup -->
     <div class="top-bar">
         <a href="#" class="login">Sign Up / Login</a>
     </div>
-    
+
+    <!-- Header with Site Name -->
     <header>
-        <h1 class="company-name">Lakotawoodworks</h1>
-        <h2 class="catchphrase">Built to withstand, designed to excite</h2> <!-- Catchphrase -->
+        <h1>Lakotawoodworks</h1>
+        <p class="catchphrase">Built to withstand, designed to excite</p>
     </header>
 
+    <!-- Navigation Menu -->
     <nav>
         <div class="nav-container">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="#" class="products-link">Products</a>
-                    <div class="dropdown">
-                        <ul>
-                            <li><a href="products.html">All</a></li>
-                            <li><a href="paddles.html">Paddles</a></li>
-                            <li><a href="bedframes.html">Bedframes</a></li>
-                            <li><a href="tables.html">Tables</a></li>
-                            <li><a href="chairs.html">Chairs</a></li>
-                            <li><a href="shelves.html">Shelves</a></li>
-                        </ul>
-                    </div>
+                <li><a href="products.html">Products</a>
+                    <ul class="dropdown">
+                        <li><a href="products.html#all">All</a></li>
+                        <li><a href="products.html#paddles">Paddles</a></li>
+                        <li><a href="products.html#bedframes">Bedframes</a></li>
+                        <li><a href="products.html#tables">Tables</a></li>
+                        <li><a href="products.html#chairs">Chairs</a></li>
+                        <li><a href="products.html#shelves">Shelves</a></li>
+                    </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
-                <li class="search-bar">
-                    <form id="search-form" action="search.html" method="GET">
-                        <input type="text" id="search" name="search" placeholder="Search..." required>
-                        <button type="submit">Search</button>
-                    </form>
-                </li>
+                <li class="cart"><a href="cart.html">🛒 Cart</a></li>
             </ul>
+            <div class="search-bar">
+                <form id="search-form" action="search.html" method="GET">
+                    <input type="text" id="search" name="search" placeholder="Search..." required>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
         </div>
     </nav>
 
+    <!-- Sub Banner -->
     <div class="sub-banner">
-        <p>Built to Withstand, Designed to Excite.</p>
+        <p>Our Products</p>
     </div>
 
+    <!-- Main Content -->
     <div class="container">
-        <h2>Products</h2>
-        <div id="product-list">
-            <div class="product">
-                <h3>Wooden Chair</h3>
-                <p>Price: $50</p>
-                <button class="add-to-cart" data-name="Wooden Chair" data-price="50">Add to Cart</button>
-            </div>
-            <div class="product">
-                <h3>Wooden Table</h3>
-                <p>Price: $150</p>
-                <button class="add-to-cart" data-name="Wooden Table" data-price="150">Add to Cart</button>
-            </div>
-            <div class="product">
-                <h3>Wooden Shelf</h3>
-                <p>Price: $75</p>
-                <button class="add-to-cart" data-name="Wooden Shelf" data-price="75">Add to Cart</button>
-            </div>
-        </div>
+        <!-- Product listings will go here -->
     </div>
-    
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
     </footer>
 
-    <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        function updateCartCount() {
-            document.getElementById('cart-count').textContent = cart.length;
-        }
-        
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = {
-                    name: button.dataset.name,
-                    price: button.dataset.price
-                };
-                cart.push(item);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartCount();
-                alert(`${item.name} has been added to your cart!`);
-            });
-        });
-
-        // Toggle dropdown on click
-        document.querySelector('.products-link').addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent the default link action
-            const dropdown = document.querySelector('.dropdown');
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block'; // Toggle dropdown
-        });
-        
-        updateCartCount();
-    </script>
 </body>
 </html>
