@@ -46,7 +46,7 @@ header h1 {
 }
 
 header p.catchphrase {
-    color: #2e5d34; /* Pine Green */
+    color: white; /* White color for catchphrase */
     font-size: 20px; /* Font size for catchphrase */
     font-weight: 700; /* Ensure font weight matches */
 }
