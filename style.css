@@ -41,7 +41,7 @@ header h1 {
 
 header p.catchphrase {
     color: white; /* Changed to white */
-    font-size: 20px; /* Font size for catchphrase */
+    font-size: 15px; /* Font size for catchphrase */
 }
 
 /* Navigation Bar */
