@@ -11,32 +11,46 @@
     <div class="top-bar">
         <a href="#" class="login">Sign Up / Login</a>
     </div>
+    
     <header>
-        <h1>Lakotawoodworks</h1>
-        <p class="catchphrase">built to withstand, designed to excite</p> <!-- Catchphrase -->
+        <h1 class="company-name">Lakotawoodworks</h1>
+        <h2 class="catchphrase">Built to withstand, designed to excite</h2> <!-- Catchphrase -->
     </header>
+
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li>
-                <a href="products.html" class="dropdown">Products</a>
-                <ul class="dropdown-content">
-                    <li><a href="products.html">All</a></li>
-                    <li><a href="paddles.html">Paddles</a></li>
-                    <li><a href="bedframes.html">Bedframes</a></li>
-                    <li><a href="tables.html">Tables</a></li>
-                    <li><a href="chairs.html">Chairs</a></li>
-                    <li><a href="shelves.html">Shelves</a></li>
-                </ul>
-            </li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
-        </ul>
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="products.html">Products</a>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="products.html">All</a></li>
+                            <li><a href="paddles.html">Paddles</a></li>
+                            <li><a href="bedframes.html">Bedframes</a></li>
+                            <li><a href="tables.html">Tables</a></li>
+                            <li><a href="chairs.html">Chairs</a></li>
+                            <li><a href="shelves.html">Shelves</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+                <li class="search-bar">
+                    <form id="search-form" action="search.html" method="GET">
+                        <input type="text" id="search" name="search" placeholder="Search..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
     </nav>
+
     <div class="sub-banner">
         <p>Built to Withstand, Designed to Excite.</p>
     </div>
+
     <div class="container">
         <h2>Products</h2>
         <div id="product-list">
@@ -84,3 +98,4 @@
     </script>
 </body>
 </html>
+
