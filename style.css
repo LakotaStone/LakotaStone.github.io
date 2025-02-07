@@ -16,19 +16,13 @@ body {
 /* Top Bar */
 .top-bar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.top-bar .login {
+.top-bar .shipping-message {
     color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.top-bar .login:hover {
-    text-decoration: underline;
 }
 
 /* Header */
@@ -108,15 +102,6 @@ nav ul li:hover .dropdown {
 .dropdown li a {
     display: block; /* Make dropdown links block elements */
     padding: 5px 15px;
-}
-
-/* Shipping Message */
-.shipping-message {
-    background-color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: bold;
 }
 
 /* Sub-Banner */
