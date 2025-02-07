@@ -9,50 +9,46 @@
 </head>
 <body>
 
-    <!-- Top Bar -->
+    <!-- Top Bar with Login/Signup -->
     <div class="top-bar">
-        <p>Enjoy Free Shipping on Select Domestic Orders Over $100!</p>
+        <a href="#" class="login">Sign Up / Login</a>
     </div>
 
     <!-- Header with Site Name -->
     <header>
-        <h1 class="company-name">Lakotawoodworks</h1>
-        <h2 class="catchphrase">Built to withstand, designed to excite</h2>
+        <h1>Lakotawoodworks</h1>
+        <p class="catchphrase">Built to withstand, designed to excite</p> <!-- Catchphrase -->
     </header>
 
     <!-- Navigation Menu -->
     <nav>
-        <div class="nav-container">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a>
-                    <div class="dropdown">
-                        <a href="products.html#all">All</a>
-                        <a href="products.html#paddles">Paddles</a>
-                        <a href="products.html#bedframes">Bedframes</a>
-                        <a href="products.html#tables">Tables</a>
-                        <a href="products.html#chairs">Chairs</a>
-                        <a href="products.html#shelves">Shelves</a>
-                    </div>
-                </li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="search-bar">
-                <button type="submit">Search</button>
-                <input type="text" id="search" name="search" placeholder="Search..." required>
-                <a href="#" class="login">Sign Up / Login</a>
-            </div>
-        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="products.html">Products</a>
+                <ul class="dropdown"> <!-- Dropdown Menu -->
+                    <li><a href="products.html">All</a></li>
+                    <li><a href="paddles.html">Paddles</a></li>
+                    <li><a href="bedframes.html">Bedframes</a></li>
+                    <li><a href="tables.html">Tables</a></li>
+                    <li><a href="chairs.html">Chairs</a></li>
+                    <li><a href="shelves.html">Shelves</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="cart"><a href="cart.html">🛒 Cart</a></li>
+        </ul>
     </nav>
 
+    <!-- Sub Banner -->
     <div class="sub-banner">
-        <p>Your Cart</p>
+        <p>Built to Withstand, Designed to Excite.</p>
     </div>
 
     <!-- Main Content -->
     <div class="container">
-        <p>Your main content goes here.</p>
+        <p>Welcome to Lakotawoodworks, where craftsmanship meets quality.</p>
     </div>
 
     <!-- Footer -->
