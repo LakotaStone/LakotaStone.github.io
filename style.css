@@ -166,6 +166,18 @@ footer {
     color: white; /* Search icon color */
 }
 
+/* Login Button */
+.login {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 20px; /* Space between login button and search bar */
+}
+
+.login:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
     header h1 {
@@ -182,4 +194,3 @@ footer {
         padding: 15px;
     }
 }
-
