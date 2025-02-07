@@ -55,14 +55,14 @@ nav {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end; /* Align items to the right */
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Login Button (Now Left of Search Bar) */
+/* Login Button (Now Right of Search Bar) */
 .login {
-    margin-right: 15px;
+    margin-left: 15px; /* Adjusted margin */
 }
 
 .login .login-link {
