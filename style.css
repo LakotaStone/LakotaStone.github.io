@@ -16,19 +16,11 @@ body {
 /* Top Bar */
 .top-bar {
     display: flex;
-    justify-content: flex-end;
-    padding: 10px 20px;
+    justify-content: center; /* Centered text */
+    padding: 15px 0; /* Slightly larger */
     background-color: rgba(0, 0, 0, 0.7);
-}
-
-.top-bar .login {
+    font-size: 16px; /* Adjusted font size */
     color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.top-bar .login:hover {
-    text-decoration: underline;
 }
 
 /* Header */
@@ -54,7 +46,6 @@ header p.catchphrase {
 nav {
     background-color: black;
     padding: 10px 0;
-    position: relative; /* Needed for dropdown positioning */
 }
 
 nav ul {
@@ -64,7 +55,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px; /* Spaced out navigation items */
     position: relative; /* Needed for positioning the dropdown */
 }
 
