@@ -114,15 +114,22 @@ nav ul li .dropdown li a:hover {
     background-color: #D2B48C; /* Light Brown on hover */
 }
 
+/* Shopping Cart Icon */
+.cart a {
+    font-size: 20px;
+}
+
 /* Search Bar */
 .search-bar {
     display: flex;
+    align-items: center; /* Center align items */
 }
 
 .search-bar input[type="text"] {
     padding: 5px;
     border: none;
     border-radius: 5px 0 0 5px;
+    width: 200px; /* Adjust width to match products page */
 }
 
 .search-bar button {
@@ -140,9 +147,11 @@ nav ul li .dropdown li a:hover {
 
 /* Shipping Message */
 .shipping-message {
-    background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
 }
 
 /* Sub-Banner */
@@ -189,9 +198,5 @@ footer {
     .container {
         width: 90%;
         padding: 15px;
-    }
-
-    .search-bar input[type="text"] {
-        width: 100%; /* Full width on small screens */
     }
 }
