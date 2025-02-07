@@ -5,47 +5,53 @@ body, h1, p, ul, li, a {
     box-sizing: border-box;
 }
 
-/* Background Color */
+/* Background Image */
 body {
     font-family: 'Merriweather', serif;
-    background-color: white;
-    color: #2e5d34; /* Pine Green */
+    background: url('chisil.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
 }
 
 /* Top Bar */
 .top-bar {
     display: flex;
-    justify-content: center; /* Center the shipping message */
+    justify-content: flex-end;
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.top-bar .shipping-message {
+.top-bar .login {
     color: white;
+    text-decoration: none;
     font-weight: bold;
+}
+
+.top-bar .login:hover {
+    text-decoration: underline;
 }
 
 /* Header */
 header {
     background-color: #D2B48C; /* Light Brown */
-    text-align: center;
+    text-align: left;
     padding: 20px;
 }
 
 header h1 {
     color: #2e5d34; /* Pine Green */
     font-family: 'Playfair Display', serif;
-    font-size: 42px;
+    font-size: 42px; /* Font size for company name */
     font-weight: 700;
 }
 
 header p.catchphrase {
-    color: white; /* Ensures the catchphrase is white */
-    font-size: 18px; /* Match font size with products page */
-    margin-top: 10px;
+    color: white; /* White color for catchphrase */
+    font-size: 20px; /* Font size for catchphrase */
+    font-weight: 700; /* Ensure font weight matches */
 }
 
-/* Navigation Menu */
+/* Navigation Bar */
 nav {
     background-color: black;
     padding: 10px 0;
@@ -67,6 +73,7 @@ nav ul {
 
 nav ul li {
     margin: 0 15px;
+    position: relative; /* Positioning for dropdown */
 }
 
 nav ul li a {
@@ -80,20 +87,36 @@ nav ul li a:hover {
     color: #D2B48C; /* Light Brown */
 }
 
-/* Search Bar */
-.search-bar {
-    display: flex;
-    align-items: center;
+/* Dropdown Menu */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+    padding: 10px 0;
+    margin: 0;
 }
 
-.search-bar .login {
-    color: white; /* Ensures the login link is white */
-    text-decoration: none;
-    margin-right: 10px; /* Space between the login link and search bar */
+nav ul li:hover .dropdown {
+    display: block; /* Show dropdown on hover */
 }
 
-.search-bar .login:hover {
-    text-decoration: underline; /* Underline on hover */
+.dropdown li {
+    margin: 0;
+}
+
+.dropdown li a {
+    display: block; /* Make dropdown links block elements */
+    padding: 5px 15px;
+}
+
+/* Shipping Message */
+.shipping-message {
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 /* Sub-Banner */
@@ -105,7 +128,7 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-/* Main Content */
+/* Main Container */
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -114,6 +137,33 @@ nav ul li a:hover {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+    font-family: 'Merriweather', serif;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: none;
+    background-color: #D2B48C; /* Light Brown */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #BFA36C; /* Darker shade for hover effect */
 }
 
 /* Footer */
