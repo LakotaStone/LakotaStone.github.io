@@ -52,15 +52,24 @@ header p.catchphrase {
 
 /* Navigation Bar */
 nav {
-    background-color: black;
+    background-color: #2e5d34; /* Pine Green */
     padding: 10px 0;
-    position: relative; /* Needed for dropdown positioning */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out items */
+    max-width: 1200px; /* Max width to fit within the current size */
+    margin: 0 auto; /* Center the nav container */
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
+    align-items: center; /* Center items vertically */
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -70,7 +79,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: white; /* White text color for links */
     font-weight: bold;
     font-family: 'Merriweather', serif;
 }
@@ -107,9 +116,28 @@ nav ul li .dropdown li a:hover {
     background-color: #D2B48C; /* Light Brown on hover */
 }
 
-/* Shopping Cart Icon */
-.cart a {
-    font-size: 20px;
+/* Search Bar */
+nav .search-bar {
+    display: flex;
+    margin-left: auto; /* Align search bar to the right */
+}
+
+nav .search-bar input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 4px 0 0 4px; /* Rounded corners for left side */
+}
+
+nav .search-bar button {
+    padding: 5px 10px;
+    background-color: #D2B48C; /* Light Brown */
+    border: none;
+    border-radius: 0 4px 4px 0; /* Rounded corners for right side */
+    cursor: pointer;
+}
+
+nav .search-bar button:hover {
+    background-color: #b89f6c; /* Darker shade on hover */
 }
 
 /* Sub-Banner */
