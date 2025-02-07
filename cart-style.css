@@ -1,16 +1,17 @@
 body {
     font-family: 'Merriweather', serif;
-    background-color: white; /* White background */
+    background-color: white;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
 .top-bar {
-    background-color: #2e5d34; /* Pine Green */
+    background-color: #2e5d34;
     color: white;
     padding: 10px;
-    text-align: right;
+    text-align: center;
+    font-weight: bold;
 }
 
 header {
@@ -20,85 +21,103 @@ header {
 
 .catchphrase {
     font-size: 1.2em;
-    color: #D2B48C; /* Light Brown */
+    color: #D2B48C;
 }
 
 nav {
-    background-color: #2e5d34; /* Pine Green */
-    padding: 10px 0;
+    background-color: #2e5d34;
+    padding: 15px 0;
 }
 
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space out items */
-    max-width: 1200px; /* Max width to fit within the current size */
-    margin: 0 auto; /* Center the nav container */
-}
-
-.logo img {
-    height: 50px; /* Adjust logo size */
-    margin-right: 10px; /* Space between logo and name */
-}
-
-.company-name {
-    font-size: 24px; /* Smaller company name */
-    color: white; /* White text for the company name */
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 nav ul {
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
-    color: white; /* White text color for links */
+    color: white;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 nav .search-bar {
     display: flex;
-    margin-right: 15px; /* Space before sign up/login */
+    align-items: center;
 }
 
 nav .search-bar input[type="text"] {
-    padding: 5px;
-    border: none;
-    border-radius: 4px 0 0 4px; /* Rounded corners for left side */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
 }
 
 nav .search-bar button {
-    padding: 5px 10px;
-    background-color: #D2B48C; /* Light Brown */
+    padding: 8px 12px;
+    background-color: #D2B48C;
     border: none;
-    border-radius: 0 4px 4px 0; /* Rounded corners for right side */
+    border-radius: 0 4px 4px 0;
     cursor: pointer;
 }
 
-nav .search-bar button:hover {
-    background-color: #b89f6c; /* Darker shade on hover */
-}
-
 .sub-banner {
-    background-color: #f5f5f5; /* Light grey background for sub-banner */
+    background-color: #f5f5f5;
     text-align: center;
     padding: 20px 0;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .container {
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
+}
+
+#cart-items p {
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#cart-total {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#clear-cart {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
 }
 
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #2e5d34; /* Pine Green */
-    color: white; /* White text color */
+    background-color: #2e5d34;
+    color: white;
+    margin-top: 40px;
 }
