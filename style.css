@@ -9,25 +9,26 @@ body {
 .top-bar {
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
     color: white;
-    padding: 5px; /* Reduced padding for thinner bar */
+    padding: 3px; /* Reduced padding for thinner bar */
     text-align: center; /* Center the text */
     width: 100%; /* Full width */
     position: relative; /* Position relative to page */
     left: 0; /* Align to the left */
     right: 0; /* Align to the right */
+    font-size: 12px; /* Decrease font size */
 }
 
 /* Header */
 header {
     background-color: #D2B48C; /* Light Brown */
     text-align: left;
-    padding: 20px;
+    padding: 15px; /* Reduced padding */
 }
 
 /* Navigation Bar */
 nav {
     background-color: #2e5d34; /* Pine Green */
-    padding: 5px 0; /* Reduced padding for thinner bar */
+    padding: 3px 0; /* Reduced padding for thinner bar */
     width: 100%; /* Full width */
     position: relative; /* Position relative to page */
     left: 0; /* Align to the left */
@@ -51,7 +52,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 10px; /* Decrease spacing between items */
+    margin: 0 5px; /* Decrease spacing between items */
     position: relative; /* Position for dropdown */
 }
 
@@ -59,7 +60,7 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 14px; /* Decrease font size */
+    font-size: 12px; /* Decrease font size */
 }
 
 nav ul li a:hover {
@@ -95,11 +96,12 @@ nav ul li:hover .dropdown {
     cursor: pointer;
 }
 
+/* Sub Banner */
 .sub-banner {
     background-color: #2e5d34; /* Pine Green */
     text-align: center;
     padding: 10px;
-    font-size: 18px;
+    font-size: 16px; /* Decrease font size */
     font-weight: bold;
 }
 
