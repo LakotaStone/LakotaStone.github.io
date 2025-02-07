@@ -36,6 +36,7 @@
         <div id="cart-items"></div>
         <p id="cart-total">Total: $0</p>
         <button id="clear-cart">Clear Cart</button>
+        <p id="empty-cart-message" style="display: none;">Your cart is empty.</p>
     </div>
 
     <footer>
@@ -49,12 +50,18 @@
             let total = 0;
             cartItems.innerHTML = "";
             
-            cart.forEach(item => {
-                let itemElement = document.createElement("p");
-                itemElement.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
-                cartItems.appendChild(itemElement);
-                total += item.price * item.quantity;
-            });
+            if (cart.length === 0) {
+                document.getElementById("empty-cart-message").style.display = "block";
+            } else {
+                document.getElementById("empty-cart-message").style.display = "none";
+                cart.forEach(item => {
+                    let itemElement = document.createElement("div");
+                    itemElement.className = "cart-item";
+                    itemElement.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+                    cartItems.appendChild(itemElement);
+                    total += item.price * item.quantity;
+                });
+            }
             
             document.getElementById("cart-total").textContent = `Total: $${total}`;
             document.getElementById("cart-count").textContent = cart.length;
