@@ -15,7 +15,7 @@
 
     <header>
         <h1>Lakotawoodworks</h1>
-        <p class="catchphrase">Built to Withstand, Designed to Excite.</p>
+        <p class="catchphrase">Crafting Memories, One Piece at a Time</p> <!-- Catchphrase added here -->
     </header>
 
     <nav>
@@ -40,7 +40,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
+        <p>&copy; 2025 Lakotawoodworks. All rights reserved.</p>
     </footer>
 
     <script>
@@ -49,14 +49,22 @@
             let cartItems = document.getElementById("cart-items");
             let total = 0;
             cartItems.innerHTML = "";
-            
+
             cart.forEach(item => {
-                let itemElement = document.createElement("p");
-                itemElement.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+                let itemElement = document.createElement("div");
+                itemElement.classList.add("cart-item");
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image"> <!-- Product Image -->
+                    <div class="cart-item-details">
+                        <p class="cart-item-name">${item.name}</p>
+                        <p class="cart-item-price">$${item.price} x ${item.quantity}</p>
+                        <p class="cart-item-description">Description: ${item.description}</p> <!-- Product Description -->
+                    </div>
+                `;
                 cartItems.appendChild(itemElement);
                 total += item.price * item.quantity;
             });
-            
+
             document.getElementById("cart-total").textContent = `Total: $${total}`;
             document.getElementById("cart-count").textContent = cart.length;
         }
