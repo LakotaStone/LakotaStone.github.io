@@ -22,7 +22,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li>
-                    <a href="products.html">Products</a>
+                    <a href="#" class="products-link">Products</a>
                     <div class="dropdown">
                         <ul>
                             <li><a href="products.html">All</a></li>
@@ -71,9 +71,11 @@
             </div>
         </div>
     </div>
+    
     <footer>
         <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
     </footer>
+
     <script>
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         
@@ -93,9 +95,15 @@
                 alert(`${item.name} has been added to your cart!`);
             });
         });
+
+        // Toggle dropdown on click
+        document.querySelector('.products-link').addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the default link action
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block'; // Toggle dropdown
+        });
         
         updateCartCount();
     </script>
 </body>
 </html>
-
