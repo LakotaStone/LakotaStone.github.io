@@ -48,6 +48,7 @@ header h1 {
 header p.catchphrase {
     color: #2e5d34; /* Pine Green */
     font-size: 20px; /* Font size for catchphrase */
+    font-weight: 700; /* Ensure font weight matches */
 }
 
 /* Navigation Bar */
