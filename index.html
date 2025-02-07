@@ -14,36 +14,52 @@
         <a href="#" class="login">Sign Up / Login</a>
     </div>
 
-    <!-- Header with Site Name -->
+    <!-- Header with Site Name and Catchphrase -->
     <header>
         <h1>Lakotawoodworks</h1>
+        <p class="catchphrase">Built to Withstand, Designed to Excite.</p>
     </header>
 
     <!-- Navigation Menu -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
+            <li class="dropdown">
+                <a href="products.html" class="dropbtn">Products</a>
+                <div class="dropdown-content">
+                    <a href="products.html">All</a>
+                    <a href="paddles.html">Paddles</a>
+                    <a href="bedframes.html">Bedframes</a>
+                    <a href="tables.html">Tables</a>
+                    <a href="chairs.html">Chairs</a>
+                    <a href="shelves.html">Shelves</a>
+                </div>
+            </li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li class="cart"><a href="#">🛒 Cart</a></li>
+            <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
     </nav>
 
     <!-- Sub Banner -->
     <div class="sub-banner">
-        <p>Built to Withstand, Designed to Excite.</p>
+        <p>Welcome to Lakotawoodworks, where craftsmanship meets quality.</p>
     </div>
 
     <!-- Main Content -->
     <div class="container">
-        <p>Welcome to Lakotawoodworks, where craftsmanship meets quality.</p>
+        <p>Explore our handcrafted wooden products, designed to elevate your home.</p>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
     </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        document.getElementById("cart-count").textContent = cart.length;
+    </script>
 
 </body>
 </html>
