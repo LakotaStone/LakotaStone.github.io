@@ -27,10 +27,16 @@ body {
     flex-grow: 1;
 }
 
+.search-login-container {
+    display: flex;
+    align-items: center;
+}
+
 .top-bar .login {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    margin-left: 10px; /* Space between search and login button */
 }
 
 .top-bar .login:hover {
@@ -155,6 +161,28 @@ footer {
     color: white;
 }
 
+/* Search Bar */
+.search-bar {
+    position: relative; /* Positioning for search button */
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white; /* Search icon color */
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
     header h1 {
@@ -171,3 +199,4 @@ footer {
         padding: 15px;
     }
 }
+
