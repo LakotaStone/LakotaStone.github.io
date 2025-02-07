@@ -40,8 +40,8 @@ header h1 {
 }
 
 header p.catchphrase {
-    color: white;
-    font-size: 18px;
+    color: white; /* Ensures the catchphrase is white */
+    font-size: 18px; /* Match font size with products page */
     margin-top: 10px;
 }
 
