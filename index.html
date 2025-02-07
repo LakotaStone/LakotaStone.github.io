@@ -6,19 +6,28 @@
     <title>Lakotawoodworks</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <!-- Top Bar -->
     <div class="top-bar">
         <p class="shipping-message">Enjoy Free Shipping on Select Domestic Orders Over $100!</p>
-        <a href="#" class="login">Sign Up / Login</a>
+        <div class="search-login-container">
+            <div class="search-bar">
+                <form id="search-form" action="search.html" method="GET">
+                    <input type="text" id="search" name="search" placeholder="Search..." required>
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <a href="#" class="login">Sign Up / Login</a>
+        </div>
     </div>
 
     <!-- Header with Site Name -->
     <header>
         <h1>Lakotawoodworks</h1>
-        <p class="catchphrase">Built to withstand, designed to excite</p> <!-- Catchphrase -->
+        <p class="catchphrase">Built to withstand, designed to excite</p>
     </header>
 
     <!-- Navigation Menu -->
@@ -28,7 +37,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li>
                     <a href="products.html">Products</a>
-                    <ul class="dropdown"> <!-- Dropdown Menu -->
+                    <ul class="dropdown">
                         <li><a href="products.html#all">All</a></li>
                         <li><a href="products.html#paddles">Paddles</a></li>
                         <li><a href="products.html#bedframes">Bedframes</a></li>
@@ -41,12 +50,6 @@
                 <li><a href="contact.html">Contact</a></li>
                 <li class="cart"><a href="cart.html">🛒 Cart</a></li>
             </ul>
-            <div class="search-bar">
-                <form id="search-form" action="search.html" method="GET">
-                    <button type="submit">Search</button>
-                    <input type="text" id="search" name="search" placeholder="Search..." required>
-                </form>
-            </div>
         </div>
     </nav>
 
