@@ -1,1 +1,30 @@
+/* Products Page Specific Styles */
+
+/* Ensure dropdown menu stays open when clicked */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #D2B48C; /* Light Brown */
+}
+
+/* Dropdown stays open on click */
+.dropdown.active .dropdown-content {
+    display: block;
+}
 
