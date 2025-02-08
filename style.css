@@ -5,12 +5,20 @@ body, h1, p, ul, li, a {
     box-sizing: border-box;
 }
 
+/* Full-page layout to keep the footer at the bottom */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Background Image */
 body {
     font-family: 'Merriweather', serif;
     background: url('chisil.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
+    flex: 1; /* Ensures content expands */
 }
 
 /* Top Bar */
@@ -50,6 +58,7 @@ header p.catchphrase {
 nav {
     background-color: black;
     padding: 10px 0;
+    position: relative;
 }
 
 .nav-container {
@@ -58,6 +67,17 @@ nav {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+/* Hide mobile menu button on larger screens */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
 }
 
 /* Right Side: Login Button and Search Bar */
@@ -124,6 +144,8 @@ nav ul li a {
     color: white;
     font-weight: bold;
     font-family: 'Merriweather', serif;
+    padding: 10px 15px;
+    display: block;
 }
 
 nav ul li a:hover {
@@ -131,26 +153,39 @@ nav ul li a:hover {
 }
 
 /* Dropdown Menu */
-.dropdown {
+nav ul li {
+    position: relative;
+}
+
+.dropdown-menu {
     display: none;
     position: absolute;
     background-color: black;
-    z-index: 1;
-    padding: 10px 0;
+    z-index: 1000;
+    width: 150px;
+    list-style: none;
+    padding: 5px 0;
+    border-radius: 5px;
+}
+
+.dropdown-menu li {
     margin: 0;
 }
 
-nav ul li:hover .dropdown {
+.dropdown-menu li a {
     display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
 }
 
-.dropdown li {
-    margin: 0;
+.dropdown-menu li a:hover {
+    background-color: #444;
 }
 
-.dropdown li a {
+nav ul li:hover .dropdown-menu {
     display: block;
-    padding: 5px 15px;
 }
 
 /* Sub-Banner */
@@ -173,18 +208,42 @@ nav ul li:hover .dropdown {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: black;
     font-family: 'Merriweather', serif;
+    flex: 1; /* Ensures the content area expands */
 }
 
-/* Footer */
+/* Footer - Now Stays at the Bottom */
 footer {
     text-align: center;
     padding: 10px;
     background-color: #2e5d34;
     color: white;
+    width: 100%;
+    margin-top: auto; /* Pushes the footer to the bottom */
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    /* Show menu button only on mobile */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Adjust navigation for mobile */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
     .nav-container {
         flex-direction: column;
         align-items: center;
