@@ -1,22 +1,20 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript loaded successfully!");
 
     // ====== CART FUNCTIONALITY ======
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    updateCartCount();
-
-    function updateCartCount() {
-        document.getElementById("cart-count").textContent = cart.length;
+    const cartNumber = document.getElementById("cart-count");
+    let cartCount = localStorage.getItem("cartCount") ? parseInt(localStorage.getItem("cartCount")) : 0;
+    
+    if (cartNumber) {
+        cartNumber.textContent = cartCount;
     }
 
     document.querySelectorAll(".add-to-cart").forEach(button => {
-        button.addEventListener("click", function () {
-            const name = this.getAttribute("data-name");
-            const price = parseFloat(this.getAttribute("data-price"));
-
-            cart.push({ name, price });
-            localStorage.setItem("cart", JSON.stringify(cart));
-            updateCartCount();
+        button.addEventListener("click", () => {
+            cartCount++;
+            cartNumber.textContent = cartCount;
+            localStorage.setItem("cartCount", cartCount);
         });
     });
 
@@ -46,22 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
         const categoryTitle = document.getElementById("category-title");
-        let found = false;
 
         allProducts.forEach(product => {
             if (category === "all" || product.classList.contains(category)) {
                 product.style.display = "block";
-                found = true;
             } else {
                 product.style.display = "none";
             }
         });
 
-        if (!found) {
-            categoryTitle.textContent = `No products found for "${category}"`;
-        } else {
-            categoryTitle.textContent = category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1);
-        }
+        categoryTitle.textContent = category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1);
     }
 
     // Get category from URL and filter products accordingly
@@ -78,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
 
-            window.location.href = `products.html?category=${category}`;
+            window.location.href = products.html?category=${category};
         });
     });
 
@@ -111,31 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filterProductsBySearch(query) {
         const allProducts = document.querySelectorAll(".product-item");
-        let found = false;
 
         allProducts.forEach(product => {
             const productName = product.querySelector("h3").textContent.toLowerCase();
-            if (productName.includes(query)) {
-                product.style.display = "block";
-                found = true;
-            } else {
-                product.style.display = "none";
-            }
+            product.style.display = productName.includes(query) ? "block" : "none";
         });
 
-        if (!found) {
-            document.getElementById("category-title").textContent = `No results for "${query}"`;
-        } else {
-            document.getElementById("category-title").textContent = `Search results for "${query}"`;
-        }
+        document.getElementById("category-title").textContent = Search results for: "${query}";
     }
-
-    // ====== VIEW PRODUCT FUNCTIONALITY (FOR FUTURE INDIVIDUAL PRODUCT PAGES) ======
-    document.querySelectorAll(".view-product").forEach(button => {
-        button.addEventListener("click", function () {
-            const product = this.getAttribute("data-product");
-            window.location.href = `product-details.html?product=${product}`;
-        });
-    });
 });
-
