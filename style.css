@@ -123,7 +123,7 @@ nav {
     cursor: pointer;
 }
 
-search-bar button:hover {
+.search-bar button:hover {
     background-color: #BFA36C;
 }
 
@@ -160,28 +160,22 @@ nav ul li {
 
 /* Dropdown Menu */
 .dropdown-menu {
-    display: block; /* Always exists, just hidden */
+    display: none; /* Hidden by default */
     position: absolute;
-    left: 0; /* Aligns dropdown properly */
-    top: 100%; /* Places dropdown directly below "Products" */
+    left: 0;
+    top: 100%;
     background-color: black;
     z-index: 1000;
     width: 150px;
     list-style: none;
     padding: 5px 0;
     border-radius: 5px;
-    opacity: 0; /* Initially hidden */
-    visibility: hidden;
-    pointer-events: none; /* Prevents accidental hovering */
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
-/* Ensure Dropdown Stays Open When Hovering Over Products */
+/* Ensure Dropdown Stays Open When Hovering Over "Products" or the Menu */
 nav ul li:hover > .dropdown-menu,
 .dropdown-menu:hover {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto; /* Allows user to interact with dropdown */
+    display: block;
 }
 
 /* Dropdown Menu Spacing & Hover Effects */
