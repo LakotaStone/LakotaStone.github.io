@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript loaded successfully!");
 
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
 
-            window.location.href = products.html?category=${category};
+            window.location.href = `products.html?category=${category}`;
         });
     });
 
@@ -108,6 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
             product.style.display = productName.includes(query) ? "block" : "none";
         });
 
-        document.getElementById("category-title").textContent = Search results for: "${query}";
+        document.getElementById("category-title").textContent = `Search results for: "${query}"`;
     }
 });
