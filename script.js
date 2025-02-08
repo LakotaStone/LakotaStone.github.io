@@ -40,29 +40,31 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ====== ENSURE PAGE SCROLLS TO THE TOP ON NAVIGATION ======
-    const navLinks = document.querySelectorAll(".dropdown-menu a");
+    // ====== FILTER PRODUCTS WITHOUT RELOADING ======
+    const categoryLinks = document.querySelectorAll(".dropdown-menu a");
 
-    navLinks.forEach(link => {
+    categoryLinks.forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
-            const category = this.getAttribute("href").split("#")[1];
+            const category = this.getAttribute("href").split("=")[1];
 
-            // Redirect to products page with category parameter
-            window.location.href = `products.html?category=${category}`;
+            // Update the URL without reloading the page
+            window.history.pushState({}, "", `products.html?category=${category}`);
+
+            // Filter products based on selected category
+            filterProducts(category);
         });
     });
 
-    // ====== FILTER PRODUCTS BY CATEGORY ======
+    // ====== FILTER PRODUCTS ON PAGE LOAD ======
     const urlParams = new URLSearchParams(window.location.search);
-    const category = urlParams.get("category");
+    const category = urlParams.get("category") || "all";
 
-    if (category) {
-        filterProducts(category);
-    }
+    filterProducts(category);
 
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
+        const categoryTitle = document.getElementById("category-title");
 
         allProducts.forEach(product => {
             if (category === "all" || product.classList.contains(category)) {
@@ -72,8 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Ensure page scrolls to the top
-        window.scrollTo(0, 0);
+        // Update category title
+        const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+        categoryTitle.textContent = category === "all" ? "All Products" : `${formattedCategory}`;
     }
 
     // ====== MOBILE MENU TOGGLE ======
