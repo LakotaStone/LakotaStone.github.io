@@ -1,55 +1,86 @@
-// Wait for the DOM to fully load
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("JavaScript loaded successfully!");
-
-    // ====== CART FUNCTIONALITY ======
-    let cartCount = 0;  // Store cart count
-    const cartNumber = document.getElementById("cart-count"); // Cart display
-    const addToCartButtons = document.querySelectorAll(".add-to-cart"); // All "Add to Cart" buttons
-
-    // Check if buttons exist before adding event listeners
-    if (addToCartButtons.length > 0) {
-        addToCartButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                cartCount++;
-                cartNumber.textContent = cartCount;
-                console.log(`Added to cart! New count: ${cartCount}`);
-            });
-        });
-    } else {
-        console.warn("No 'Add to Cart' buttons found.");
-    }
-
-    // ====== SMOOTH SCROLLING FOR NAVIGATION ======
-    const navLinks = document.querySelectorAll("nav ul li a");
-
-    if (navLinks.length > 0) {
-        navLinks.forEach(link => {
-            link.addEventListener("click", (event) => {
-                event.preventDefault(); // Prevent default link behavior
-
-                const targetId = link.getAttribute("href").substring(1); // Get target section ID
-                const targetSection = document.getElementById(targetId);
-
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 60, // Adjust for header height
-                        behavior: "smooth"
-                    });
-                }
-            });
-        });
-    }
-
-    // ====== MOBILE MENU TOGGLE ======
-    const menuToggle = document.getElementById("menu-toggle"); // Menu button
-    const navMenu = document.getElementById("nav-menu"); // Navigation menu
-
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-        });
-    } else {
-        console.warn("No menu elements found for mobile toggle.");
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    loadCart();
+    setupSearch();
+    setupDropdown();
+    updateCartCount();
 });
+
+// Shopping Cart Functionality
+function loadCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartItems = document.getElementById("cart-items");
+    let total = 0;
+    
+    if (cartItems) {
+        cartItems.innerHTML = "";
+        cart.forEach((item, index) => {
+            let itemElement = document.createElement("div");
+            itemElement.classList.add("cart-item");
+            itemElement.innerHTML = `
+                <p>${item.name} - $${item.price} x 
+                <input type="number" value="${item.quantity}" min="1" data-index="${index}" class="cart-quantity"> 
+                <button class="remove-item" data-index="${index}">Remove</button></p>
+            `;
+            cartItems.appendChild(itemElement);
+            total += item.price * item.quantity;
+        });
+        document.getElementById("cart-total").textContent = `Total: $${total.toFixed(2)}`;
+        updateCartCount();
+    }
+
+    // Update quantities
+    document.querySelectorAll(".cart-quantity").forEach(input => {
+        input.addEventListener("change", updateQuantity);
+    });
+    
+    // Remove items
+    document.querySelectorAll(".remove-item").forEach(button => {
+        button.addEventListener("click", removeFromCart);
+    });
+}
+
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.getElementById("cart-count").textContent = cart.length;
+}
+
+function updateQuantity(event) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let index = event.target.getAttribute("data-index");
+    cart[index].quantity = parseInt(event.target.value);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+function removeFromCart(event) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let index = event.target.getAttribute("data-index");
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+// Search Functionality
+function setupSearch() {
+    let searchForm = document.getElementById("search-form");
+    if (searchForm) {
+        searchForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let query = document.getElementById("search").value.toLowerCase();
+            window.location.href = `products.html?search=${query}`;
+        });
+    }
+}
+
+// Dropdown Menu Functionality
+function setupDropdown() {
+    let dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach(dropdown => {
+        dropdown.parentElement.addEventListener("mouseenter", () => {
+            dropdown.style.display = "block";
+        });
+        dropdown.parentElement.addEventListener("mouseleave", () => {
+            dropdown.style.display = "none";
+        });
+    });
+}
