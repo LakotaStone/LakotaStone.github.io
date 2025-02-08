@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript loaded successfully!");
 
@@ -14,28 +15,28 @@ document.addEventListener("DOMContentLoaded", function () {
             cartCount++;
             cartNumber.textContent = cartCount;
             localStorage.setItem("cartCount", cartCount);
-            console.log(`Added to cart! New count: ${cartCount}`);
         });
     });
 
-    // ====== DROPDOWN MENU (Click to Open & Close) ======
-    const productsButton = document.querySelector("nav ul li a[href='products.html']");
+    // ====== FIXED DROPDOWN MENU (WORKS ON ALL PAGES) ======
+    const productsDropdownBtn = document.getElementById("products-dropdown-btn");
     const dropdownMenu = document.querySelector(".dropdown-menu");
 
-    if (productsButton && dropdownMenu) {
-        productsButton.addEventListener("click", function (event) {
+    if (productsDropdownBtn && dropdownMenu) {
+        productsDropdownBtn.addEventListener("click", function (event) {
             event.preventDefault();
             dropdownMenu.classList.toggle("active");
         });
 
+        // Close dropdown if clicking outside
         document.addEventListener("click", function (event) {
-            if (!productsButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            if (!productsDropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
                 dropdownMenu.classList.remove("active");
             }
         });
     }
 
-    // ====== FILTER PRODUCTS WITHOUT RELOADING ======
+    // ====== CATEGORY FILTERING (DYNAMICALLY WORKS) ======
     const categoryLinks = document.querySelectorAll(".dropdown-menu a");
 
     categoryLinks.forEach(link => {
@@ -43,28 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
 
-            window.history.pushState({}, "", `products.html?category=${category}`);
-            filterProducts(category);
-
-            dropdownMenu.classList.remove("active"); // Close dropdown after clicking
+            window.location.href = `products.html?category=${category}`;
+            dropdownMenu.classList.remove("active");
         });
     });
-
-    // ====== FILTER PRODUCTS ON PAGE LOAD ======
-    const urlParams = new URLSearchParams(window.location.search);
-    const category = urlParams.get("category") || "all";
-    filterProducts(category);
-
-    function filterProducts(category) {
-        const allProducts = document.querySelectorAll(".product-item");
-        const categoryTitle = document.getElementById("category-title");
-
-        allProducts.forEach(product => {
-            product.style.display = product.classList.contains(category) || category === "all" ? "block" : "none";
-        });
-
-        categoryTitle.textContent = category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1);
-    }
 
     // ====== MOBILE MENU TOGGLE ======
     const menuToggle = document.getElementById("menu-toggle");
@@ -82,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ====== SEARCH FUNCTION (Instant Filtering) ======
+    // ====== SEARCH FUNCTION ======
     const searchForm = document.getElementById("search-form");
 
     if (searchForm) {
@@ -103,14 +86,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById("category-title").textContent = `Search results for: "${query}"`;
     }
-
-    // ====== VIEW PRODUCT FUNCTION (Future Individual Product Pages) ======
-    document.querySelectorAll(".view-product").forEach(button => {
-        button.addEventListener("click", function () {
-            const product = this.getAttribute("data-product");
-            window.location.href = `product-details.html?product=${product}`;
-        });
-    });
-
 });
 
