@@ -18,7 +18,7 @@ body {
     background: url('chisil.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
-    flex: 1; /* Ensures content expands */
+    flex: 1;
 }
 
 /* Top Bar */
@@ -26,7 +26,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Keep transparent black background */
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .top-bar .shipping-message {
@@ -36,13 +36,13 @@ body {
 
 /* Header */
 header {
-    background-color: #D2B48C; /* Light Brown */
+    background-color: #D2B48C;
     text-align: left;
     padding: 20px;
 }
 
 header h1 {
-    color: #2e5d34; /* Pine Green */
+    color: #2e5d34;
     font-family: 'Playfair Display', serif;
     font-size: 42px;
     font-weight: 700;
@@ -77,52 +77,6 @@ nav {
     cursor: pointer;
     color: white;
     padding: 10px;
-}
-
-/* Right Side: Login Button and Search Bar */
-.right-side {
-    display: flex;
-    align-items: center;
-}
-
-/* Login Button */
-.login {
-    margin-right: 25px;
-}
-
-.login .login-link {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.login .login-link:hover {
-    color: #D2B48C;
-}
-
-/* Search Bar */
-.search-bar {
-    display: flex;
-    align-items: center;
-}
-
-.search-bar input {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-}
-
-.search-bar button {
-    padding: 10px;
-    border: none;
-    background-color: #D2B48C;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.search-bar button:hover {
-    background-color: #BFA36C;
 }
 
 /* Navigation Links */
@@ -163,7 +117,17 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-nav ul li:hover > .dropdown-menu {
+.dropdown-menu li a {
+    display: block;
+    padding: 8px 15px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #444;
+}
+
+/* Show dropdown when clicking */
+.dropdown-menu.active {
     display: block;
 }
 
@@ -176,18 +140,34 @@ nav ul li:hover > .dropdown-menu {
     font-weight: bold;
 }
 
-/* Main Container */
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.9);
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
     padding: 20px;
+}
+
+.product-item {
+    background: white;
+    padding: 15px;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: black;
-    font-family: 'Merriweather', serif;
-    flex: 1;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 /* Footer */
@@ -240,3 +220,4 @@ footer {
         padding: 15px;
     }
 }
+
