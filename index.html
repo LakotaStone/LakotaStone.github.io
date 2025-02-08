@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lakotawoodworks</title>
-
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- JavaScript -->
     <script src="script.js" defer></script>
 </head>
 <body>
-
     <!-- Top Bar with Free Shipping Message -->
     <div class="top-bar">
         <p class="shipping-message">Enjoy Free Shipping on Select Domestic Orders Over $100!</p>
@@ -28,21 +23,18 @@
     <!-- Navigation Menu -->
     <nav>
         <div class="nav-container">
-            <!-- Mobile Menu Toggle (Hidden on Desktop) -->
-            <button id="menu-toggle" class="menu-toggle" aria-label="Open Menu">☰</button>
-
             <!-- Navigation Links -->
-            <ul id="nav-menu">
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="products.html">Products ▼</a>
+                <li>
+                    <a href="products.html">Products</a>
                     <ul class="dropdown-menu">
-                        <li><a href="products.html#all">All</a></li>
-                        <li><a href="products.html#paddles">Paddles</a></li>
-                        <li><a href="products.html#bedframes">Bedframes</a></li>
-                        <li><a href="products.html#tables">Tables</a></li>
-                        <li><a href="products.html#chairs">Chairs</a></li>
-                        <li><a href="products.html#shelves">Shelves</a></li>
+                        <li><a href="products.html?category=all">All</a></li>
+                        <li><a href="products.html?category=paddles">Paddles</a></li>
+                        <li><a href="products.html?category=bedframes">Bedframes</a></li>
+                        <li><a href="products.html?category=tables">Tables</a></li>
+                        <li><a href="products.html?category=chairs">Chairs</a></li>
+                        <li><a href="products.html?category=shelves">Shelves</a></li>
                     </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
@@ -52,10 +44,12 @@
 
             <!-- Right Side: Login Button and Search Bar -->
             <div class="right-side">
+                <!-- Login Button -->
                 <div class="login">
                     <a href="#" class="login-link">Log in</a>
                 </div>
 
+                <!-- Search Bar -->
                 <div class="search-bar">
                     <form id="search-form" action="search.html" method="GET">
                         <input type="text" id="search" name="search" placeholder="Search..." required>
@@ -68,18 +62,18 @@
 
     <!-- Sub Banner -->
     <div class="sub-banner">
-        <p>Crafted with Excellence & Durability</p>
+        <p>Welcome to Lakotawoodworks, where craftsmanship meets quality.</p>
     </div>
 
     <!-- Main Content -->
-    <main class="container">
+    <div class="container">
         <p>Welcome to Lakotawoodworks, where craftsmanship meets quality.</p>
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
+
