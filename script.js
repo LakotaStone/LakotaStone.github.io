@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript loaded successfully!");
 
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
+    // ====== CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
@@ -56,41 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryTitle.textContent = category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1);
     }
 
-    // Get category from URL and filter products accordingly
     if (document.body.contains(document.getElementById("category-title"))) {
         const category = getCategoryFromURL();
         filterProducts(category);
     }
 
-    // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
-    const categoryLinks = document.querySelectorAll(".dropdown-menu a");
-
-    categoryLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-            const category = this.getAttribute("href").split("=")[1];
-
-            window.location.href = `products.html?category=${category}`;
-        });
-    });
-
-    // ====== MOBILE MENU TOGGLE ======
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-        });
-
-        document.addEventListener("click", (event) => {
-            if (!menuToggle.contains(event.target) && !navMenu.contains(event.target)) {
-                navMenu.classList.remove("active");
-            }
-        });
-    }
-
-    // ====== SEARCH FUNCTION ======
+    // ====== SEARCH FUNCTION (FIXED) ======
     const searchForm = document.getElementById("search-form");
 
     if (searchForm) {
@@ -103,12 +73,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filterProductsBySearch(query) {
         const allProducts = document.querySelectorAll(".product-item");
+        let found = false;
 
         allProducts.forEach(product => {
             const productName = product.querySelector("h3").textContent.toLowerCase();
-            product.style.display = productName.includes(query) ? "block" : "none";
+            if (productName.includes(query)) {
+                product.style.display = "block";
+                found = true;
+            } else {
+                product.style.display = "none";
+            }
         });
 
-        document.getElementById("category-title").textContent = `Search results for: "${query}"`;
+        if (!found) {
+            document.getElementById("category-title").textContent = `No results found for "${query}"`;
+        } else {
+            document.getElementById("category-title").textContent = `Search results for: "${query}"`;
+        }
     }
 });
