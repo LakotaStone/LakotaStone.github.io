@@ -139,6 +139,7 @@ nav ul li {
     position: relative;
 }
 
+/* Ensure all navigation links are visible */
 nav ul li a {
     text-decoration: none;
     color: white;
@@ -152,14 +153,17 @@ nav ul li a:hover {
     color: #D2B48C;
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu - Fix */
 nav ul li {
     position: relative;
 }
 
+/* Dropdown Menu */
 .dropdown-menu {
     display: none;
     position: absolute;
+    left: 0; /* Aligns dropdown properly */
+    top: 100%; /* Ensures it appears below "Products" */
     background-color: black;
     z-index: 1000;
     width: 150px;
@@ -168,8 +172,15 @@ nav ul li {
     border-radius: 5px;
 }
 
+/* Show dropdown only when hovering over "Products" */
+nav ul li:hover > .dropdown-menu {
+    display: block;
+}
+
+/* Improve dropdown spacing and hover effect */
 .dropdown-menu li {
     margin: 0;
+    text-align: left;
 }
 
 .dropdown-menu li a {
@@ -182,10 +193,6 @@ nav ul li {
 
 .dropdown-menu li a:hover {
     background-color: #444;
-}
-
-nav ul li:hover .dropdown-menu {
-    display: block;
 }
 
 /* Sub-Banner */
