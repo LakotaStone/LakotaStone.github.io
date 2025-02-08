@@ -153,14 +153,9 @@ nav ul li a:hover {
     color: #D2B48C;
 }
 
-/* Fix Dropdown Disappearing Issue */
-nav ul li {
-    position: relative;
-}
-
-/* Dropdown Menu - Now Hidden on Page Load */
+/* Dropdown Menu - Hidden by Default */
 .dropdown-menu {
-    display: none; /* Keep hidden initially */
+    display: none;
     position: absolute;
     left: 0;
     top: 100%;
@@ -170,16 +165,11 @@ nav ul li {
     list-style: none;
     padding: 5px 0;
     border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
-/* Ensure Dropdown Only Appears on Hover */
-nav ul li:hover > .dropdown-menu {
+/* Show dropdown when the "active" class is added */
+nav ul li .dropdown-menu.active {
     display: block;
-    opacity: 1;
-    visibility: visible;
 }
 
 /* Dropdown Menu Spacing & Hover Effects */
