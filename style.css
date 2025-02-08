@@ -5,20 +5,12 @@ body, h1, p, ul, li, a {
     box-sizing: border-box;
 }
 
-/* Full-page layout to keep the footer at the bottom */
-html, body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 /* Background Image */
 body {
     font-family: 'Merriweather', serif;
     background: url('chisil.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
-    flex: 1; /* Makes sure the content area expands */
 }
 
 /* Top Bar */
@@ -139,39 +131,26 @@ nav ul li a:hover {
 }
 
 /* Dropdown Menu */
-nav ul li {
-    position: relative;
-}
-
-.dropdown-menu {
+.dropdown {
     display: none;
     position: absolute;
     background-color: black;
-    z-index: 1000;
-    width: 150px;
-    list-style: none;
-    padding: 5px 0;
-    border-radius: 5px;
-}
-
-.dropdown-menu li {
+    z-index: 1;
+    padding: 10px 0;
     margin: 0;
 }
 
-.dropdown-menu li a {
+nav ul li:hover .dropdown {
     display: block;
-    padding: 10px 15px;
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
 }
 
-.dropdown-menu li a:hover {
-    background-color: #444;
+.dropdown li {
+    margin: 0;
 }
 
-nav ul li:hover .dropdown-menu {
+.dropdown li a {
     display: block;
+    padding: 5px 15px;
 }
 
 /* Sub-Banner */
@@ -194,17 +173,14 @@ nav ul li:hover .dropdown-menu {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: black;
     font-family: 'Merriweather', serif;
-    flex: 1; /* Allows the content area to expand */
 }
 
-/* Footer - Now Stays at the Bottom */
+/* Footer */
 footer {
     text-align: center;
     padding: 10px;
     background-color: #2e5d34;
     color: white;
-    width: 100%;
-    margin-top: auto; /* Pushes the footer to the bottom */
 }
 
 /* Responsive Design */
