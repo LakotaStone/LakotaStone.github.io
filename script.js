@@ -57,6 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryTitle.textContent = found
             ? (category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1))
             : `No products found for "${category}"`;
+        
+        // Ensure login & search bar remain visible for all categories
+        document.querySelector(".right-side").style.display = "flex";
     }
 
     if (document.body.contains(document.getElementById("category-title"))) {
@@ -93,21 +96,4 @@ document.addEventListener("DOMContentLoaded", function () {
             ? `Search results for: "${query}"`
             : `No results found for "${query}"`;
     }
-
-    // ====== MOBILE MENU TOGGLE ======
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-        });
-
-        document.addEventListener("click", (event) => {
-            if (!menuToggle.contains(event.target) && !navMenu.contains(event.target)) {
-                navMenu.classList.remove("active");
-            }
-        });
-    }
 });
-
