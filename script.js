@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript loaded successfully!");
 
@@ -18,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== FIXED DROPDOWN MENU (WORKS ON ALL PAGES) ======
+    // ====== DROPDOWN MENU (CLICK TO OPEN & CLOSE) ======
     const productsDropdownBtn = document.getElementById("products-dropdown-btn");
     const dropdownMenu = document.querySelector(".dropdown-menu");
 
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdownMenu.classList.toggle("active");
         });
 
-        // Close dropdown if clicking outside
         document.addEventListener("click", function (event) {
             if (!productsDropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
                 dropdownMenu.classList.remove("active");
@@ -36,7 +34,34 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ====== CATEGORY FILTERING (DYNAMICALLY WORKS) ======
+    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
+    function getCategoryFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("category") || "all";
+    }
+
+    function filterProducts(category) {
+        const allProducts = document.querySelectorAll(".product-item");
+        const categoryTitle = document.getElementById("category-title");
+
+        allProducts.forEach(product => {
+            if (category === "all" || product.classList.contains(category)) {
+                product.style.display = "block";
+            } else {
+                product.style.display = "none";
+            }
+        });
+
+        categoryTitle.textContent = category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1);
+    }
+
+    // Get category from URL and filter products accordingly
+    if (document.body.contains(document.getElementById("category-title"))) {
+        const category = getCategoryFromURL();
+        filterProducts(category);
+    }
+
+    // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
     const categoryLinks = document.querySelectorAll(".dropdown-menu a");
 
     categoryLinks.forEach(link => {
@@ -45,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const category = this.getAttribute("href").split("=")[1];
 
             window.location.href = `products.html?category=${category}`;
-            dropdownMenu.classList.remove("active");
         });
     });
 
