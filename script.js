@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loadCart();
     setupSearch();
     setupDropdown();
+    updateCartCount();
 });
 
 // Shopping Cart Functionality
@@ -24,7 +25,7 @@ function loadCart() {
             total += item.price * item.quantity;
         });
         document.getElementById("cart-total").textContent = `Total: $${total.toFixed(2)}`;
-        document.getElementById("cart-count").textContent = cart.length;
+        updateCartCount();
     }
 
     // Update quantities
@@ -36,6 +37,11 @@ function loadCart() {
     document.querySelectorAll(".remove-item").forEach(button => {
         button.addEventListener("click", removeFromCart);
     });
+}
+
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.getElementById("cart-count").textContent = cart.length;
 }
 
 function updateQuantity(event) {
