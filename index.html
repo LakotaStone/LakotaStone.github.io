@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lakotawoodworks</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- JavaScript -->
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -24,12 +28,15 @@
     <!-- Navigation Menu -->
     <nav>
         <div class="nav-container">
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="menu-toggle">☰</button>
+
             <!-- Navigation Links -->
-            <ul>
+            <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="products.html">Products</a>
-                    <ul class="dropdown">
+                <li class="dropdown">
+                    <a href="products.html">Products ▼</a>
+                    <ul class="dropdown-menu">
                         <li><a href="products.html#all">All</a></li>
                         <li><a href="products.html#paddles">Paddles</a></li>
                         <li><a href="products.html#bedframes">Bedframes</a></li>
@@ -45,7 +52,6 @@
 
             <!-- Right Side: Login Button and Search Bar -->
             <div class="right-side">
-                <!-- Login Button -->
                 <div class="login">
                     <a href="#" class="login-link">Log in</a>
                 </div>
@@ -63,13 +69,13 @@
 
     <!-- Sub Banner -->
     <div class="sub-banner">
-        <p></p>
+        <p>Quality Woodcraft Built to Last</p>
     </div>
 
     <!-- Main Content -->
-    <div class="container">
+    <main class="container">
         <p>Welcome to Lakotawoodworks, where craftsmanship meets quality.</p>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -78,4 +84,3 @@
 
 </body>
 </html>
-
