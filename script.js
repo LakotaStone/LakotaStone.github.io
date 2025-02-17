@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ script.js loaded successfully!");
+    console.log("✅ checking script!");
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     updateCart();
