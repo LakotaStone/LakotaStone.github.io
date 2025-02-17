@@ -5,20 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartNumber = document.getElementById("cart-count");
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Update cart count display
     function updateCartCount() {
-        const count = cart.reduce((total, item) => total + item.quantity, 0);
-        cartNumber.textContent = count;
+        let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartNumber.textContent = totalItems;
     }
 
-    updateCartCount(); // Initialize cart count
+    updateCartCount();
 
     document.querySelectorAll(".add-to-cart").forEach(button => {
-        button.addEventListener("click", function () {
-            const name = this.getAttribute("data-name");
-            const price = parseFloat(this.getAttribute("data-price"));
-            const existingItem = cart.find(item => item.name === name);
+        button.addEventListener("click", (event) => {
+            const name = event.target.getAttribute("data-name");
+            const price = parseFloat(event.target.getAttribute("data-price"));
 
+            const existingItem = cart.find(item => item.name === name);
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
@@ -27,72 +26,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
             localStorage.setItem("cart", JSON.stringify(cart));
             updateCartCount();
-            console.log(`${name} added to cart.`);
         });
     });
 
-    // ====== DISPLAY CART ITEMS ======
+    // ====== CART PAGE FUNCTIONALITY ======
     function loadCart() {
-        const cartItems = document.getElementById("cart-items");
+        const cartItemsContainer = document.getElementById("cart-items");
         const cartTotal = document.getElementById("cart-total");
+        if (!cartItemsContainer || !cartTotal) return;
 
-        if (cartItems && cartTotal) {
-            cartItems.innerHTML = "";
-            let total = 0;
+        cartItemsContainer.innerHTML = "";
+        let total = 0;
 
-            cart.forEach((item, index) => {
-                const itemElement = document.createElement("div");
-                itemElement.classList.add("cart-item");
-                itemElement.innerHTML = `
-                    <p>${item.name} - $${item.price.toFixed(2)} x 
-                    <input type="number" value="${item.quantity}" min="1" data-index="${index}" class="cart-quantity">
-                    <button class="remove-item" data-index="${index}">Remove</button></p>
-                `;
+        cart.forEach((item, index) => {
+            let itemElement = document.createElement("div");
+            itemElement.classList.add("cart-item");
+            itemElement.innerHTML = `
+                <p>${item.name} - $${item.price.toFixed(2)} x 
+                <input type="number" value="${item.quantity}" min="1" data-index="${index}" class="cart-quantity"> 
+                <button class="remove-item" data-index="${index}">Remove</button></p>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+            total += item.price * item.quantity;
+        });
 
-                cartItems.appendChild(itemElement);
-                total += item.price * item.quantity;
+        cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+
+        // Update quantity event listener
+        document.querySelectorAll(".cart-quantity").forEach(input => {
+            input.addEventListener("change", (event) => {
+                let index = event.target.getAttribute("data-index");
+                cart[index].quantity = parseInt(event.target.value);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                loadCart();
             });
+        });
 
-            cartTotal.textContent = `Total: $${total.toFixed(2)}`;
-            updateCartCount();
-
-            // Update item quantities
-            document.querySelectorAll(".cart-quantity").forEach(input => {
-                input.addEventListener("change", updateQuantity);
+        // Remove item event listener
+        document.querySelectorAll(".remove-item").forEach(button => {
+            button.addEventListener("click", (event) => {
+                let index = event.target.getAttribute("data-index");
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                loadCart();
+                updateCartCount();
             });
-
-            // Remove items
-            document.querySelectorAll(".remove-item").forEach(button => {
-                button.addEventListener("click", removeFromCart);
-            });
-        }
+        });
     }
 
-    function updateQuantity(event) {
-        const index = event.target.getAttribute("data-index");
-        cart[index].quantity = parseInt(event.target.value);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        loadCart();
-    }
+    loadCart();
 
-    function removeFromCart(event) {
-        const index = event.target.getAttribute("data-index");
-        cart.splice(index, 1);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        loadCart();
-    }
-
-    if (document.body.contains(document.getElementById("cart-items"))) {
-        loadCart();
-    }
-
-    // ====== CLEAR CART FUNCTION ======
-    const clearCartButton = document.getElementById("clear-cart");
-    if (clearCartButton) {
-        clearCartButton.addEventListener("click", function () {
+    // Clear cart functionality
+    const clearCartBtn = document.getElementById("clear-cart");
+    if (clearCartBtn) {
+        clearCartBtn.addEventListener("click", () => {
             localStorage.removeItem("cart");
             cart = [];
             loadCart();
+            updateCartCount();
         });
     }
 
@@ -139,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
         filterProducts(category);
     }
 
-    // ====== SEARCH FUNCTION ======
+    // ====== SEARCH FUNCTION (FIXED) ======
     const searchForm = document.getElementById("search-form");
 
     if (searchForm) {
@@ -171,4 +162,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
-
