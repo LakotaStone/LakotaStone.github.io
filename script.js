@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====== CART FUNCTIONALITY ======
     const cartNumber = document.getElementById("cart-count");
     let cartCount = localStorage.getItem("cartCount") ? parseInt(localStorage.getItem("cartCount")) : 0;
-    
+
     if (cartNumber) {
         cartNumber.textContent = cartCount;
     }
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ====== CATEGORY FILTERING ON PAGE LOAD ======
+    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
@@ -43,16 +43,23 @@ document.addEventListener("DOMContentLoaded", function () {
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
         const categoryTitle = document.getElementById("category-title");
+        let found = false;
 
         allProducts.forEach(product => {
             if (category === "all" || product.classList.contains(category)) {
                 product.style.display = "block";
+                found = true;
             } else {
                 product.style.display = "none";
             }
         });
 
-        categoryTitle.textContent = category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1);
+        categoryTitle.textContent = found
+            ? (category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1))
+            : `No products found for "${category}"`;
+        
+        // Ensure login & search bar remain visible for all categories
+        document.querySelector(".right-side").style.display = "flex";
     }
 
     if (document.body.contains(document.getElementById("category-title"))) {
@@ -60,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         filterProducts(category);
     }
 
-    // ====== SEARCH FUNCTION (FIXED) ======
+    // ====== FIXED SEARCH FUNCTION ======
     const searchForm = document.getElementById("search-form");
 
     if (searchForm) {
@@ -85,10 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        if (!found) {
-            document.getElementById("category-title").textContent = `No results found for "${query}"`;
-        } else {
-            document.getElementById("category-title").textContent = `Search results for: "${query}"`;
-        }
+        document.getElementById("category-title").textContent = found
+            ? `Search results for: "${query}"`
+            : `No results found for "${query}"`;
     }
 });
