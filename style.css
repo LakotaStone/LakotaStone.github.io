@@ -1,4 +1,4 @@
-/* General Reset */ 
+/* General Reset */
 body, h1, p, ul, li, a {
     margin: 0;
     padding: 0;
@@ -149,7 +149,7 @@ nav ul li a:hover {
     color: #D2B48C;
 }
 
-/* Dropdown Menu */
+/* DROPDOWN MENU FIX */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -163,8 +163,8 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-nav ul li:hover > .dropdown-menu {
-    display: block;
+.dropdown-menu.active {
+    display: block; /* Show menu when active */
 }
 
 /* Sub-Banner */
@@ -198,6 +198,49 @@ footer {
     color: white;
     width: 100%;
     margin-top: auto;
+}
+
+/* CART POPUP */
+.popup-cart {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content {
+    position: relative;
+    text-align: center;
+}
+
+.close-popup {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    color: black;
+}
+
+.checkout-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #2e5d34;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.checkout-btn:hover {
+    background-color: #1d3f25;
 }
 
 /* Responsive Design */
