@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("JavaScript loaded successfully!");
+    console.log("✅ script.js loaded successfully!");
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     updateCart();
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
             const name = this.getAttribute("data-name");
             const price = parseFloat(this.getAttribute("data-price"));
-            const image = this.getAttribute("data-image");
+            const image = this.getAttribute("data-image") || "default.jpg"; // Ensure image exists
 
             let existingItem = cart.find(item => item.name === name);
             if (existingItem) {
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== POPUP CART FUNCTIONALITY (FIXED) ======
+    // ====== POPUP CART FUNCTIONALITY ======
     const cartIcon = document.getElementById("cart-icon");
     const popupCart = document.getElementById("popup-cart");
 
@@ -161,3 +161,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
