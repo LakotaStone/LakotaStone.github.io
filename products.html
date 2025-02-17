@@ -24,7 +24,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#" id="products-dropdown-btn">Products</a>
-                    <ul class="dropdown-menu" id="products-dropdown">
+                    <ul class="dropdown-menu">
                         <li><a href="products.html?category=all">All</a></li>
                         <li><a href="products.html?category=paddles">Paddles</a></li>
                         <li><a href="products.html?category=bedframes">Bedframes</a></li>
@@ -35,9 +35,7 @@
                 </li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="cart">
-                    <a href="#" id="cart-icon">🛒 Cart (<span id="cart-count">0</span>)</a>
-                </li>
+                <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
             </ul>
             <div class="right-side">
                 <div class="login">
@@ -61,6 +59,7 @@
         <h2 id="category-title">All Products</h2>
 
         <div class="product-grid">
+            <!-- Paddles -->
             <div class="product-item paddles">
                 <img src="images/paddle.jpg" alt="Wooden Paddle">
                 <h3>Handcrafted Wooden Paddle</h3>
@@ -68,6 +67,7 @@
                 <button class="add-to-cart" data-name="Wooden Paddle" data-price="120">Add to Cart</button>
             </div>
 
+            <!-- Bedframes -->
             <div class="product-item bedframes">
                 <img src="images/bedframe.jpg" alt="Wooden Bedframe">
                 <h3>Solid Oak Bedframe</h3>
@@ -75,6 +75,7 @@
                 <button class="add-to-cart" data-name="Oak Bedframe" data-price="450">Add to Cart</button>
             </div>
 
+            <!-- Tables -->
             <div class="product-item tables">
                 <img src="images/table.jpg" alt="Wooden Table">
                 <h3>Rustic Oak Table</h3>
@@ -82,6 +83,7 @@
                 <button class="add-to-cart" data-name="Oak Table" data-price="300">Add to Cart</button>
             </div>
 
+            <!-- Chairs -->
             <div class="product-item chairs">
                 <img src="images/chair.jpg" alt="Wooden Chair">
                 <h3>Handmade Wooden Chair</h3>
@@ -89,6 +91,7 @@
                 <button class="add-to-cart" data-name="Wooden Chair" data-price="150">Add to Cart</button>
             </div>
 
+            <!-- Shelves -->
             <div class="product-item shelves">
                 <img src="images/shelf.jpg" alt="Wooden Shelf">
                 <h3>Custom Oak Shelf</h3>
