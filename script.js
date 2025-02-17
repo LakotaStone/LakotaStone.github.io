@@ -1,48 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ script.js loaded successfully!");
-
-    // ====== CART POPUP FUNCTIONALITY ======
-    const cartIcon = document.getElementById("cart-icon");
-    const popupCart = document.getElementById("popup-cart");
-    const closePopup = document.querySelector(".close-popup");
-
-    if (cartIcon && popupCart) {
-        cartIcon.addEventListener("click", function (event) {
-            event.preventDefault();
-            popupCart.style.display = "block"; // Show the popup
-        });
-    }
-
-    if (closePopup) {
-        closePopup.addEventListener("click", function () {
-            popupCart.style.display = "none"; // Hide popup when clicking close
-        });
-    }
-
-    // Close popup when clicking outside of it
-    window.addEventListener("click", function (event) {
-        if (event.target === popupCart) {
-            popupCart.style.display = "none";
-        }
-    });
-
-    // ====== DROPDOWN MENU (CLICK TO OPEN & CLOSE) ======
-    const dropdownBtn = document.getElementById("products-dropdown-btn");
-    const dropdownMenu = document.getElementById("products-dropdown");
-
-    if (dropdownBtn && dropdownMenu) {
-        dropdownBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            dropdownMenu.classList.toggle("active"); // Toggle visibility
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.remove("active");
-            }
-        });
-    }
+    console.log("JavaScript loaded successfully!");
 
     // ====== CART FUNCTIONALITY ======
     const cartNumber = document.getElementById("cart-count");
@@ -60,7 +17,57 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== SEARCH FUNCTION ======
+    // ====== DROPDOWN MENU (CLICK TO OPEN & CLOSE) ======
+    const productsDropdownBtn = document.getElementById("products-dropdown-btn");
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+
+    if (productsDropdownBtn && dropdownMenu) {
+        productsDropdownBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            dropdownMenu.classList.toggle("active");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!productsDropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove("active");
+            }
+        });
+    }
+
+    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
+    function getCategoryFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("category") || "all";
+    }
+
+    function filterProducts(category) {
+        const allProducts = document.querySelectorAll(".product-item");
+        const categoryTitle = document.getElementById("category-title");
+        let found = false;
+
+        allProducts.forEach(product => {
+            if (category === "all" || product.classList.contains(category)) {
+                product.style.display = "block";
+                found = true;
+            } else {
+                product.style.display = "none";
+            }
+        });
+
+        categoryTitle.textContent = found
+            ? (category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1))
+            : `No products found for "${category}"`;
+        
+        // Ensure login & search bar remain visible for all categories
+        document.querySelector(".right-side").style.display = "flex";
+    }
+
+    if (document.body.contains(document.getElementById("category-title"))) {
+        const category = getCategoryFromURL();
+        filterProducts(category);
+    }
+
+    // ====== FIXED SEARCH FUNCTION ======
     const searchForm = document.getElementById("search-form");
 
     if (searchForm) {
