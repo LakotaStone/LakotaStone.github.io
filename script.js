@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
             const name = this.getAttribute("data-name");
             const price = parseFloat(this.getAttribute("data-price"));
-            const image = this.getAttribute("data-image"); // Ensure products have data-image
+            const image = this.getAttribute("data-image");
 
             let existingItem = cart.find(item => item.name === name);
             if (existingItem) {
@@ -77,19 +77,30 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCart();
     }
 
-    // ====== POPUP CART FUNCTIONALITY ======
+    // ====== FIXED DROPDOWN NAVIGATION ======
+    document.querySelectorAll(".dropdown-menu a").forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            let category = this.getAttribute("href").split("=")[1];
+            window.location.href = `products.html?category=${category}`;
+        });
+    });
+
+    // ====== POPUP CART FUNCTIONALITY (FIXED) ======
     const cartIcon = document.getElementById("cart-icon");
-    if (cartIcon) {
+    const popupCart = document.getElementById("popup-cart");
+
+    if (cartIcon && popupCart) {
         cartIcon.addEventListener("click", function (event) {
             event.preventDefault();
-            document.getElementById("popup-cart").style.display = "block";
+            popupCart.style.display = "block";
         });
     }
 
     const closePopup = document.querySelector(".close-popup");
     if (closePopup) {
         closePopup.addEventListener("click", function () {
-            document.getElementById("popup-cart").style.display = "none";
+            popupCart.style.display = "none";
         });
     }
 
@@ -150,3 +161,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
