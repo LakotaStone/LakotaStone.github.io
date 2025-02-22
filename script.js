@@ -24,7 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function normalizeCategory(category) {
-        return category.toLowerCase().replace(/_/g, "-").replace(/\s+/g, "-");
+        return category
+            .toLowerCase()
+            .replace(/_/g, "-")  // Replace underscores with dashes
+            .replace(/\s+/g, "-") // Replace spaces with dashes
+            .replace(/[^a-z0-9-]/g, ""); // Remove special characters
     }
 
     function filterProducts(category) {
@@ -46,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         categoryTitle.textContent = found
-            ? (normalizedCategory === "all" ? "All Furniture" : category.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase()))
+            ? (normalizedCategory === "all" ? "All Furniture" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
             : `No products found for "${category}"`;
 
         console.log(`Filtered for category: ${normalizedCategory}`);
