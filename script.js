@@ -17,31 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== DROPDOWN MENU (HOVER TO OPEN) ======
-    const dropdowns = document.querySelectorAll(".dropdown");
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener("mouseenter", () => {
-            dropdown.querySelector(".dropdown-menu").style.display = "block";
+    // ====== DROPDOWN MENU (CLICK TO OPEN & CLOSE) ======
+    const furnitureDropdownBtn = document.getElementById("furniture-dropdown-btn");
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+
+    if (furnitureDropdownBtn && dropdownMenu) {
+        furnitureDropdownBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            dropdownMenu.classList.toggle("active");
         });
-        dropdown.addEventListener("mouseleave", () => {
-            dropdown.querySelector(".dropdown-menu").style.display = "none";
-        });
-    });
 
-    // ====== CATEGORY NAVIGATION ======
-    const categoryLinks = document.querySelectorAll(".dropdown-menu a");
-
-    categoryLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
-            const category = this.getAttribute("href").split("=")[1];
-
-            if (!window.location.href.includes("furniture.html")) {
-                // Only prevent default if already on furniture.html
-                event.preventDefault();
-                window.location.href = `furniture.html?category=${category}`;
+        document.addEventListener("click", function (event) {
+            if (!furnitureDropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove("active");
             }
         });
-    });
+    }
 
     // ====== CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
@@ -52,10 +43,24 @@ document.addEventListener("DOMContentLoaded", function () {
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
         const categoryTitle = document.getElementById("category-title");
-        let found = false;
+        
+        // Normalize category names to match class names
+        const categoryMap = {
+            "crosses": "crosses",
+            "st-andrews-crosses": "crosses",
+            "fetish-boxes": "fetish-boxes",
+            "pillories": "pillories",
+            "chairs": "chairs",
+            "benches": "benches",
+            "bedframes": "bedframes",
+            "more": "more"
+        };
 
+        let normalizedCategory = categoryMap[category] || category;
+
+        let found = false;
         allProducts.forEach(product => {
-            if (category === "all" || product.classList.contains(category)) {
+            if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
                 product.style.display = "block";
                 found = true;
             } else {
@@ -63,9 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        categoryTitle.textContent = found
-            ? (category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1))
-            : `No products found for "${category}"`;
+        categoryTitle.textContent = found ? (category === "all" ? "All Furniture" : category.replace("-", " ").charAt(0).toUpperCase() + category.slice(1)) : `No products found for "${category}"`;
     }
 
     if (document.body.contains(document.getElementById("category-title"))) {
@@ -98,9 +101,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        document.getElementById("category-title").textContent = found
-            ? `Search results for: "${query}"`
-            : `No results found for "${query}"`;
+        if (!found) {
+            document.getElementById("category-title").textContent = `No results found for "${query}"`;
+        } else {
+            document.getElementById("category-title").textContent = `Search results for: "${query}"`;
+        }
     }
 });
+
 
