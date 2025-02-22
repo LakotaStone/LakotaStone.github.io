@@ -17,24 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== DROPDOWN MENU (CLICK TO OPEN & CLOSE) ======
-    const furnitureDropdownBtn = document.getElementById("furniture-dropdown-btn");
-    const dropdownMenu = document.querySelector(".dropdown-menu");
-
-    if (furnitureDropdownBtn && dropdownMenu) {
-        furnitureDropdownBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            dropdownMenu.classList.toggle("active");
-        });
-
-        document.addEventListener("click", function (event) {
-            if (!furnitureDropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.remove("active");
-            }
-        });
-    }
-
-    // ====== CATEGORY FILTERING ON PAGE LOAD ======
+    // ====== CATEGORY FILTERING ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
@@ -43,24 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
         const categoryTitle = document.getElementById("category-title");
-        
-        // Normalize category names to match class names
-        const categoryMap = {
-            "crosses": "crosses",
-            "st-andrews-crosses": "crosses",
-            "fetish-boxes": "fetish-boxes",
-            "pillories": "pillories",
-            "chairs": "chairs",
-            "benches": "benches",
-            "bedframes": "bedframes",
-            "more": "more"
-        };
-
-        let normalizedCategory = categoryMap[category] || category;
 
         let found = false;
+
         allProducts.forEach(product => {
-            if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
+            if (category === "all" || product.classList.contains(category)) {
                 product.style.display = "block";
                 found = true;
             } else {
@@ -68,13 +38,41 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        categoryTitle.textContent = found ? (category === "all" ? "All Furniture" : category.replace("-", " ").charAt(0).toUpperCase() + category.slice(1)) : `No products found for "${category}"`;
+        categoryTitle.textContent = found
+            ? category === "all" ? "All Furniture" : category.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())
+            : `No products found for "${category}"`;
+
+        // Ensure the login & search bar remain visible for all categories
+        document.querySelector(".right-side").style.display = "flex";
     }
 
+    // Apply filtering on page load
     if (document.body.contains(document.getElementById("category-title"))) {
         const category = getCategoryFromURL();
         filterProducts(category);
     }
+
+    // ====== CATEGORY NAVIGATION ======
+    const categoryLinks = document.querySelectorAll(".dropdown-menu a");
+
+    categoryLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const category = this.getAttribute("href").split("=")[1];
+            window.location.href = `furniture.html?category=${category}`;
+        });
+    });
+
+    // ====== DROPDOWN MENU BEHAVIOR (Hover to Open) ======
+    document.querySelectorAll(".dropdown").forEach(dropdown => {
+        dropdown.addEventListener("mouseenter", function () {
+            this.querySelector(".dropdown-menu").classList.add("active");
+        });
+
+        dropdown.addEventListener("mouseleave", function () {
+            this.querySelector(".dropdown-menu").classList.remove("active");
+        });
+    });
 
     // ====== SEARCH FUNCTION ======
     const searchForm = document.getElementById("search-form");
@@ -89,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filterProductsBySearch(query) {
         const allProducts = document.querySelectorAll(".product-item");
+
         let found = false;
 
         allProducts.forEach(product => {
@@ -101,12 +100,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        if (!found) {
-            document.getElementById("category-title").textContent = `No results found for "${query}"`;
-        } else {
-            document.getElementById("category-title").textContent = `Search results for: "${query}"`;
-        }
+        document.getElementById("category-title").textContent = found
+            ? `Search results for: "${query}"`
+            : `No results found for "${query}"`;
     }
 });
+
 
 
