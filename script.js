@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const allProducts = document.querySelectorAll(".product-item");
         const categoryTitle = document.getElementById("category-title");
 
+        if (!categoryTitle) return; // Prevent errors if not on a category page
+
         let found = false;
 
         allProducts.forEach(product => {
@@ -42,15 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
             ? category === "all" ? "All Furniture" : category.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())
             : `No products found for "${category}"`;
 
-        // Ensure the login & search bar remain visible for all categories
-        document.querySelector(".right-side").style.display = "flex";
+        console.log(`Filtered for category: ${category}`);
     }
 
-    // ====== FIX CATEGORY FILTERING ON DIRECT NAVIGATION ======
-    if (document.body.contains(document.getElementById("category-title"))) {
+    // ====== ENSURE CATEGORY FILTERING WORKS WHEN NAVIGATING FROM HOME ======
+    setTimeout(() => {
         const category = getCategoryFromURL();
-        setTimeout(() => filterProducts(category), 100);
-    }
+        filterProducts(category);
+    }, 300); // Delay ensures page is fully loaded before filtering
 
     // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
     const categoryLinks = document.querySelectorAll(".dropdown-menu a");
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
 
-            // Use setTimeout to ensure the page updates properly when clicked from Home
+            // Use a slight delay to ensure the page updates correctly
             setTimeout(() => {
                 window.location.href = `furniture.html?category=${category}`;
             }, 100);
@@ -109,6 +110,3 @@ document.addEventListener("DOMContentLoaded", function () {
             : `No results found for "${query}"`;
     }
 });
-
-
-
