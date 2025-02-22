@@ -18,12 +18,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ====== DROPDOWN MENU (HOVER TO OPEN) ======
-    document.querySelectorAll(".dropdown").forEach(menu => {
-        menu.addEventListener("mouseenter", () => {
-            menu.querySelector(".dropdown-menu").style.display = "block";
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener("mouseenter", () => {
+            dropdown.querySelector(".dropdown-menu").style.display = "block";
         });
-        menu.addEventListener("mouseleave", () => {
-            menu.querySelector(".dropdown-menu").style.display = "none";
+        dropdown.addEventListener("mouseleave", () => {
+            dropdown.querySelector(".dropdown-menu").style.display = "none";
+        });
+    });
+
+    // ====== CATEGORY NAVIGATION ======
+    const categoryLinks = document.querySelectorAll(".dropdown-menu a");
+
+    categoryLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            const category = this.getAttribute("href").split("=")[1];
+
+            if (!window.location.href.includes("furniture.html")) {
+                // Only prevent default if already on furniture.html
+                event.preventDefault();
+                window.location.href = `furniture.html?category=${category}`;
+            }
         });
     });
 
@@ -57,16 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
         filterProducts(category);
     }
 
-    // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
-    document.querySelectorAll(".dropdown-menu a").forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-            const category = this.getAttribute("href").split("=")[1];
-            filterProducts(category);
-            window.history.pushState({}, "", `?category=${category}`);
-        });
-    });
-
     // ====== SEARCH FUNCTION ======
     const searchForm = document.getElementById("search-form");
 
@@ -92,10 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        if (!found) {
-            document.getElementById("category-title").textContent = `No results found for "${query}"`;
-        } else {
-            document.getElementById("category-title").textContent = `Search results for: "${query}"`;
-        }
+        document.getElementById("category-title").textContent = found
+            ? `Search results for: "${query}"`
+            : `No results found for "${query}"`;
     }
 });
+
