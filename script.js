@@ -17,10 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== CATEGORY FILTERING ======
+    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
+    }
+
+    function normalizeCategory(category) {
+        return category.toLowerCase().replace(/_/g, "-").replace(/\s+/g, "-");
     }
 
     function filterProducts(category) {
@@ -29,10 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!categoryTitle) return; // Prevent errors if not on a category page
 
+        const normalizedCategory = normalizeCategory(category);
         let found = false;
 
         allProducts.forEach(product => {
-            if (category === "all" || product.classList.contains(category)) {
+            if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
                 product.style.display = "block";
                 found = true;
             } else {
@@ -41,10 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         categoryTitle.textContent = found
-            ? category === "all" ? "All Furniture" : category.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())
+            ? (normalizedCategory === "all" ? "All Furniture" : category.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase()))
             : `No products found for "${category}"`;
 
-        console.log(`Filtered for category: ${category}`);
+        console.log(`Filtered for category: ${normalizedCategory}`);
     }
 
     // ====== ENSURE CATEGORY FILTERING WORKS WHEN NAVIGATING FROM HOME ======
@@ -61,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
 
-            // Use a slight delay to ensure the page updates correctly
             setTimeout(() => {
                 window.location.href = `furniture.html?category=${category}`;
             }, 100);
