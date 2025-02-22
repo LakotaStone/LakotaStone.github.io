@@ -17,18 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== NAVIGATION DROPDOWNS (OPEN ON HOVER) ======
+    // ====== DROPDOWN MENU (HOVER TO OPEN) ======
     document.querySelectorAll(".dropdown").forEach(menu => {
-        menu.addEventListener("mouseover", function () {
-            this.querySelector(".dropdown-menu").style.display = "block";
+        menu.addEventListener("mouseenter", () => {
+            menu.querySelector(".dropdown-menu").style.display = "block";
         });
-
-        menu.addEventListener("mouseleave", function () {
-            this.querySelector(".dropdown-menu").style.display = "none";
+        menu.addEventListener("mouseleave", () => {
+            menu.querySelector(".dropdown-menu").style.display = "none";
         });
     });
 
-    // ====== FILTER FUNCTION FOR CATEGORY PAGES ======
+    // ====== CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
@@ -37,19 +36,22 @@ document.addEventListener("DOMContentLoaded", function () {
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
         const categoryTitle = document.getElementById("category-title");
+        let found = false;
 
         allProducts.forEach(product => {
             if (category === "all" || product.classList.contains(category)) {
                 product.style.display = "block";
+                found = true;
             } else {
                 product.style.display = "none";
             }
         });
 
-        categoryTitle.textContent = category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1);
+        categoryTitle.textContent = found
+            ? (category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1))
+            : `No products found for "${category}"`;
     }
 
-    // Apply filtering on category pages
     if (document.body.contains(document.getElementById("category-title"))) {
         const category = getCategoryFromURL();
         filterProducts(category);
@@ -60,17 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
-
-            // Determine which page should be loaded
-            if (window.location.pathname.includes("furniture.html")) {
-                window.location.href = `furniture.html?category=${category}`;
-            } else if (window.location.pathname.includes("bdsm-gear.html")) {
-                window.location.href = `bdsm-gear.html?category=${category}`;
-            } else if (window.location.pathname.includes("toys.html")) {
-                window.location.href = `toys.html?category=${category}`;
-            } else if (window.location.pathname.includes("apparel.html")) {
-                window.location.href = `apparel.html?category=${category}`;
-            }
+            filterProducts(category);
+            window.history.pushState({}, "", `?category=${category}`);
         });
     });
 
@@ -99,8 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        document.getElementById("category-title").textContent = found
-            ? `Search results for: "${query}"`
-            : `No results found for "${query}"`;
+        if (!found) {
+            document.getElementById("category-title").textContent = `No results found for "${query}"`;
+        } else {
+            document.getElementById("category-title").textContent = `Search results for: "${query}"`;
+        }
     }
 });
