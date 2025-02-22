@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const normalizedCategory = normalizeCategory(category);
         let found = false;
 
+        // ====== FIX: Prevent Navigation Bar from Hiding ======
+        document.querySelector(".right-side").style.display = "flex"; // Ensure right-side elements remain visible
+
         allProducts.forEach(product => {
             if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
                 product.style.display = "block";
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`Filtered for category: ${normalizedCategory}`);
     }
 
-    // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
+    // ====== ENSURE CATEGORY FILTERING WORKS IMMEDIATELY ======
     const category = getCategoryFromURL();
     filterProducts(category);
 
@@ -67,7 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
-            window.location.href = `furniture.html?category=${category}`;
+
+            setTimeout(() => {
+                window.location.href = `furniture.html?category=${category}`;
+            }, 100);
         });
     });
 
@@ -113,4 +119,3 @@ document.addEventListener("DOMContentLoaded", function () {
             : `No results found for "${query}"`;
     }
 });
-
