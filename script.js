@@ -46,20 +46,24 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".right-side").style.display = "flex";
     }
 
-    // Apply filtering on page load
+    // ====== FIX CATEGORY FILTERING ON DIRECT NAVIGATION ======
     if (document.body.contains(document.getElementById("category-title"))) {
         const category = getCategoryFromURL();
-        filterProducts(category);
+        setTimeout(() => filterProducts(category), 100);
     }
 
-    // ====== CATEGORY NAVIGATION ======
+    // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
     const categoryLinks = document.querySelectorAll(".dropdown-menu a");
 
     categoryLinks.forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
-            window.location.href = `furniture.html?category=${category}`;
+
+            // Use setTimeout to ensure the page updates properly when clicked from Home
+            setTimeout(() => {
+                window.location.href = `furniture.html?category=${category}`;
+            }, 100);
         });
     });
 
