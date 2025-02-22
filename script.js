@@ -56,11 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`Filtered for category: ${normalizedCategory}`);
     }
 
-    // ====== ENSURE CATEGORY FILTERING WORKS WHEN NAVIGATING FROM HOME ======
-    setTimeout(() => {
-        const category = getCategoryFromURL();
-        filterProducts(category);
-    }, 300); // Delay ensures page is fully loaded before filtering
+    // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
+    const category = getCategoryFromURL();
+    filterProducts(category);
 
     // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
     const categoryLinks = document.querySelectorAll(".dropdown-menu a");
@@ -69,10 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
-
-            setTimeout(() => {
-                window.location.href = `furniture.html?category=${category}`;
-            }, 100);
+            window.location.href = `furniture.html?category=${category}`;
         });
     });
 
@@ -118,3 +113,4 @@ document.addEventListener("DOMContentLoaded", function () {
             : `No results found for "${query}"`;
     }
 });
+
