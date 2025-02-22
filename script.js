@@ -3,108 +3,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ====== CART FUNCTIONALITY ======
     const cartNumber = document.getElementById("cart-count");
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartCount = localStorage.getItem("cartCount") ? parseInt(localStorage.getItem("cartCount")) : 0;
 
-    function updateCartCount() {
-        let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        cartNumber.textContent = totalItems;
+    if (cartNumber) {
+        cartNumber.textContent = cartCount;
     }
 
-    updateCartCount();
-
     document.querySelectorAll(".add-to-cart").forEach(button => {
-        button.addEventListener("click", (event) => {
-            const name = event.target.getAttribute("data-name");
-            const price = parseFloat(event.target.getAttribute("data-price"));
-
-            const existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ name, price, quantity: 1 });
-            }
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-            updateCartCount();
+        button.addEventListener("click", () => {
+            cartCount++;
+            cartNumber.textContent = cartCount;
+            localStorage.setItem("cartCount", cartCount);
         });
     });
 
-    // ====== CART PAGE FUNCTIONALITY ======
-    function loadCart() {
-        const cartItemsContainer = document.getElementById("cart-items");
-        const cartTotal = document.getElementById("cart-total");
-        if (!cartItemsContainer || !cartTotal) return;
-
-        cartItemsContainer.innerHTML = "";
-        let total = 0;
-
-        cart.forEach((item, index) => {
-            let itemElement = document.createElement("div");
-            itemElement.classList.add("cart-item");
-            itemElement.innerHTML = `
-                <p>${item.name} - $${item.price.toFixed(2)} x 
-                <input type="number" value="${item.quantity}" min="1" data-index="${index}" class="cart-quantity"> 
-                <button class="remove-item" data-index="${index}">Remove</button></p>
-            `;
-            cartItemsContainer.appendChild(itemElement);
-            total += item.price * item.quantity;
+    // ====== NAVIGATION DROPDOWNS (OPEN ON HOVER) ======
+    document.querySelectorAll(".dropdown").forEach(menu => {
+        menu.addEventListener("mouseover", function () {
+            this.querySelector(".dropdown-menu").style.display = "block";
         });
 
-        cartTotal.textContent = `Total: $${total.toFixed(2)}`;
-
-        // Update quantity event listener
-        document.querySelectorAll(".cart-quantity").forEach(input => {
-            input.addEventListener("change", (event) => {
-                let index = event.target.getAttribute("data-index");
-                cart[index].quantity = parseInt(event.target.value);
-                localStorage.setItem("cart", JSON.stringify(cart));
-                loadCart();
-            });
+        menu.addEventListener("mouseleave", function () {
+            this.querySelector(".dropdown-menu").style.display = "none";
         });
+    });
 
-        // Remove item event listener
-        document.querySelectorAll(".remove-item").forEach(button => {
-            button.addEventListener("click", (event) => {
-                let index = event.target.getAttribute("data-index");
-                cart.splice(index, 1);
-                localStorage.setItem("cart", JSON.stringify(cart));
-                loadCart();
-                updateCartCount();
-            });
-        });
-    }
-
-    loadCart();
-
-    // Clear cart functionality
-    const clearCartBtn = document.getElementById("clear-cart");
-    if (clearCartBtn) {
-        clearCartBtn.addEventListener("click", () => {
-            localStorage.removeItem("cart");
-            cart = [];
-            loadCart();
-            updateCartCount();
-        });
-    }
-
-    // ====== DROPDOWN MENU FUNCTIONALITY ======
-    const productsDropdownBtn = document.getElementById("products-dropdown-btn");
-    const dropdownMenu = document.querySelector(".dropdown-menu");
-
-    if (productsDropdownBtn && dropdownMenu) {
-        productsDropdownBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            dropdownMenu.classList.toggle("active");
-        });
-
-        document.addEventListener("click", function (event) {
-            if (!productsDropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.remove("active");
-            }
-        });
-    }
-
-    // ====== CATEGORY FILTERING ON PAGE LOAD ======
+    // ====== FILTER FUNCTION FOR CATEGORY PAGES ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
@@ -125,12 +49,32 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryTitle.textContent = category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1);
     }
 
+    // Apply filtering on category pages
     if (document.body.contains(document.getElementById("category-title"))) {
         const category = getCategoryFromURL();
         filterProducts(category);
     }
 
-    // ====== SEARCH FUNCTION (FIXED) ======
+    // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
+    document.querySelectorAll(".dropdown-menu a").forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const category = this.getAttribute("href").split("=")[1];
+
+            // Determine which page should be loaded
+            if (window.location.pathname.includes("furniture.html")) {
+                window.location.href = `furniture.html?category=${category}`;
+            } else if (window.location.pathname.includes("bdsm-gear.html")) {
+                window.location.href = `bdsm-gear.html?category=${category}`;
+            } else if (window.location.pathname.includes("toys.html")) {
+                window.location.href = `toys.html?category=${category}`;
+            } else if (window.location.pathname.includes("apparel.html")) {
+                window.location.href = `apparel.html?category=${category}`;
+            }
+        });
+    });
+
+    // ====== SEARCH FUNCTION ======
     const searchForm = document.getElementById("search-form");
 
     if (searchForm) {
@@ -155,10 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        if (!found) {
-            document.getElementById("category-title").textContent = `No results found for "${query}"`;
-        } else {
-            document.getElementById("category-title").textContent = `Search results for: "${query}"`;
-        }
+        document.getElementById("category-title").textContent = found
+            ? `Search results for: "${query}"`
+            : `No results found for "${query}"`;
     }
 });
