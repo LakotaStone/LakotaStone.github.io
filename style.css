@@ -58,17 +58,9 @@ header p.catchphrase {
 
 /* Navigation Bar */
 nav {
-    position: fixed; /* Keeps navbar at the top */
-    top: 0;
-    width: 100%;
-    z-index: 1000;
     background-color: black;
     padding: 8px 0;
-}
-
-/* Adjusts main content so it doesn't overlap with navbar */
-.container {
-    margin-top: 80px; /* Adjust this value if needed */
+    position: relative;
 }
 
 .nav-container {
@@ -256,5 +248,4 @@ footer {
         width: 85%;
         padding: 12px;
     }
-}
-
+} please remember this one as well incase we have to go back
