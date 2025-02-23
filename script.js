@@ -17,18 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== FIX NAVIGATION MENU ALWAYS SHOWING CORRECTLY ======
-    function ensureNavigationLoaded() {
-        const navContainer = document.querySelector(".nav-container");
-        if (!navContainer) {
-            console.error("Navigation container not found!");
-            return;
-        }
-        navContainer.style.display = "flex"; // Ensure it's visible
-    }
-
-    ensureNavigationLoaded(); // Make sure nav bar is correctly displayed
-
     // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -63,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         categoryTitle.textContent = found
             ? (normalizedCategory === "all" ? "All Furniture" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
-            : `No products found for "${category}"`;
+            : No products found for "${category}";
 
-        console.log(`Filtered for category: ${normalizedCategory}`);
+        console.log(Filtered for category: ${normalizedCategory});
     }
 
     // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
@@ -79,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
-            window.location.href = `furniture.html?category=${category}`;
+            window.location.href = furniture.html?category=${category};
         });
     });
 
@@ -121,20 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.getElementById("category-title").textContent = found
-            ? `Search results for: "${query}"`
-            : `No results found for "${query}"`;
+            ? Search results for: "${query}"
+            : No results found for "${query}";
     }
-
-    // ====== FIX 404 ERRORS IN THE CONSOLE ======
-    function checkMissingResources() {
-        document.querySelectorAll("img").forEach(img => {
-            img.onerror = function () {
-                console.warn(`Image not found: ${img.src}`);
-                img.src = "images/placeholder.jpg"; // Replace broken images with placeholder
-            };
-        });
-    }
-
-    checkMissingResources();
 });
-
