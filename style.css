@@ -29,6 +29,7 @@ body {
     padding: 8px 16px;
     background-color: rgba(0, 0, 0, 0.7);
     font-size: 0.9em; /* Reduced */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .top-bar .shipping-message {
@@ -41,6 +42,7 @@ header {
     background-color: #D2B48C;
     text-align: left;
     padding: 15px;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 header h1 {
@@ -61,6 +63,8 @@ nav {
     background-color: black;
     padding: 8px 0;
     position: relative;
+    flex-shrink: 0; /* Prevent shrinking */
+    min-height: 50px; /* Ensure it maintains a minimum height */
 }
 
 .nav-container {
@@ -135,6 +139,7 @@ nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
+    min-height: 40px; /* Prevents collapsing */
 }
 
 nav ul li {
@@ -181,6 +186,7 @@ nav ul li:hover > .dropdown-menu {
     padding: 8px;
     font-size: 1em;
     font-weight: bold;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 /* Main Container */
@@ -207,6 +213,7 @@ footer {
     width: 100%;
     margin-top: auto;
     font-size: 0.9em; /* Reduced */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 /* Responsive Design */
