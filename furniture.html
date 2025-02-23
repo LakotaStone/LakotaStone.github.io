@@ -32,25 +32,9 @@
                         <li><a href="furniture.html?category=pillories">Pillories</a></li>
                         <li><a href="furniture.html?category=chairs">Chairs</a></li>
                         <li><a href="furniture.html?category=more">More</a></li>
-                    </ul>
+                   </ul>
                 </li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
             </ul>
-
-            <!-- Right Side: Login & Search Bar -->
-            <div class="right-side">
-                <div class="login">
-                    <a href="#" class="login-link">Log in</a>
-                </div>
-                <div class="search-bar">
-                    <form id="search-form" action="search.html" method="GET">
-                        <input type="text" id="search" name="search" placeholder="Search..." required>
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
         </div>
     </nav>
 
@@ -63,47 +47,45 @@
 
         <div class="product-grid">
             <!-- Placeholder Products for Each Category -->
+            
             <!-- Bedframes -->
-            <div class="product-item bedframes"><img src="images/placeholder.jpg" alt="Bedframe"><h3>Bedframe 1</h3></div>
-            <div class="product-item bedframes"><img src="images/placeholder.jpg" alt="Bedframe"><h3>Bedframe 2</h3></div>
-            <div class="product-item bedframes"><img src="images/placeholder.jpg" alt="Bedframe"><h3>Bedframe 3</h3></div>
-            <div class="product-item bedframes"><img src="images/placeholder.jpg" alt="Bedframe"><h3>Bedframe 4</h3></div>
-            
+            <div class="product-item bedframes">
+                <img src="images/placeholder.jpg" alt="Bedframe">
+                <h3>Bedframe 1</h3>
+                <button class="add-to-cart" data-name="Bedframe 1" data-price="120">Add to Cart</button>
+            </div>
+
+            <div class="product-item bedframes">
+                <img src="images/placeholder.jpg" alt="Bedframe">
+                <h3>Bedframe 2</h3>
+                <button class="add-to-cart" data-name="Bedframe 2" data-price="130">Add to Cart</button>
+            </div>
+
             <!-- St. Andrew's Crosses -->
-            <div class="product-item st-andrews-crosses"><img src="images/placeholder.jpg" alt="Cross"><h3>Cross 1</h3></div>
-            <div class="product-item st-andrews-crosses"><img src="images/placeholder.jpg" alt="Cross"><h3>Cross 2</h3></div>
-            <div class="product-item st-andrews-crosses"><img src="images/placeholder.jpg" alt="Cross"><h3>Cross 3</h3></div>
-            <div class="product-item st-andrews-crosses"><img src="images/placeholder.jpg" alt="Cross"><h3>Cross 4</h3></div>
-            
-            <!-- Fetish Boxes -->
-            <div class="product-item fetish-boxes"><img src="images/placeholder.jpg" alt="Fetish Box"><h3>Fetish Box 1</h3></div>
-            <div class="product-item fetish-boxes"><img src="images/placeholder.jpg" alt="Fetish Box"><h3>Fetish Box 2</h3></div>
-            <div class="product-item fetish-boxes"><img src="images/placeholder.jpg" alt="Fetish Box"><h3>Fetish Box 3</h3></div>
-            <div class="product-item fetish-boxes"><img src="images/placeholder.jpg" alt="Fetish Box"><h3>Fetish Box 4</h3></div>
-            
-            <!-- Benches -->
-            <div class="product-item benches"><img src="images/placeholder.jpg" alt="Bench"><h3>Bench 1</h3></div>
-            <div class="product-item benches"><img src="images/placeholder.jpg" alt="Bench"><h3>Bench 2</h3></div>
-            <div class="product-item benches"><img src="images/placeholder.jpg" alt="Bench"><h3>Bench 3</h3></div>
-            <div class="product-item benches"><img src="images/placeholder.jpg" alt="Bench"><h3>Bench 4</h3></div>
-            
-           <!-- Pillories -->
-            <div class="product-item pillories"><img src="images/placeholder.jpg" alt="Pillory"><h3>Pillory 1</h3></div>
-            <div class="product-item pillories"><img src="images/placeholder.jpg" alt="Pillory"><h3>Pillory 2</h3></div>
-            <div class="product-item pillories"><img src="images/placeholder.jpg" alt="Pillory"><h3>Pillory 3</h3></div>
-            <div class="product-item pillories"><img src="images/placeholder.jpg" alt="Pillory"><h3>Pillory 4</h3></div>
-           
-            <!-- Chairs -->
-            <div class="product-item chairs"><img src="images/placeholder.jpg" alt="Chair"><h3>Chair 1</h3></div>
-            <div class="product-item chairs"><img src="images/placeholder.jpg" alt="Chair"><h3>Chair 2</h3></div>
-            <div class="product-item chairs"><img src="images/placeholder.jpg" alt="Chair"><h3>Chair 3</h3></div>
-            <div class="product-item chairs"><img src="images/placeholder.jpg" alt="Chair"><h3>Chair 4</h3></div>
-            
+            <div class="product-item st-andrews-crosses">
+                <img src="images/placeholder.jpg" alt="Cross">
+                <h3>Cross 1</h3>
+                <button class="add-to-cart" data-name="Cross 1" data-price="150">Add to Cart</button>
+            </div>
+
+            <div class="product-item st-andrews-crosses">
+                <img src="images/placeholder.jpg" alt="Cross">
+                <h3>Cross 2</h3>
+                <button class="add-to-cart" data-name="Cross 2" data-price="160">Add to Cart</button>
+            </div>
+
             <!-- More Category -->
-            <div class="product-item more"><img src="images/placeholder.jpg" alt="More"><h3>More 1</h3></div>
-            <div class="product-item more"><img src="images/placeholder.jpg" alt="More"><h3>More 2</h3></div>
-            <div class="product-item more"><img src="images/placeholder.jpg" alt="More"><h3>More 3</h3></div>
-            <div class="product-item more"><img src="images/placeholder.jpg" alt="More"><h3>More 4</h3></div>
+            <div class="product-item more">
+                <img src="images/placeholder.jpg" alt="More">
+                <h3>More 1</h3>
+                <button class="add-to-cart" data-name="More 1" data-price="100">Add to Cart</button>
+            </div>
+
+            <div class="product-item more">
+                <img src="images/placeholder.jpg" alt="More">
+                <h3>More 2</h3>
+                <button class="add-to-cart" data-name="More 2" data-price="110">Add to Cart</button>
+            </div>
         </div>
     </div>
 
@@ -112,3 +94,4 @@
     </footer>
 </body>
 </html>
+
