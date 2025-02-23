@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====== CART FUNCTIONALITY ======
     const cartNumber = document.getElementById("cart-count");
     let cartCount = localStorage.getItem("cartCount") ? parseInt(localStorage.getItem("cartCount")) : 0;
-
+    
     if (cartNumber) {
         cartNumber.textContent = cartCount;
     }
@@ -17,10 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== DEBUGGING NAVIGATION ISSUE ======
-    console.log("Checking if navigation bar exists:", document.querySelector("nav"));
-
-    // ====== CATEGORY FILTERING ON PAGE LOAD ======
+    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
@@ -29,21 +26,21 @@ document.addEventListener("DOMContentLoaded", function () {
     function normalizeCategory(category) {
         return category
             .toLowerCase()
-            .replace(/_/g, "-")  // Replace underscores with dashes
-            .replace(/\s+/g, "-") // Replace spaces with dashes
-            .replace(/[^a-z0-9-]/g, ""); // Remove special characters
+            .replace(/_/g, "-")
+            .replace(/\s+/g, "-")
+            .replace(/[^a-z0-9-]/g, "");
     }
 
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
         const categoryTitle = document.getElementById("category-title");
+        const navMenu = document.getElementById("nav-menu");
 
-        if (!categoryTitle) return; // Prevent errors if not on a category page
+        if (!categoryTitle) return;
+        console.log("Filtering for category:", category);
 
         const normalizedCategory = normalizeCategory(category);
         let found = false;
-
-        console.log(`Filtering for category: ${normalizedCategory}`);
 
         allProducts.forEach(product => {
             if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
@@ -57,14 +54,15 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryTitle.textContent = found
             ? (normalizedCategory === "all" ? "All Furniture" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
             : `No products found for "${category}"`;
-    }
 
-    // Ensure navigation bar visibility
-    const navMenu = document.getElementById("nav-menu");
-    if (navMenu) {
-        console.log("Nav menu found:", navMenu.innerHTML);
-    } else {
-        console.warn("Nav menu not found!");
+        console.log("Filtered for category:", normalizedCategory);
+
+        // Debugging: Ensure nav menu exists
+        if (navMenu) {
+            console.log("Nav menu found:", navMenu.innerHTML);
+        } else {
+            console.log("Error: Navigation menu is missing!");
+        }
     }
 
     // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
@@ -78,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
-            console.log(`Navigating to category: ${category}`);
             window.location.href = `furniture.html?category=${category}`;
         });
     });
@@ -107,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filterProductsBySearch(query) {
         const allProducts = document.querySelectorAll(".product-item");
-
         let found = false;
 
         allProducts.forEach(product => {
