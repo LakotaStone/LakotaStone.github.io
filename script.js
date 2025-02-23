@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
+    // ====== FIX CATEGORY FILTERING IMMEDIATELY ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const normalizedCategory = normalizeCategory(category);
         let found = false;
 
-        // ====== FIX: Prevent Navigation Bar from Hiding ======
-        document.querySelector(".right-side").style.display = "flex"; // Ensure right-side elements remain visible
+        // Ensure right-side navigation stays visible
+        document.querySelector(".right-side").style.display = "flex"; 
 
         allProducts.forEach(product => {
             if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
+        // Fix category title to prevent unwanted flashing
         categoryTitle.textContent = found
             ? (normalizedCategory === "all" ? "All Furniture" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
             : `No products found for "${category}"`;
@@ -59,25 +60,27 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`Filtered for category: ${normalizedCategory}`);
     }
 
-    // ====== ENSURE CATEGORY FILTERING WORKS IMMEDIATELY ======
+    // ====== ENSURE CATEGORY FILTERING WORKS WITHOUT FLASHING ALL PRODUCTS ======
     const category = getCategoryFromURL();
-    filterProducts(category);
+    if (category) {
+        filterProducts(category);
+    }
 
-    // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
-    const categoryLinks = document.querySelectorAll(".dropdown-menu a");
-
-    categoryLinks.forEach(link => {
+    // ====== FIX DROPDOWN CLICK TO FILTER CORRECTLY ======
+    document.querySelectorAll(".dropdown-menu a").forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
 
-            setTimeout(() => {
+            if (window.location.pathname.includes("furniture.html")) {
+                filterProducts(category);
+            } else {
                 window.location.href = `furniture.html?category=${category}`;
-            }, 100);
+            }
         });
     });
 
-    // ====== DROPDOWN MENU BEHAVIOR (Hover to Open) ======
+    // ====== FIX DROPDOWN MENU HOVER ======
     document.querySelectorAll(".dropdown").forEach(dropdown => {
         dropdown.addEventListener("mouseenter", function () {
             this.querySelector(".dropdown-menu").classList.add("active");
@@ -101,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filterProductsBySearch(query) {
         const allProducts = document.querySelectorAll(".product-item");
-
         let found = false;
 
         allProducts.forEach(product => {
