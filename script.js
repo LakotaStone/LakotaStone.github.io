@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== FIX CATEGORY FILTERING IMMEDIATELY ======
+    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
@@ -40,9 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const normalizedCategory = normalizeCategory(category);
         let found = false;
 
-        // Ensure right-side navigation stays visible
-        document.querySelector(".right-side").style.display = "flex";
-
         allProducts.forEach(product => {
             if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
                 product.style.display = "block";
@@ -59,30 +56,22 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`Filtered for category: ${normalizedCategory}`);
     }
 
-    // ====== FIX CATEGORY FILTERING WITHOUT FLASHING "ALL FURNITURE" ======
+    // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
     const category = getCategoryFromURL();
-    if (category) {
-        setTimeout(() => {
-            filterProducts(category);
-        }, 10); // Small delay ensures immediate filtering
-    }
+    filterProducts(category);
 
-    // ====== FIX DROPDOWN CLICK TO FILTER CORRECTLY ======
-    document.querySelectorAll(".dropdown-menu a").forEach(link => {
+    // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
+    const categoryLinks = document.querySelectorAll(".dropdown-menu a");
+
+    categoryLinks.forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
-
-            // FIX: Ensure clicking a category immediately filters without reloading
-            if (window.location.pathname.includes("furniture.html")) {
-                filterProducts(category);
-            } else {
-                window.location.href = `furniture.html?category=${category}`;
-            }
+            window.location.href = `furniture.html?category=${category}`;
         });
     });
 
-    // ====== FIX DROPDOWN MENU HOVER ======
+    // ====== DROPDOWN MENU BEHAVIOR (Hover to Open) ======
     document.querySelectorAll(".dropdown").forEach(dropdown => {
         dropdown.addEventListener("mouseenter", function () {
             this.querySelector(".dropdown-menu").classList.add("active");
@@ -106,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filterProductsBySearch(query) {
         const allProducts = document.querySelectorAll(".product-item");
+
         let found = false;
 
         allProducts.forEach(product => {
