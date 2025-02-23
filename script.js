@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         categoryTitle.textContent = found
             ? (normalizedCategory === "all" ? "All Furniture" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
-            : No products found for "${category}";
+            : `No products found for "${category}"`;
 
-        console.log(Filtered for category: ${normalizedCategory});
+        console.log(`Filtered for category: ${normalizedCategory}`);
     }
 
     // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
-            window.location.href = furniture.html?category=${category};
+            window.location.href = `furniture.html?category=${category}`;
         });
     });
 
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.getElementById("category-title").textContent = found
-            ? Search results for: "${query}"
-            : No results found for "${query}";
+            ? `Search results for: "${query}"`
+            : `No results found for "${query}"`;
     }
 });
