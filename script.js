@@ -17,7 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
+    // ====== DEBUGGING NAVIGATION ISSUE ======
+    console.log("Checking if navigation bar exists:", document.querySelector("nav"));
+
+    // ====== CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
@@ -40,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const normalizedCategory = normalizeCategory(category);
         let found = false;
 
+        console.log(`Filtering for category: ${normalizedCategory}`);
+
         allProducts.forEach(product => {
             if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
                 product.style.display = "block";
@@ -52,8 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryTitle.textContent = found
             ? (normalizedCategory === "all" ? "All Furniture" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
             : `No products found for "${category}"`;
+    }
 
-        console.log(`Filtered for category: ${normalizedCategory}`);
+    // Ensure navigation bar visibility
+    const navMenu = document.getElementById("nav-menu");
+    if (navMenu) {
+        console.log("Nav menu found:", navMenu.innerHTML);
+    } else {
+        console.warn("Nav menu not found!");
     }
 
     // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
@@ -67,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
+            console.log(`Navigating to category: ${category}`);
             window.location.href = `furniture.html?category=${category}`;
         });
     });
