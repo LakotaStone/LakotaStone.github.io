@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let found = false;
 
         // Ensure right-side navigation stays visible
-        document.querySelector(".right-side").style.display = "flex"; 
+        document.querySelector(".right-side").style.display = "flex";
 
         allProducts.forEach(product => {
             if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Fix category title to prevent unwanted flashing
         categoryTitle.textContent = found
             ? (normalizedCategory === "all" ? "All Furniture" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
             : `No products found for "${category}"`;
@@ -60,10 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`Filtered for category: ${normalizedCategory}`);
     }
 
-    // ====== ENSURE CATEGORY FILTERING WORKS WITHOUT FLASHING ALL PRODUCTS ======
+    // ====== FIX CATEGORY FILTERING WITHOUT FLASHING "ALL FURNITURE" ======
     const category = getCategoryFromURL();
     if (category) {
-        filterProducts(category);
+        setTimeout(() => {
+            filterProducts(category);
+        }, 10); // Small delay ensures immediate filtering
     }
 
     // ====== FIX DROPDOWN CLICK TO FILTER CORRECTLY ======
@@ -72,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
 
+            // FIX: Ensure clicking a category immediately filters without reloading
             if (window.location.pathname.includes("furniture.html")) {
                 filterProducts(category);
             } else {
