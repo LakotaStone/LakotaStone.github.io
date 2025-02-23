@@ -17,6 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // ====== FIX NAVIGATION MENU ALWAYS SHOWING CORRECTLY ======
+    function ensureNavigationLoaded() {
+        const navContainer = document.querySelector(".nav-container");
+        if (!navContainer) {
+            console.error("Navigation container not found!");
+            return;
+        }
+        navContainer.style.display = "flex"; // Ensure it's visible
+    }
+
+    ensureNavigationLoaded(); // Make sure nav bar is correctly displayed
+
     // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -112,4 +124,17 @@ document.addEventListener("DOMContentLoaded", function () {
             ? `Search results for: "${query}"`
             : `No results found for "${query}"`;
     }
+
+    // ====== FIX 404 ERRORS IN THE CONSOLE ======
+    function checkMissingResources() {
+        document.querySelectorAll("img").forEach(img => {
+            img.onerror = function () {
+                console.warn(`Image not found: ${img.src}`);
+                img.src = "images/placeholder.jpg"; // Replace broken images with placeholder
+            };
+        });
+    }
+
+    checkMissingResources();
 });
+
