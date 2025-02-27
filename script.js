@@ -11,6 +11,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("JavaScript loaded successfully!");
+
+    function updateNavigation() {
+        const navMenu = document.getElementById("nav-menu");
+        if (!navMenu) return;
+
+        // Reset visibility of main categories
+        document.querySelectorAll(".dropdown").forEach(dropdown => {
+            dropdown.style.display = "block";
+        });
+
+        // Detect current page and adjust accordingly
+        if (window.location.pathname.includes("bdsm-gear.html")) {
+            document.getElementById("bdsm-gear-dropdown-btn").parentElement.style.display = "block";
+        }
+    }
+
+    updateNavigation();
+});
+    
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", (event) => {
             const name = event.target.getAttribute("data-name");
@@ -80,17 +101,24 @@ document.addEventListener("DOMContentLoaded", function () {
     categoryLinks.forEach(link => {
     link.addEventListener("click", function (event) {
         event.preventDefault();
+        const categoryLinks = document.querySelectorAll(".dropdown-menu a");
+
+categoryLinks.forEach(link => {
+    link.addEventListener("click", function (event) {
+        event.preventDefault();
         const category = this.getAttribute("href").split("=")[1];
 
-        // Detect the current page and redirect accordingly
-        if (window.location.pathname.includes("bdsm-gear.html")) {
-            window.location.href = `bdsm-gear.html?category=${category}`;
-        } else {
-            window.location.href = `furniture.html?category=${category}`;
-        }
-    });
-});
+        // Detect which page the user is on and update accordingly
+if (window.location.pathname.includes("bdsm-gear.html")) {
+    window.location.href = `bdsm-gear.html?category=${category}`;
+} else if (window.location.pathname.includes("furniture.html")) {
+    window.location.href = `furniture.html?category=${category}`;
+}
 
+// Ensure BDSM Gear dropdown stays visible
+document.querySelectorAll(".dropdown").forEach(dropdown => {
+    dropdown.style.display = "block";
+});
     // ====== DROPDOWN MENU BEHAVIOR (Hover to Open) ======
     document.querySelectorAll(".dropdown").forEach(dropdown => {
         dropdown.addEventListener("mouseenter", function () {
