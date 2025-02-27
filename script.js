@@ -11,27 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("JavaScript loaded successfully!");
-
-    function updateNavigation() {
-        const navMenu = document.getElementById("nav-menu");
-        if (!navMenu) return;
-
-        // Reset visibility of main categories
-        document.querySelectorAll(".dropdown").forEach(dropdown => {
-            dropdown.style.display = "block";
-        });
-
-        // Detect current page and adjust accordingly
-        if (window.location.pathname.includes("bdsm-gear.html")) {
-            document.getElementById("bdsm-gear-dropdown-btn").parentElement.style.display = "block";
-        }
-    }
-
-    updateNavigation();
-});
-    
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", (event) => {
             const name = event.target.getAttribute("data-name");
@@ -85,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         categoryTitle.textContent = found
-            ? (normalizedCategory === "all" ? "All Furniture" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
+            ? (normalizedCategory === "all" ? "All Products" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
             : `No products found for "${category}"`;
 
         console.log(`Filtered for category: ${normalizedCategory}`);
@@ -95,30 +74,42 @@ document.addEventListener("DOMContentLoaded", function () {
     const category = getCategoryFromURL();
     filterProducts(category);
 
+    // ====== NAVIGATION UPDATE ======
+    function updateNavigation() {
+        const navMenu = document.getElementById("nav-menu");
+        if (!navMenu) return;
+
+        document.querySelectorAll(".dropdown").forEach(dropdown => {
+            dropdown.style.display = "block";
+        });
+
+        // Ensure both Furniture & BDSM Gear remain in the nav bar
+        if (window.location.pathname.includes("furniture.html")) {
+            document.getElementById("furniture-dropdown-btn").parentElement.style.display = "block";
+        }
+        if (window.location.pathname.includes("bdsm-gear.html")) {
+            document.getElementById("bdsm-gear-dropdown-btn").parentElement.style.display = "block";
+        }
+    }
+
+    updateNavigation();
+
     // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
     const categoryLinks = document.querySelectorAll(".dropdown-menu a");
 
     categoryLinks.forEach(link => {
-    link.addEventListener("click", function (event) {
-        event.preventDefault();
-        const categoryLinks = document.querySelectorAll(".dropdown-menu a");
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const category = this.getAttribute("href").split("=")[1];
 
-categoryLinks.forEach(link => {
-    link.addEventListener("click", function (event) {
-        event.preventDefault();
-        const category = this.getAttribute("href").split("=")[1];
+            if (window.location.pathname.includes("bdsm-gear.html")) {
+                window.location.href = `bdsm-gear.html?category=${category}`;
+            } else {
+                window.location.href = `furniture.html?category=${category}`;
+            }
+        });
+    });
 
-        // Detect which page the user is on and update accordingly
-if (window.location.pathname.includes("bdsm-gear.html")) {
-    window.location.href = `bdsm-gear.html?category=${category}`;
-} else if (window.location.pathname.includes("furniture.html")) {
-    window.location.href = `furniture.html?category=${category}`;
-}
-
-// Ensure BDSM Gear dropdown stays visible
-document.querySelectorAll(".dropdown").forEach(dropdown => {
-    dropdown.style.display = "block";
-});
     // ====== DROPDOWN MENU BEHAVIOR (Hover to Open) ======
     document.querySelectorAll(".dropdown").forEach(dropdown => {
         dropdown.addEventListener("mouseenter", function () {
@@ -208,22 +199,10 @@ document.querySelectorAll(".dropdown").forEach(dropdown => {
                 cart[index].quantity++;
                 localStorage.setItem("cart", JSON.stringify(cart));
                 renderCart();
-            }
-
-            if (event.target.classList.contains("decrease-qty")) {
+            } else if (event.target.classList.contains("decrease-qty")) {
                 let index = event.target.getAttribute("data-index");
-                if (cart[index].quantity > 1) {
-                    cart[index].quantity--;
-                } else {
-                    cart.splice(index, 1);
-                }
-                localStorage.setItem("cart", JSON.stringify(cart));
-                renderCart();
-            }
-
-            if (event.target.classList.contains("remove-item")) {
-                let index = event.target.getAttribute("data-index");
-                cart.splice(index, 1);
+                if (cart[index].quantity > 1) cart[index].quantity--;
+                else cart.splice(index, 1);
                 localStorage.setItem("cart", JSON.stringify(cart));
                 renderCart();
             }
@@ -238,5 +217,6 @@ document.querySelectorAll(".dropdown").forEach(dropdown => {
         renderCart();
     }
 });
+
 
 
