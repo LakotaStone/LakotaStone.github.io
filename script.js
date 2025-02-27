@@ -78,12 +78,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const categoryLinks = document.querySelectorAll(".dropdown-menu a");
 
     categoryLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-            const category = this.getAttribute("href").split("=")[1];
+    link.addEventListener("click", function (event) {
+        event.preventDefault();
+        const category = this.getAttribute("href").split("=")[1];
+
+        // Detect the current page and redirect accordingly
+        if (window.location.pathname.includes("bdsm-gear.html")) {
+            window.location.href = `bdsm-gear.html?category=${category}`;
+        } else {
             window.location.href = `furniture.html?category=${category}`;
-        });
+        }
     });
+});
 
     // ====== DROPDOWN MENU BEHAVIOR (Hover to Open) ======
     document.querySelectorAll(".dropdown").forEach(dropdown => {
