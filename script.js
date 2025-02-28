@@ -76,23 +76,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ====== NAVIGATION UPDATE ======
     function updateNavigation() {
-        const navMenu = document.getElementById("nav-menu");
-        if (!navMenu) return;
+    const navMenu = document.getElementById("nav-menu");
+    if (!navMenu) return;
 
-        document.querySelectorAll(".dropdown").forEach(dropdown => {
-            dropdown.style.display = "block";
-        });
-
-        // Ensure both Furniture & BDSM Gear remain in the nav bar
-        if (window.location.pathname.includes("furniture.html")) {
-            document.getElementById("furniture-dropdown-btn").parentElement.style.display = "block";
-        }
-        if (window.location.pathname.includes("bdsm-gear.html")) {
-            document.getElementById("bdsm-gear-dropdown-btn").parentElement.style.display = "block";
-        }
-    }
-
-    updateNavigation();
+    // Ensure both Furniture & BDSM Gear remain in the nav bar
+    document.querySelectorAll(".dropdown").forEach(dropdown => {
+        dropdown.style.display = "block";
+    });
+}
 
     // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
     const categoryLinks = document.querySelectorAll(".dropdown-menu a");
