@@ -46,29 +46,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function filterProducts(category) {
-    const allProducts = document.querySelectorAll(".product-item");
-    const categoryTitle = document.getElementById("category-title");
+        const allProducts = document.querySelectorAll(".product-item");
+        const categoryTitle = document.getElementById("category-title");
 
-    if (!categoryTitle) return;
+        if (!categoryTitle) return; // Prevent errors if not on a category page
 
-    const normalizedCategory = normalizeCategory(category);
-    let found = false;
+        const normalizedCategory = normalizeCategory(category);
+        let found = false;
 
-    allProducts.forEach(product => {
-        if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
-            product.style.display = "block";
-            found = true;
-        } else {
-            product.style.display = "none";
-        }
-    });
+        allProducts.forEach(product => {
+            if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
+                product.style.display = "block";
+                found = true;
+            } else {
+                product.style.display = "none";
+            }
+        });
 
-    categoryTitle.textContent = found
-        ? (normalizedCategory === "all" ? "All Products" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
-        : `No products found for "${category}"`;
+        categoryTitle.textContent = found
+            ? (normalizedCategory === "all" ? "All Products" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
+            : `No products found for "${category}"`;
 
-    console.log(`Filtered for category: ${normalizedCategory}`);
-}
+        console.log(`Filtered for category: ${normalizedCategory}`);
+    }
 
     // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
     const category = getCategoryFromURL();
@@ -76,15 +76,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ====== NAVIGATION UPDATE ======
     function updateNavigation() {
-    const furnitureDropdown = document.getElementById("furniture-dropdown-btn");
-    const bdsmGearDropdown = document.getElementById("bdsm-gear-dropdown-btn");
+        const navMenu = document.getElementById("nav-menu");
+        if (!navMenu) return;
 
-    if (furnitureDropdown && bdsmGearDropdown) {
-        // Always keep both dropdowns visible
-        furnitureDropdown.parentElement.style.display = "block";
-        bdsmGearDropdown.parentElement.style.display = "block";
-    }
-}
+        document.querySelectorAll(".dropdown").forEach(dropdown => {
+            dropdown.style.display = "block";
+        });
 
         // Ensure both Furniture & BDSM Gear remain in the nav bar
         if (window.location.pathname.includes("furniture.html")) {
@@ -220,6 +217,5 @@ document.addEventListener("DOMContentLoaded", function () {
         renderCart();
     }
 });
-
 
 
