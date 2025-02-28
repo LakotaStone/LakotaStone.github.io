@@ -37,13 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
         return urlParams.get("category") || "all";
     }
 
-    function normalizeCategory(category) {
-        return category
-            .toLowerCase()
-            .replace(/_/g, "-")  // Replace underscores with dashes
-            .replace(/\s+/g, "-") // Replace spaces with dashes
-            .replace(/[^a-z0-9-]/g, ""); // Remove special characters
-    }
+   function normalizeCategory(category) {
+    return category
+        .toLowerCase()
+        .replace(/_/g, "-")  // Keep dashes
+        .replace(/\s+/g, "-") // Keep spaces as dashes
+        .replace(/&/g, "and") // Convert "&" to "and"
+        .replace(/[^a-z0-9-]/g, ""); // Remove other special characters
+}
 
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
