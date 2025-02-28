@@ -76,12 +76,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ====== NAVIGATION UPDATE ======
     function updateNavigation() {
-        const navMenu = document.getElementById("nav-menu");
-        if (!navMenu) return;
+    const furnitureDropdown = document.getElementById("furniture-dropdown-btn");
+    const bdsmGearDropdown = document.getElementById("bdsm-gear-dropdown-btn");
 
-        document.querySelectorAll(".dropdown").forEach(dropdown => {
-            dropdown.style.display = "block";
-        });
+    if (furnitureDropdown && bdsmGearDropdown) {
+        // Always keep both dropdowns visible
+        furnitureDropdown.parentElement.style.display = "block";
+        bdsmGearDropdown.parentElement.style.display = "block";
+    }
+}
 
         // Ensure both Furniture & BDSM Gear remain in the nav bar
         if (window.location.pathname.includes("furniture.html")) {
