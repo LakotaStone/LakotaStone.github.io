@@ -46,29 +46,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function filterProducts(category) {
-        const allProducts = document.querySelectorAll(".product-item");
-        const categoryTitle = document.getElementById("category-title");
+    const allProducts = document.querySelectorAll(".product-item");
+    const categoryTitle = document.getElementById("category-title");
 
-        if (!categoryTitle) return; // Prevent errors if not on a category page
+    if (!categoryTitle) return;
 
-        const normalizedCategory = normalizeCategory(category);
-        let found = false;
+    const normalizedCategory = normalizeCategory(category);
+    let found = false;
 
-        allProducts.forEach(product => {
-            if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
-                product.style.display = "block";
-                found = true;
-            } else {
-                product.style.display = "none";
-            }
-        });
+    allProducts.forEach(product => {
+        if (normalizedCategory === "all" || product.classList.contains(normalizedCategory)) {
+            product.style.display = "block";
+            found = true;
+        } else {
+            product.style.display = "none";
+        }
+    });
 
-        categoryTitle.textContent = found
-            ? (normalizedCategory === "all" ? "All Products" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
-            : `No products found for "${category}"`;
+    categoryTitle.textContent = found
+        ? (normalizedCategory === "all" ? "All Products" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
+        : `No products found for "${category}"`;
 
-        console.log(`Filtered for category: ${normalizedCategory}`);
-    }
+    console.log(`Filtered for category: ${normalizedCategory}`);
+}
 
     // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
     const category = getCategoryFromURL();
