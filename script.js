@@ -79,10 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const navMenu = document.getElementById("nav-menu");
     if (!navMenu) return;
 
-    // Ensure both Furniture & BDSM Gear remain in the nav bar
-    document.querySelectorAll(".dropdown").forEach(dropdown => {
-        dropdown.style.display = "block";
-    });
+    // Ensure both Furniture & BDSM Gear remain visible on all pages
+    document.getElementById("furniture-dropdown-btn").parentElement.style.display = "block";
+    document.getElementById("bdsm-gear-dropdown-btn").parentElement.style.display = "block";
 }
 
     // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
