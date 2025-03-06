@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
     const category = getCategoryFromURL();
-filterProducts(category);
+    filterProducts(category);
 
     // ====== NAVIGATION UPDATE ======
     function updateNavigation() {
