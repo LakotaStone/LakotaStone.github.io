@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
     return category
         .toLowerCase()
         .replace(/_/g, "-")  // Keep dashes
-        .replace(/\s+/g, "-") // Keep spaces as dashes
+        .replace(/\s+/g, " ") // Allow spaces instead of converting to dashes
         .replace(/&/g, "and") // Convert "&" to "and"
-        .replace(/[^a-z0-9-]/g, ""); // Remove other special characters
+        .replace(/[^a-z0-9\s-]/g, ""); // Remove other special characters
 }
 
     function filterProducts(category) {
