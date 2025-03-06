@@ -1,17 +1,12 @@
-// Make getCategoryFromURL globally accessible
 window.getCategoryFromURL = function () {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get("category") || "all";
 };
+console.log("getCategoryFromURL function is now globally available!");
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script Loaded Successfully!");
     
-    // Now you can safely call getCategoryFromURL inside the script
-    console.log("Detected category:", getCategoryFromURL());
-    
-    // (Rest of your script follows...)
-});
     // ====== GLOBAL VARIABLES ======
     const cartNumber = document.getElementById("cart-count");
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
