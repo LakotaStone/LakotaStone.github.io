@@ -1,21 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("JavaScript loaded successfully!");
+    console.log("Script Loaded Successfully!");
 
-    // ====== CART FUNCTIONALITY ======
+    // ====== GLOBAL VARIABLES ======
     const cartNumber = document.getElementById("cart-count");
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+    // ====== UPDATE CART DISPLAY ======
     function updateCartDisplay() {
         if (cartNumber) {
             cartNumber.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
         }
     }
 
+    // ====== ADD TO CART FUNCTION ======
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", (event) => {
             const name = event.target.getAttribute("data-name");
             const price = parseFloat(event.target.getAttribute("data-price"));
-
             let existingItem = cart.find(item => item.name === name);
 
             if (existingItem) {
@@ -28,29 +29,22 @@ document.addEventListener("DOMContentLoaded", function () {
             updateCartDisplay();
         });
     });
-
     updateCartDisplay();
 
-    // ====== FIX CATEGORY FILTERING ON PAGE LOAD ======
+    // ====== FILTER PRODUCTS BASED ON CATEGORY ======
     function getCategoryFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("category") || "all";
     }
 
-   function normalizeCategory(category) {
-    return category
-        .toLowerCase()
-        .replace(/_/g, "-")  // Keep dashes
-        .replace(/\s+/g, " ") // Allow spaces instead of converting to dashes
-        .replace(/&/g, "and") // Convert "&" to "and"
-        .replace(/[^a-z0-9\s-]/g, ""); // Remove other special characters
-}
+    function normalizeCategory(category) {
+        return category.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and").replace(/[^a-z0-9-]/g, "");
+    }
 
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
         const categoryTitle = document.getElementById("category-title");
-
-        if (!categoryTitle) return; // Prevent errors if not on a category page
+        if (!categoryTitle) return;
 
         const normalizedCategory = normalizeCategory(category);
         let found = false;
@@ -67,81 +61,31 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryTitle.textContent = found
             ? (normalizedCategory === "all" ? "All Products" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
             : `No products found for "${category}"`;
-
-        console.log(`Filtered for category: ${normalizedCategory}`);
     }
 
-    // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
     const category = getCategoryFromURL();
     filterProducts(category);
 
-    // ====== NAVIGATION UPDATE ======
-    function updateNavigation() {
-    const navMenu = document.getElementById("nav-menu");
-    if (!navMenu) return;
-
-    // Ensure both Furniture & BDSM Gear remain visible on all pages
-    document.getElementById("furniture-dropdown-btn").parentElement.style.display = "block";
-    document.getElementById("bdsm-gear-dropdown-btn").parentElement.style.display = "block";
-}
-
-    // ====== CATEGORY NAVIGATION WITHOUT RELOADING ======
-    const categoryLinks = document.querySelectorAll(".dropdown-menu a");
-
-    categoryLinks.forEach(link => {
+    // ====== HANDLE DROPDOWN NAVIGATION ======
+    document.querySelectorAll(".dropdown-menu a").forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const category = this.getAttribute("href").split("=")[1];
-
-            if (window.location.pathname.includes("bdsm-gear.html")) {
-                window.location.href = `bdsm-gear.html?category=${category}`;
-            } else {
-                window.location.href = `furniture.html?category=${category}`;
-            }
+            const mainCategory = this.closest(".dropdown").querySelector("a").textContent.toLowerCase();
+            const targetPage = mainCategory.includes("furniture") ? "furniture.html" : "bdsm-gear.html";
+            window.location.href = `${targetPage}?category=${category}`;
         });
     });
 
-    // ====== DROPDOWN MENU BEHAVIOR (Hover to Open) ======
+    // ====== DROPDOWN MENU BEHAVIOR (HOVER TO OPEN) ======
     document.querySelectorAll(".dropdown").forEach(dropdown => {
         dropdown.addEventListener("mouseenter", function () {
             this.querySelector(".dropdown-menu").classList.add("active");
         });
-
         dropdown.addEventListener("mouseleave", function () {
             this.querySelector(".dropdown-menu").classList.remove("active");
         });
     });
-
-    // ====== SEARCH FUNCTION ======
-    const searchForm = document.getElementById("search-form");
-
-    if (searchForm) {
-        searchForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            let query = document.getElementById("search").value.toLowerCase();
-            filterProductsBySearch(query);
-        });
-    }
-
-    function filterProductsBySearch(query) {
-        const allProducts = document.querySelectorAll(".product-item");
-
-        let found = false;
-
-        allProducts.forEach(product => {
-            const productName = product.querySelector("h3").textContent.toLowerCase();
-            if (productName.includes(query)) {
-                product.style.display = "block";
-                found = true;
-            } else {
-                product.style.display = "none";
-            }
-        });
-
-        document.getElementById("category-title").textContent = found
-            ? `Search results for: "${query}"`
-            : `No results found for "${query}"`;
-    }
 
     // ====== CART PAGE FUNCTIONALITY ======
     if (document.getElementById("cart-items")) {
@@ -203,6 +147,11 @@ document.addEventListener("DOMContentLoaded", function () {
             cart = [];
             localStorage.setItem("cart", JSON.stringify(cart));
             renderCart();
+        });
+
+        renderCart();
+    }
+});
         });
 
         renderCart();
