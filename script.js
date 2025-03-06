@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script Loaded Successfully!");
+    console.log("Detected category:", getCategoryFromURL());
 
     // ====== GLOBAL VARIABLES ======
     const cartNumber = document.getElementById("cart-count");
