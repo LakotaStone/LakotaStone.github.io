@@ -1,179 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furniture - Lakotawoodworks</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furniture Products</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <div class="top-bar">
-        <p class="shipping-message">Enjoy Free Shipping on Select Domestic Orders Over $100!</p>
-    </div>
-
-    <header>
-        <h1>꒒ꍏꀘꂦ꓄ꍏꅏꂦꂦꀸꅏꂦꋪꀘꌗ</h1>
-        <p class="catchphrase">Built to withstand, designed to excite</p>
-    </header>
-
-    <nav>
-    <div class="nav-container">
-        <ul id="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#" id="furniture-dropdown-btn">Furniture</a>
-                <ul class="dropdown-menu">
-                    <li><a href="furniture.html?category=all">All</a></li>
-                    <li><a href="furniture.html?category=bedframes">Bedframes</a></li>
-                    <li><a href="furniture.html?category=st-andrews-crosses">St. Andrew's Crosses</a></li>
-                    <li><a href="furniture.html?category=fetish-boxes">Fetish Boxes</a></li>
-                    <li><a href="furniture.html?category=benches">Benches</a></li>
-                    <li><a href="furniture.html?category=pillories">Pillories</a></li>
-                    <li><a href="furniture.html?category=chairs">Chairs</a></li>
-                    <li><a href="furniture.html?category=more">More</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" id="bdsm-gear-dropdown-btn">BDSM Gear</a>
-                <ul class="dropdown-menu">
-                    <li><a href="bdsm-gear.html?category=all">All</a></li>
-                    <li><a href="bdsm-gear.html?category=restraints">Restraints</a></li>
-                    <li><a href="bdsm-gear.html?category=harnesses">Harnesses</a></li>
-                    <li><a href="bdsm-gear.html?category=hoods-blindfolds">Hoods & Blindfolds</a></li>
-                    <li><a href="bdsm-gear.html?category=gags-muzzles">Gags & Muzzles</a></li>
-                    <li><a href="bdsm-gear.html?category=chastity">Chastity</a></li>
-                    <li><a href="bdsm-gear.html?category=cbt">CBT</a></li>
-                    <li><a href="bdsm-gear.html?category=more">More</a></li>
-                </ul>
-            </li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+<body data-main-category="Furniture">
+  <!-- Navigation Menu -->
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" id="bdsm-gear-dropdown-btn">BDSM Gear</a>
+        <ul class="dropdown-menu">
+          <li><a href="bdsm-gear.html?category=all">All</a></li>
+          <li><a href="bdsm-gear.html?category=restraints">Restraints</a></li>
+          <li><a href="bdsm-gear.html?category=hoods%20%26%20blindfolds">Hoods &amp; Blindfolds</a></li>
+          <li><a href="bdsm-gear.html?category=harnesses">Harnesses</a></li>
+          <li><a href="bdsm-gear.html?category=chastity">Chastity</a></li>
+          <li><a href="bdsm-gear.html?category=cbt">CBT</a></li>
         </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" id="furniture-dropdown-btn">Furniture</a>
+        <ul class="dropdown-menu">
+          <li><a href="furniture.html?category=all">All</a></li>
+          <li><a href="furniture.html?category=chairs">Chairs</a></li>
+          <li><a href="furniture.html?category=tables">Tables</a></li>
+          <li><a href="furniture.html?category=sofas">Sofas</a></li>
+          <li><a href="furniture.html?category=beds">Beds</a></li>
+        </ul>
+      </li>
+      <li><a href="cart.html">Cart (<span id="cart-number">0</span>)</a></li>
+    </ul>
+  </nav>
 
-        <!-- Right Side: Login & Search Bar -->
-        <div class="right-side">
-            <div class="login">
-                <a href="#" class="login-link">Log in</a>
-            </div>
-            <div class="search-bar">
-                <form id="search-form" action="search.html" method="GET">
-                    <input type="text" id="search" name="search" placeholder="Search..." required>
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-        </div>
+  <!-- Category Title and Search -->
+  <h2 id="category-title">All Furniture</h2>
+  <form id="search-form">
+    <input type="text" id="search" placeholder="Search products..." />
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    <!-- Furniture Products (placeholders) -->
+    <div class="product-item chairs">
+      <img src="images/placeholder.jpg" alt="Chair 1" />
+      <h3>Chair 1</h3>
+      <button class="add-to-cart" data-name="Chair 1" data-price="150">Add to Cart</button>
     </div>
-</nav>
-    
-    <div class="sub-banner">
-        <p>Our Furniture</p>
+    <div class="product-item chairs">
+      <img src="images/placeholder.jpg" alt="Chair 2" />
+      <h3>Chair 2</h3>
+      <button class="add-to-cart" data-name="Chair 2" data-price="180">Add to Cart</button>
     </div>
-
-    <div class="container">
-        <h2 id="category-title">All Furniture</h2>
-
-        <div class="product-grid">
-            <!-- Placeholder Products for Each Category -->
-            
-            <!-- Bedframes -->
-            <div class="product-item bedframes">
-                <img src="images/placeholder.jpg" alt="Bedframe">
-                <h3>Bedframe 1</h3>
-                <button class="add-to-cart" data-name="Bedframe 1" data-price="120">Add to Cart</button>
-            </div>
-
-            <div class="product-item bedframes">
-                <img src="images/placeholder.jpg" alt="Bedframe">
-                <h3>Bedframe 2</h3>
-                <button class="add-to-cart" data-name="Bedframe 2" data-price="130">Add to Cart</button>
-            </div>
-
-            <!-- St. Andrew's Crosses -->
-            <div class="product-item st-andrews-crosses">
-                <img src="images/placeholder.jpg" alt="Cross">
-                <h3>Cross 1</h3>
-                <button class="add-to-cart" data-name="Cross 1" data-price="150">Add to Cart</button>
-            </div>
-
-            <div class="product-item st-andrews-crosses">
-                <img src="images/placeholder.jpg" alt="Cross">
-                <h3>Cross 2</h3>
-                <button class="add-to-cart" data-name="Cross 2" data-price="160">Add to Cart</button>
-            </div>
-            
-            <!-- fetish boxes -->
-            <div class="product-item fetish-boxes">
-                <img src="images/placeholder.jpg" alt="Fetish-box">
-                <h3>Fetish-box 1</h3>
-                <button class="add-to-cart" data-name="Fetish-box 1" data-price="100">Add to Cart</button>
-            </div>
-
-            <div class="product-item fetish-boxes">
-                <img src="images/placeholder.jpg" alt="Fetish-box">
-                <h3>Fetish-box 2</h3>
-                <button class="add-to-cart" data-name="Fetish-box 2" data-price="110">Add to Cart</button>
-            </div>
-
-             <!-- benches -->
-            <div class="product-item benches">
-                <img src="images/placeholder.jpg" alt="Bench">
-                <h3>Bench 1</h3>
-                <button class="add-to-cart" data-name="Bench 1" data-price="100">Add to Cart</button>
-            </div>
-
-            <div class="product-item benches">
-                <img src="images/placeholder.jpg" alt="Bench">
-                <h3>Bench 2</h3>
-                <button class="add-to-cart" data-name="Bench 2" data-price="110">Add to Cart</button>
-            </div>
-
-            <!-- pillories -->
-            <div class="product-item pillories">
-                <img src="images/placeholder.jpg" alt="Pillory">
-                <h3>Pillory 1</h3>
-                <button class="add-to-cart" data-name="Pillory 1" data-price="100">Add to Cart</button>
-            </div>
-
-            <div class="product-item pillories">
-                <img src="images/placeholder.jpg" alt="Pillory">
-                <h3>Pillory 2</h3>
-                <button class="add-to-cart" data-name="Pillory 2" data-price="110">Add to Cart</button>
-            </div>
-
-            <!-- chairs -->
-            <div class="product-item chairs">
-                <img src="images/placeholder.jpg" alt="Chair">
-                <h3>Chair 1</h3>
-                <button class="add-to-cart" data-name="Chair 1" data-price="100">Add to Cart</button>
-            </div>
-
-            <div class="product-item chairs">
-                <img src="images/placeholder.jpg" alt="Chair">
-                <h3>Chair 2</h3>
-                <button class="add-to-cart" data-name="Chair 2" data-price="110">Add to Cart</button>
-            </div>
-
-            <!-- More Category -->
-            <div class="product-item more">
-                <img src="images/placeholder.jpg" alt="More">
-                <h3>More 1</h3>
-                <button class="add-to-cart" data-name="More 1" data-price="100">Add to Cart</button>
-            </div>
-
-            <div class="product-item more">
-                <img src="images/placeholder.jpg" alt="More">
-                <h3>More 2</h3>
-                <button class="add-to-cart" data-name="More 2" data-price="110">Add to Cart</button>
-            </div>
-        </div>
+    <div class="product-item tables">
+      <img src="images/placeholder.jpg" alt="Table 1" />
+      <h3>Table 1</h3>
+      <button class="add-to-cart" data-name="Table 1" data-price="300">Add to Cart</button>
     </div>
+    <div class="product-item tables">
+      <img src="images/placeholder.jpg" alt="Table 2" />
+      <h3>Table 2</h3>
+      <button class="add-to-cart" data-name="Table 2" data-price="350">Add to Cart</button>
+    </div>
+    <div class="product-item sofas">
+      <img src="images/placeholder.jpg" alt="Sofa 1" />
+      <h3>Sofa 1</h3>
+      <button class="add-to-cart" data-name="Sofa 1" data-price="500">Add to Cart</button>
+    </div>
+    <div class="product-item sofas">
+      <img src="images/placeholder.jpg" alt="Sofa 2" />
+      <h3>Sofa 2</h3>
+      <button class="add-to-cart" data-name="Sofa 2" data-price="450">Add to Cart</button>
+    </div>
+    <div class="product-item beds">
+      <img src="images/placeholder.jpg" alt="Bed 1" />
+      <h3>Bed 1</h3>
+      <button class="add-to-cart" data-name="Bed 1" data-price="800">Add to Cart</button>
+    </div>
+    <div class="product-item beds">
+      <img src="images/placeholder.jpg" alt="Bed 2" />
+      <h3>Bed 2</h3>
+      <button class="add-to-cart" data-name="Bed 2" data-price="750">Add to Cart</button>
+    </div>
+  </div> <!-- .product-grid -->
 
-    <footer>
-        <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
-    </footer>
+  <script src="script.js"></script>
 </body>
 </html>
-
 
