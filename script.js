@@ -72,10 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ====== REMOVE DELAY & FILTER IMMEDIATELY ======
-    document.addEventListener("DOMContentLoaded", function () {
     const category = getCategoryFromURL();
-    setTimeout(() => filterProducts(category), 100); // Delay filtering slightly
-});
+filterProducts(category);
 
     // ====== NAVIGATION UPDATE ======
     function updateNavigation() {
