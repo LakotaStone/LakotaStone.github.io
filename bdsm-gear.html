@@ -21,30 +21,32 @@
     <div class="nav-container">
         <ul id="nav-menu">
             <li><a href="index.html">Home</a></li>
-            <li class="dropdown main-cat">
-    <a href="furniture.html" data-main="furniture">Furniture</a>
-    <ul class="dropdown-menu sub-cat-list">
-        <li><a href="#" data-main="furniture" data-sub="bedframes">Bedframes</a></li>
-        <li><a href="#" data-main="furniture" data-sub="st-andrews-crosses">St. Andrew's Crosses</a></li>
-        <li><a href="#" data-main="furniture" data-sub="fetish-boxes">Fetish Boxes</a></li>
-        <li><a href="#" data-main="furniture" data-sub="benches">Benches</a></li>
-        <li><a href="#" data-main="furniture" data-sub="pillories">Pillories</a></li>
-        <li><a href="#" data-main="furniture" data-sub="chairs">Chairs</a></li>
-        <li><a href="#" data-main="furniture" data-sub="more">More</a></li>
-    </ul>
-</li>
-            <li class="dropdown main-cat">
-    <a href="bdsm-gear.html" data-main="bdsm-gear">BDSM Gear</a>
-    <ul class="dropdown-menu sub-cat-list">
-        <li><a href="#" data-main="bdsm-gear" data-sub="restraints">Restraints</a></li>
-        <li><a href="#" data-main="bdsm-gear" data-sub="harnesses">Harnesses</a></li>
-        <li><a href="#" data-main="bdsm-gear" data-sub="hoods-blindfolds">Hoods & Blindfolds</a></li>
-        <li><a href="#" data-main="bdsm-gear" data-sub="gags-muzzles">Gags & Muzzles</a></li>
-        <li><a href="#" data-main="bdsm-gear" data-sub="chastity">Chastity</a></li>
-        <li><a href="#" data-main="bdsm-gear" data-sub="cbt">CBT</a></li>
-        <li><a href="#" data-main="bdsm-gear" data-sub="more">More</a></li>
-    </ul>
-</li>
+            <li class="dropdown">
+                <a href="#" id="furniture-dropdown-btn">Furniture</a>
+                <ul class="dropdown-menu">
+                    <li><a href="furniture.html?category=all">All</a></li>
+                    <li><a href="furniture.html?category=bedframes">Bedframes</a></li>
+                    <li><a href="furniture.html?category=st-andrews-crosses">St. Andrew's Crosses</a></li>
+                    <li><a href="furniture.html?category=fetish-boxes">Fetish Boxes</a></li>
+                    <li><a href="furniture.html?category=benches">Benches</a></li>
+                    <li><a href="furniture.html?category=pillories">Pillories</a></li>
+                    <li><a href="furniture.html?category=chairs">Chairs</a></li>
+                    <li><a href="furniture.html?category=more">More</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" id="bdsm-gear-dropdown-btn">BDSM Gear</a>
+                <ul class="dropdown-menu">
+                    <li><a href="bdsm-gear.html?category=all">All</a></li>
+                    <li><a href="bdsm-gear.html?category=restraints">Restraints</a></li>
+                    <li><a href="bdsm-gear.html?category=harnesses">Harnesses</a></li>
+                    <li><a href="bdsm-gear.html?category=hoods-blindfolds">Hoods & Blindfolds</a></li>
+                    <li><a href="bdsm-gear.html?category=gags-muzzles">Gags & Muzzles</a></li>
+                    <li><a href="bdsm-gear.html?category=chastity">Chastity</a></li>
+                    <li><a href="bdsm-gear.html?category=cbt">CBT</a></li>
+                    <li><a href="bdsm-gear.html?category=more">More</a></li>
+                </ul>
+            </li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
@@ -102,64 +104,68 @@
 </div>
             
             <!-- hoods & blindfolds -->
-<div class="product-item" data-main="bdsm-gear" data-sub="hoods-blindfolds">
+<div class="product-item hoods-blindfolds">
     <img src="images/placeholder.jpg" alt="Hoods-Blindfolds">
     <h3>Hoods & Blindfolds 1</h3>
     <button class="add-to-cart" data-name="Hoods-Blindfolds 1" data-price="100">Add to Cart</button>
 </div>
-<div class="product-item" data-main="bdsm-gear" data-sub="hoods-blindfolds">
+<div class="product-item hoods-blindfolds">
     <img src="images/placeholder.jpg" alt="Hoods-Blindfolds">
     <h3>Hoods & Blindfolds 2</h3>
     <button class="add-to-cart" data-name="Hoods-Blindfolds 2" data-price="110">Add to Cart</button>
 </div>
 
              <!-- gags & muzzles -->
-<div class="product-item" data-main="bdsm-gear" data-sub="gags-Muzzles">
-    <img src="images/placeholder.jpg" alt="Gags-Muzzles">
-    <h3>Gags & Muzzles 1</h3>
-    <button class="add-to-cart" data-name="Gags-Muzzles 1" data-price="100">Add to Cart</button>
-</div>
-<div class="product-item" data-main="bdsm-gear" data-sub="gags-Muzzles">
-    <img src="images/placeholder.jpg" alt="Gags-Muzzles">
-    <h3>Gags & Muzzles 2</h3>
-    <button class="add-to-cart" data-name="Gags-Muzzles 2" data-price="110">Add to Cart</button>
-</div>
+            <div class="product-item gags-muzzles">
+                <img src="images/placeholder.jpg" alt="Gags-Muzzles">
+                <h3>Gags & Muzzles 1</h3>
+                <button class="add-to-cart" data-name="Gags-Muzzles 1" data-price="100">Add to Cart</button>
+            </div>
+
+            <div class="product-item gags-muzzles">
+                <img src="images/placeholder.jpg" alt="Gags-Muzzles">
+                <h3>Gags & Muzzles 2</h3>
+                <button class="add-to-cart" data-name="Gags-Muzzles 2" data-price="110">Add to Cart</button>
+            </div>
 
             <!-- chastity -->
-<div class="product-item" data-main="bdsm-gear" data-sub="chastity">
-    <img src="images/placeholder.jpg" alt="Chastity">
-    <h3>Chastity 1</h3>
-    <button class="add-to-cart" data-name="Chastity 1" data-price="100">Add to Cart</button>
-</div>
-<div class="product-item" data-main="bdsm-gear" data-sub="chastity">
-    <img src="images/placeholder.jpg" alt="Chastity">
-    <h3>Chastity 2</h3>
-    <button class="add-to-cart" data-name="Chastity 2" data-price="110">Add to Cart</button>
-</div>
+            <div class="product-item chastity">
+                <img src="images/placeholder.jpg" alt="Chastity">
+                <h3>Chastity 1</h3>
+                <button class="add-to-cart" data-name="Chastity 1" data-price="100">Add to Cart</button>
+            </div>
+
+            <div class="product-item chastity">
+                <img src="images/placeholder.jpg" alt="Chastity">
+                <h3>Chastity 2</h3>
+                <button class="add-to-cart" data-name="Chastity 2" data-price="110">Add to Cart</button>
+            </div>
 
             <!-- cbt -->
-<div class="product-item" data-main="bdsm-gear" data-sub="cbt">
-    <img src="images/placeholder.jpg" alt="CBT">
-    <h3>CBT 1</h3>
-    <button class="add-to-cart" data-name="CBT 1" data-price="100">Add to Cart</button>
-</div>
-<div class="product-item" data-main="bdsm-gear" data-sub="cbt">
-    <img src="images/placeholder.jpg" alt="CBT">
-    <h3>CBT 2</h3>
-    <button class="add-to-cart" data-name="CBT 2" data-price="110">Add to Cart</button>
-</div>
+            <div class="product-item cbt">
+                <img src="images/placeholder.jpg" alt="CBT">
+                <h3>CBT 1</h3>
+                <button class="add-to-cart" data-name="CBT 1" data-price="100">Add to Cart</button>
+            </div>
+
+            <div class="product-item cbt">
+                <img src="images/placeholder.jpg" alt="CBT">
+                <h3>CBT 2</h3>
+                <button class="add-to-cart" data-name="CBT 2" data-price="110">Add to Cart</button>
+            </div>
 
             <!-- More Category -->
-<div class="product-item" data-main="bdsm-gear" data-sub="more">
-    <img src="images/placeholder.jpg" alt="More">
-    <h3>More 1</h3>
-    <button class="add-to-cart" data-name="More 1" data-price="100">Add to Cart</button>
-</div>
-<div class="product-item" data-main="bdsm-gear" data-sub="more">
-    <img src="images/placeholder.jpg" alt="More">
-    <h3>More 2</h3>
-    <button class="add-to-cart" data-name="More 2" data-price="110">Add to Cart</button>
-</div>
+            <div class="product-item more">
+                <img src="images/placeholder.jpg" alt="More">
+                <h3>More 1</h3>
+                <button class="add-to-cart" data-name="More 1" data-price="100">Add to Cart</button>
+            </div>
+
+            <div class="product-item more">
+                <img src="images/placeholder.jpg" alt="More">
+                <h3>More 2</h3>
+                <button class="add-to-cart" data-name="More 2" data-price="110">Add to Cart</button>
+            </div>
         </div>
     </div>
 
