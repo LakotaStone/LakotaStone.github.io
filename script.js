@@ -155,4 +155,4 @@ document.addEventListener("DOMContentLoaded", function () {
     renderCart();
 }); // This closes the function properly
 
-renderCart(); // This should be inside the correct scope, not extra
+renderCart();
