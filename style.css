@@ -236,3 +236,26 @@ footer {
         grid-template-columns: repeat(1, 1fr); /* 1 column on mobile */
     }
 }
+
+/* HOVER EFFECT: Change product image on hover */
+.product-item img {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product-item:hover img {
+    opacity: 0;
+}
+
+.product-item .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product-item:hover .hover-img {
+    opacity: 1;
+}
