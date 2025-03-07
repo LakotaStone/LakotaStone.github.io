@@ -149,14 +149,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        clearCartBtn.addEventListener("click", function () {
-            cart = [];
-            localStorage.setItem("cart", JSON.stringify(cart));
-            renderCart();
-        });
+      clearCartBtn.addEventListener("click", function () {
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}); // This closes the function properly
 
-        renderCart();
-    }
-});
-        renderCart();
-});
+renderCart(); // This should be inside the correct scope, not extra
