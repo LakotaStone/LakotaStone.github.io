@@ -8,6 +8,8 @@ body, h1, p, ul, li, a {
 /* Full-page layout */
 html, body {
     height: 100%;
+    width: 100%;  /* Ensures the page takes up full width */
+    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
     display: flex;
     flex-direction: column;
     font-family: 'Merriweather', serif;
@@ -15,13 +17,6 @@ html, body {
     background-size: cover;
     color: white;
 }
-
-/* Ensure no horizontal scrolling on the whole page */
-html, body {
-    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
-    width: 100%;
-}
-
 /* Top Bar */
 .top-bar {
     text-align: center;
