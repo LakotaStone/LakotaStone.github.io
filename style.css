@@ -152,15 +152,16 @@ nav ul li a:hover {
     position: relative; /* Added for proper hover effect */
 }
 
-/* Footer - Sticks to the Bottom */
+/* Footer - Ensure it scrolls with the page */
 footer {
     text-align: center;
     padding: 10px;
     background: #2e5d34;
     color: white;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    position: relative; /* Instead of fixed */
+    bottom: 0;
+    margin-top: auto;
 }
 
 /* Responsive Design */
