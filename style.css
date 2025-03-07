@@ -26,6 +26,7 @@ html, body {
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     color: white;
     font-size: 14px;
+    z-index: 1000; /* Ensure it’s above other elements */
 }
 
 /* Header */
@@ -33,6 +34,7 @@ header {
     text-align: center;
     padding: 12px;
     background-color: #D2B48C;
+    z-index: 1000;
 }
 
 header h1 {
@@ -49,15 +51,14 @@ header p.catchphrase {
 nav {
     background-color: black;
     padding: 5px 0; /* Slimmer Nav */
+    z-index: 1000; /* Ensure it's above other elements */
+    position: relative; /* Helps with dropdown */
 }
 
+/* Ensure navigation bar structure is correct */
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1100px;
-    margin: auto;
-    align-items: center;
-    position: relative; /* Makes sure dropdown menu is positioned correctly */
+    position: relative; /* Keeps dropdowns within the nav */
+    z-index: 1001; /* Above nav but below dropdowns */
 }
 
 nav ul {
@@ -67,25 +68,8 @@ nav ul {
 }
 
 /* Ensure dropdown appears above all elements */
-nav {
-    z-index: 1000; /* Ensures nav stays above other elements */
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 6px 10px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-nav ul li a:hover {
-    color: #D2B48C;
-}
-
-/* Ensure dropdown menu is on top of other content */
 .dropdown-menu {
-    z-index: 1002; /* Higher than everything else */
+    z-index: 1002; /* Higher than all other elements */
     position: absolute;
     left: 0;
     top: 100%;
@@ -116,18 +100,20 @@ nav ul li a:hover {
     background-color: #2e5d34;
 }
 
-/* Center "Our Furniture" */
+/* Prevent sub-banner from overlapping dropdown */
 .sub-banner {
     background-color: #2e5d34;
     text-align: center;
     padding: 10px;
     font-size: 1.2em;
     font-weight: bold;
+    z-index: 999; /* Ensure it's below dropdown */
+    position: relative;
 }
 
-/* Main Content */
+/* Prevent container from covering dropdown */
 .container {
-    flex-grow: 1; /* Ensures content pushes footer down */
+    flex-grow: 1;
     max-width: 900px;
     margin: 20px auto;
     background: rgba(255, 255, 255, 0.9);
@@ -137,6 +123,8 @@ nav ul li a:hover {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     color: black;
     font-size: 1em;
+    position: relative; /* Ensures it doesn't interfere with dropdown */
+    z-index: 998; /* Ensures content stays below dropdown */
 }
 
 /* Product Grid */
@@ -167,6 +155,8 @@ footer {
     color: white;
     margin-top: auto;
     flex-shrink: 0;
+    position: relative;
+    z-index: 997;
 }
 
 /* Responsive Design */
