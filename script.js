@@ -158,7 +158,5 @@ document.addEventListener("DOMContentLoaded", function () {
         renderCart();
     }
 });
-
         renderCart();
-    }
 });
