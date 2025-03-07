@@ -45,7 +45,7 @@ header p.catchphrase {
 /* Navigation */
 nav {
     background-color: black;
-    padding: 6px 0; /* Reduced height */
+    padding: 5px 0; /* Slimmer Nav */
 }
 
 .nav-container {
@@ -63,14 +63,14 @@ nav ul {
 }
 
 nav ul li {
-    margin-right: 12px;
+    margin-right: 10px;
     position: relative;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 6px 10px; /* Reduced padding */
+    padding: 6px 10px;
     font-weight: bold;
     font-size: 14px;
 }
@@ -149,6 +149,7 @@ nav ul li a:hover {
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Added for proper hover effect */
 }
 
 /* Footer - Sticks to the Bottom */
@@ -157,10 +158,9 @@ footer {
     padding: 10px;
     background: #2e5d34;
     color: white;
-    margin-top: auto;
-    width: 100%;
-    position: relative;
+    position: absolute;
     bottom: 0;
+    width: 100%;
 }
 
 /* Responsive Design */
@@ -176,19 +176,19 @@ footer {
     }
 }
 
-/* Hover Effect */
-.product-item {
+/* Image Hover Effect */
+.image-container {
     position: relative;
+    width: 100%;
 }
 
-.product-item img {
-    transition: opacity 0.3s ease-in-out;
+.image-container img {
     display: block;
     width: 100%;
-    height: auto;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.product-item .hover-img {
+.image-container .hover-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -196,8 +196,14 @@ footer {
     height: 100%;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    z-index: 1;
 }
 
-.product-item:hover .hover-img {
+.image-container:hover .hover-img {
     opacity: 1;
+}
+
+/* Ensure Original Image Hides on Hover */
+.image-container:hover img:not(.hover-img) {
+    opacity: 0;
 }
