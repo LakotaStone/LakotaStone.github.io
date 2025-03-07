@@ -149,8 +149,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-      clearCartBtn.addEventListener("click", function () {
-    cart = [];
-    localStorage.setItem("cart", JSON.stringify(cart));
-    renderCart();
-});
+        if (clearCartBtn) {
+            clearCartBtn.addEventListener("click", function () {
+                cart = [];
+                localStorage.setItem("cart", JSON.stringify(cart));
+                renderCart();
+            });
+        }
+
+        renderCart(); // Ensure cart loads when page is opened
+    }
+}); // ✅ Correctly closing document.addEventListener
