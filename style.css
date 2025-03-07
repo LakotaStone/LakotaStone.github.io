@@ -152,16 +152,16 @@ nav ul li a:hover {
     position: relative; /* Added for proper hover effect */
 }
 
-/* Footer - Ensure it scrolls with the page */
+/* Footer - Ensure it doesn't cause horizontal scrolling */
 footer {
     text-align: center;
     padding: 10px;
     background: #2e5d34;
     color: white;
     width: 100%;
-    position: relative; /* Instead of fixed */
-    bottom: 0;
+    max-width: 100%; /* Ensures it doesn't exceed the page width */
     margin-top: auto;
+    overflow: hidden; /* Prevents unwanted overflow */
 }
 
 /* Responsive Design */
