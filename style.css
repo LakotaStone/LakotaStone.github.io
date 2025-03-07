@@ -9,6 +9,7 @@ body, h1, p, ul, li, a {
 html, body {
     height: 100%;
     width: 100%;
+    min-height: 100vh; /* Ensures content fills full screen */
     overflow-x: hidden; /* Prevents horizontal scrolling */
     display: flex;
     flex-direction: column;
@@ -48,6 +49,8 @@ header p.catchphrase {
 nav {
     background-color: black;
     padding: 5px 0; /* Slimmer Nav */
+    position: relative; /* Required for dropdown stacking */
+    z-index: 1000;
 }
 
 .nav-container {
@@ -94,6 +97,7 @@ nav ul li a:hover {
     padding: 8px 0;
     border-radius: 5px;
     font-size: 14px;
+    z-index: 2000; /* Ensures dropdown stays above everything */
 }
 
 .dropdown:hover .dropdown-menu {
@@ -114,18 +118,20 @@ nav ul li a:hover {
     background-color: #2e5d34;
 }
 
-/* Center "Our Furniture" */
+/* Prevent sub-banner from overlapping dropdown */
 .sub-banner {
     background-color: #2e5d34;
     text-align: center;
     padding: 10px;
     font-size: 1.2em;
     font-weight: bold;
+    position: relative; /* Ensures dropdown stays above */
+    z-index: 999;
 }
 
 /* Main Content */
 .container {
-    flex: 1; /* Ensures content pushes footer down */
+    flex-grow: 1; /* Ensures content fills space */
     max-width: 900px;
     margin: 20px auto;
     background: rgba(255, 255, 255, 0.9);
@@ -135,6 +141,8 @@ nav ul li a:hover {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     color: black;
     font-size: 1em;
+    position: relative; /* Ensures it doesn't interfere with dropdown */
+    z-index: 1; /* Keeps it below nav dropdown */
 }
 
 /* Product Grid */
@@ -156,17 +164,17 @@ nav ul li a:hover {
     position: relative; /* For hover effect */
 }
 
-/* Footer - Fix position & prevent horizontal scrolling */
+/* Footer - Ensures it stays at the bottom */
 footer {
     width: 100%;
     text-align: center;
     padding: 10px;
     background: #2e5d34;
     color: white;
-    margin-top: auto;
+    margin-top: auto; /* Pushes footer down */
     flex-shrink: 0;
     position: relative;
-    bottom: 0;
+    z-index: 1;
 }
 
 /* Responsive Design */
