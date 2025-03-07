@@ -64,9 +64,10 @@ nav ul {
     align-items: center;
 }
 
-nav ul li {
-    margin-right: 10px;
-    position: relative;
+/* Ensure dropdown appears above all elements */
+nav {
+    position: relative; /* Ensures dropdown stays within nav context */
+    z-index: 1000; /* Makes sure nav stays above other elements */
 }
 
 nav ul li a {
@@ -81,9 +82,9 @@ nav ul li a:hover {
     color: #D2B48C;
 }
 
-/* Dropdown Menu */
+/* Ensure dropdown menu is on top of other content */
 .dropdown-menu {
-    display: none;
+    z-index: 1001; /* Higher than nav */
     position: absolute;
     left: 0;
     top: 100%;
@@ -95,7 +96,6 @@ nav ul li a:hover {
     border-radius: 5px;
     font-size: 14px;
 }
-
 .dropdown:hover .dropdown-menu {
     display: block;
 }
