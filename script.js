@@ -153,6 +153,4 @@ document.addEventListener("DOMContentLoaded", function () {
     cart = [];
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
-}); // This closes the function properly
-
-renderCart();
+});
