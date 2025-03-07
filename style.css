@@ -16,6 +16,12 @@ html, body {
     color: white;
 }
 
+/* Ensure no horizontal scrolling on the whole page */
+html, body {
+    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+    width: 100%;
+}
+
 /* Top Bar */
 .top-bar {
     text-align: center;
