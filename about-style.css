@@ -1,0 +1,57 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2A4D38; /* Pine Green */
+    color: white;
+    text-align: center;
+}
+
+/* Centered Content */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #1E3A2F; /* Darker Pine Green */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Styling */
+header {
+    background-color: #144D2F; /* Deep Pine Green */
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #A8E6A3; /* Soft Green for contrast */
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #D4F8D4; /* Lighter Green on hover */
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #144D2F;
+}
