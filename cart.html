@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Lakotawoodworks</title>
+    <link rel="stylesheet" href="cart-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1 class="catchphrase">Built to withstand, designed to excite</h1>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="furniture.html">Furniture</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="cart"><a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="#" class="login">Log in</a>
+                <div class="search-bar">
+                    <form id="search-form" action="search.html" method="GET">
+                        <input type="text" id="search" name="search" placeholder="Search..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sub-banner">
+        <p>Your Cart</p>
+    </div>
+
+    <div class="container">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <p id="cart-total">Total: $0</p>
+        <button id="clear-cart">Clear Cart</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
 
