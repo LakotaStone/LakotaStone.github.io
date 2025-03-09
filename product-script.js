@@ -1,36 +1,75 @@
-// Switch main image when thumbnail is clicked
-function changeImage(src) {
-    document.getElementById('main-image').src = src;
-}
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Product Script Loaded Successfully!");
 
-// Quantity Selector Logic
-const quantityInput = document.getElementById('quantity');
-const incrementBtn = document.querySelector('.quantity-increase');
-const decrementBtn = document.querySelector('.quantity-decrease');
+    // ====== DROPDOWN MENU BEHAVIOR (HOVER TO OPEN) ======
+    document.querySelectorAll(".dropdown").forEach(dropdown => {
+        dropdown.addEventListener("mouseenter", function () {
+            this.querySelector(".dropdown-menu").classList.add("active");
+        });
+        dropdown.addEventListener("mouseleave", function () {
+            this.querySelector(".dropdown-menu").classList.remove("active");
+        });
+    });
 
-// Increase Quantity
-if (incrementBtn) {
-    incrementBtn.addEventListener('click', () => {
+    // ====== IMAGE SWITCHER FOR PRODUCT PAGE ======
+    function changeImage(src) {
+        document.getElementById("main-image").src = src;
+    }
+    document.querySelectorAll(".thumbnails img").forEach(img => {
+        img.addEventListener("click", function () {
+            changeImage(this.src);
+        });
+    });
+
+    // ====== QUANTITY SELECTOR LOGIC ======
+    const quantityInput = document.getElementById("quantity");
+    const incrementBtn = document.createElement("button");
+    const decrementBtn = document.createElement("button");
+
+    incrementBtn.textContent = "+";
+    decrementBtn.textContent = "-";
+    incrementBtn.classList.add("quantity-increase");
+    decrementBtn.classList.add("quantity-decrease");
+
+    quantityInput.parentNode.insertBefore(decrementBtn, quantityInput);
+    quantityInput.parentNode.insertBefore(incrementBtn, quantityInput.nextSibling);
+
+    incrementBtn.addEventListener("click", () => {
         quantityInput.value = parseInt(quantityInput.value) + 1;
     });
-}
 
-// Decrease Quantity (minimum 1)
-if (decrementBtn) {
-    decrementBtn.addEventListener('click', () => {
+    decrementBtn.addEventListener("click", () => {
         if (parseInt(quantityInput.value) > 1) {
             quantityInput.value = parseInt(quantityInput.value) - 1;
         }
     });
-}
 
-// Simulated Add to Cart (expandable later)
-const addToCartButton = document.querySelector('.add-to-cart');
-if (addToCartButton) {
-    addToCartButton.addEventListener('click', () => {
-        const quantity = quantityInput.value;
+    // ====== ADD TO CART FUNCTION (MATCHES MAIN SCRIPT LOGIC) ======
+    const cartNumber = document.getElementById("cart-count");
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function updateCartDisplay() {
+        if (cartNumber) {
+            cartNumber.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+    }
+
+    document.querySelector(".add-to-cart").addEventListener("click", function () {
+        const name = document.querySelector(".product-details h1").textContent;
+        const price = parseFloat(document.querySelector(".price").textContent.replace("$", ""));
+        const quantity = parseInt(quantityInput.value);
+
+        let existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            cart.push({ name, price, quantity });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
         alert(`Added ${quantity} item(s) to your cart.`);
-        // Integration with actual cart logic can be added here later
     });
-}
 
+    updateCartDisplay();
+});
