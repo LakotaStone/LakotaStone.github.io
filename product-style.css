@@ -1,58 +1,250 @@
-// ====== DROPDOWN MENU BEHAVIOR (HOVER TO OPEN) ======
-document.querySelectorAll(".dropdown").forEach(dropdown => {
-    dropdown.addEventListener("mouseenter", function () {
-        this.querySelector(".dropdown-menu").classList.add("active");
-    });
-    dropdown.addEventListener("mouseleave", function () {
-        this.querySelector(".dropdown-menu").classList.remove("active");
-    });
-});
-
-// ====== Quantity Selector ======
-const quantityInput = document.getElementById("quantity");
-const addToCartButton = document.querySelector(".add-to-cart");
-
-// ====== Ensure Quantity is Valid ======
-if (quantityInput) {
-    quantityInput.addEventListener("input", () => {
-        if (quantityInput.value < 1) {
-            quantityInput.value = 1;
-        }
-    });
+/* Reset */
+body, h1, p, ul, li, a, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-// ====== Image Switcher on Thumbnail Click ======
-function changeImage(src) {
-    document.getElementById("main-image").src = src;
+/* Body Styling */
+body {
+    font-family: 'Merriweather', serif;
+    background-color: white;
+    color: black;
 }
 
-// ====== ADD TO CART FUNCTION (INTEGRATED WITH LOCAL STORAGE) ======
-if (addToCartButton) {
-    addToCartButton.addEventListener("click", () => {
-        const name = document.querySelector(".product-details h1").textContent;
-        const price = parseFloat(document.querySelector(".price").textContent.replace("$", ""));
-        const quantity = parseInt(quantityInput.value);
-
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let existingItem = cart.find(item => item.name === name);
-
-        if (existingItem) {
-            existingItem.quantity += quantity;
-        } else {
-            cart.push({ name, price, quantity });
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-        updateCartDisplay();
-        alert(`Added ${quantity} ${name}(s) to your cart.`);
-    });
+/* Navigation */
+nav {
+    background-color: black;
+    padding: 10px 0;
 }
 
-// ====== CART COUNT UPDATE ======
-const cartNumber = document.getElementById("cart-count");
-function updateCartDisplay() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartNumber.textContent = totalItems;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
 }
-updateCartDisplay();
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 15px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav ul li a:hover {
+    color: #D2B48C;
+}
+
+/* Dropdown Styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
+    border-radius: 4px;
+    z-index: 2000;
+    width: 200px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    padding: 8px 12px;
+    display: block;
+    color: white;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #2e5d34;
+}
+
+/* Right Side (Login & Search) */
+.right-side {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #2e5d34;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #D2B48C;
+}
+
+/* Cart Count */
+.cart {
+    color: white;
+    font-weight: bold;
+}
+
+/* Product Container */
+.product-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Gallery */
+.product-gallery {
+    flex: 1;
+}
+
+.product-gallery img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.thumbnails img {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+}
+
+.thumbnails img:hover {
+    border-color: #2e5d34;
+}
+
+/* Product Details */
+.product-details {
+    flex: 1;
+}
+
+.product-details h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.price {
+    color: green;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.sku {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Quantity Selector */
+#quantity {
+    width: 60px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.quantity-increase, .quantity-decrease {
+    padding: 5px 10px;
+    border: none;
+    background-color: #2e5d34;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.quantity-increase:hover, .quantity-decrease:hover {
+    background-color: #D2B48C;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    padding: 8px 16px;
+    background-color: #2e5d34;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-to-cart:hover {
+    background-color: #D2B48C;
+}
+
+/* Related Products */
+.related-products {
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.related-products h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2e5d34;
+}
+
+.related-products-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.related-products-grid a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.related-products-grid img {
+    width: 150px;
+    border-radius: 4px;
+    transition: transform 0.3s;
+}
+
+.related-products-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #2e5d34;
+    color: white;
+    margin-top: 20px;
+    border-radius: 4px;
+}
