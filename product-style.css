@@ -1,221 +1,58 @@
-/* General Reset */
-body, h1, p, ul, li, a {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// ====== DROPDOWN MENU BEHAVIOR (HOVER TO OPEN) ======
+document.querySelectorAll(".dropdown").forEach(dropdown => {
+    dropdown.addEventListener("mouseenter", function () {
+        this.querySelector(".dropdown-menu").classList.add("active");
+    });
+    dropdown.addEventListener("mouseleave", function () {
+        this.querySelector(".dropdown-menu").classList.remove("active");
+    });
+});
+
+// ====== Quantity Selector ======
+const quantityInput = document.getElementById("quantity");
+const addToCartButton = document.querySelector(".add-to-cart");
+
+// ====== Ensure Quantity is Valid ======
+if (quantityInput) {
+    quantityInput.addEventListener("input", () => {
+        if (quantityInput.value < 1) {
+            quantityInput.value = 1;
+        }
+    });
 }
 
-/* Full-page layout */
-html, body {
-    height: 100%;
-    width: 100%;
-    min-height: 100vh; /* Ensures content fills full screen */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    display: flex;
-    flex-direction: column;
-    font-family: 'Merriweather', serif;
-    color: white;
+// ====== Image Switcher on Thumbnail Click ======
+function changeImage(src) {
+    document.getElementById("main-image").src = src;
 }
 
-/* Top Bar */
-.top-bar {
-    text-align: center;
-    padding: 8px;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    color: white;
-    font-size: 14px;
+// ====== ADD TO CART FUNCTION (INTEGRATED WITH LOCAL STORAGE) ======
+if (addToCartButton) {
+    addToCartButton.addEventListener("click", () => {
+        const name = document.querySelector(".product-details h1").textContent;
+        const price = parseFloat(document.querySelector(".price").textContent.replace("$", ""));
+        const quantity = parseInt(quantityInput.value);
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let existingItem = cart.find(item => item.name === name);
+
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            cart.push({ name, price, quantity });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+        alert(`Added ${quantity} ${name}(s) to your cart.`);
+    });
 }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 12px;
-    background-color: #D2B48C;
+// ====== CART COUNT UPDATE ======
+const cartNumber = document.getElementById("cart-count");
+function updateCartDisplay() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartNumber.textContent = totalItems;
 }
-
-header h1 {
-    color: #2e5d34;
-    font-size: 28px;
-}
-
-header p.catchphrase {
-    font-size: 16px;
-    color: white;
-}
-
-/* Navigation */
-nav {
-    background-color: black;
-    padding: 5px 0; /* Slimmer Nav */
-    position: relative; /* Required for dropdown stacking */
-    z-index: 1000;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1100px;
-    margin: auto;
-    align-items: center;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-nav ul li {
-    margin-right: 10px;
-    position: relative;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 6px 10px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-nav ul li a:hover {
-    color: #D2B48C;
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    width: 200px;
-    list-style: none;
-    padding: 8px 0;
-    border-radius: 5px;
-    font-size: 14px;
-    z-index: 2000; /* Ensures dropdown stays above everything */
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li {
-    padding: 10px;
-}
-
-.dropdown-menu li a {
-    text-decoration: none;
-    color: white;
-    display: block;
-}
-
-.dropdown-menu li a:hover {
-    background-color: #2e5d34;
-}
-
-/* Prevent sub-banner from overlapping dropdown */
-.sub-banner {
-    background-color: #2e5d34;
-    text-align: center;
-    padding: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-    position: relative; /* Ensures dropdown stays above */
-    z-index: 999;
-}
-
-/* Main Content */
-.container {
-    flex-grow: 1; /* Ensures content fills space */
-    max-width: 900px;
-    margin: 20px auto;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    color: black;
-    font-size: 1em;
-    position: relative; /* Ensures it doesn't interfere with dropdown */
-    z-index: 1; /* Keeps it below nav dropdown */
-}
-
-/* Product Grid */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
-    gap: 15px;
-    margin: 20px auto;
-    max-width: 1100px;
-}
-
-/* Product Items */
-.product-item {
-    background: white;
-    padding: 15px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative; /* For hover effect */
-}
-
-/* Footer - Ensures it stays at the bottom */
-footer {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    background: #2e5d34;
-    color: white;
-    margin-top: auto; /* Pushes footer down */
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .product-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
-/* Image Hover Effect */
-.image-container {
-    position: relative;
-    width: 100%;
-}
-
-.image-container img {
-    display: block;
-    width: 100%;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.image-container .hover-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    z-index: 1;
-}
-
-.image-container:hover .hover-img {
-    opacity: 1;
-}
-
-/* Ensure Original Image Hides on Hover */
-.image-container:hover img:not(.hover-img) {
-    opacity: 0;
-}
+updateCartDisplay();
