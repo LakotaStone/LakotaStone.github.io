@@ -1,45 +1,81 @@
-/* Reset */
-body, h1, p, ul, li, a, input, button {
+/* General Reset */
+body, h1, p, ul, li, a {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styling */
-body {
+/* Full-page layout */
+html, body {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh; /* Ensures content fills full screen */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    display: flex;
+    flex-direction: column;
     font-family: 'Merriweather', serif;
-    background-color: white;
-    color: black;
+    background: url('chisil.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* Top Bar */
+.top-bar {
+    text-align: center;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    font-size: 14px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 12px;
+    background-color: #D2B48C;
+}
+
+header h1 {
+    color: #2e5d34;
+    font-size: 28px;
+}
+
+header p.catchphrase {
+    font-size: 16px;
+    color: white;
 }
 
 /* Navigation */
 nav {
     background-color: black;
-    padding: 10px 0;
+    padding: 5px 0; /* Slimmer Nav */
+    position: relative; /* Required for dropdown stacking */
+    z-index: 1000;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 nav ul li {
-    margin-right: 15px;
+    margin-right: 10px;
     position: relative;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 8px 12px;
+    padding: 6px 10px;
     font-weight: bold;
     font-size: 14px;
 }
@@ -48,62 +84,49 @@ nav ul li a:hover {
     color: #D2B48C;
 }
 
-/* Dropdown Styling */
+/* Dropdown Menu */
 .dropdown-menu {
     display: none;
     position: absolute;
     left: 0;
     top: 100%;
     background-color: rgba(0, 0, 0, 0.9);
-    padding: 10px 0;
-    border-radius: 4px;
-    z-index: 2000;
+    color: white;
     width: 200px;
+    list-style: none;
+    padding: 8px 0;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 2000; /* Ensures dropdown stays above everything */
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
+.dropdown-menu li {
+    padding: 10px;
+}
+
 .dropdown-menu li a {
-    padding: 8px 12px;
-    display: block;
+    text-decoration: none;
     color: white;
+    display: block;
 }
 
 .dropdown-menu li a:hover {
     background-color: #2e5d34;
 }
 
-/* Right Side (Login & Search) */
-.right-side {
-    display: flex;
-    align-items: center;
-}
-
-.search-bar input {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.search-bar button {
-    padding: 5px 10px;
-    border: none;
+/* Prevent sub-banner from overlapping dropdown */
+.sub-banner {
     background-color: #2e5d34;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.search-bar button:hover {
-    background-color: #D2B48C;
-}
-
-/* Cart Count */
-.cart {
-    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
     font-weight: bold;
+    position: relative; /* Ensures dropdown stays above */
+    z-index: 999;
 }
 
 /* Product Container */
