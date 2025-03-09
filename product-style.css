@@ -14,8 +14,6 @@ html, body {
     display: flex;
     flex-direction: column;
     font-family: 'Merriweather', serif;
-    background: url('chisil.jpg') no-repeat center center fixed;
-    background-size: cover;
     color: white;
 }
 
