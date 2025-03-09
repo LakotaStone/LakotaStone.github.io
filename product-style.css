@@ -307,12 +307,15 @@ nav ul li a:hover {
     color: #2e5d34;
 }
 
-/* Footer */
+/* Footer - Ensures it stays at the bottom */
 footer {
+    width: 100%;
     text-align: center;
-    padding: 15px;
-    background-color: #2e5d34;
+    padding: 10px;
+    background: #2e5d34;
     color: white;
-    margin-top: 20px;
-    border-radius: 4px;
+    margin-top: auto; /* Pushes footer down */
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
 }
