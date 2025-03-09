@@ -260,6 +260,53 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
+.product-description h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #2e5d34;
+}
+
+.product-description h3 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #2e5d34;
+}
+
+.product-description p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #2d2d2d; /* Darker for better readability */
+    font-size: 16px;
+}
+
+.product-description ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.product-description ul li {
+    margin-bottom: 10px;
+    padding-left: 26px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.product-description ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2e5d34;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Ensure DM and custom messages are bold */
+.product-description strong {
+    color: #2e5d34;
+}
+
 /* Footer */
 footer {
     text-align: center;
