@@ -1,9 +1,24 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* General Reset */
+body, h1, p, ul, li, a {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+/* Main Page Layout */
+html, body {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Merriweather', serif;
+    background: white;
+    color: black;
+}
+
+/* Navigation */
 nav ul {
     list-style: none;
     display: flex;
@@ -28,6 +43,7 @@ nav ul li a:hover {
     flex-wrap: wrap;
     gap: 40px;
     padding: 20px;
+    background: white;
 }
 
 .product-gallery img {
@@ -61,6 +77,7 @@ nav ul li a:hover {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
 }
 
 .product-details h1 {
@@ -142,9 +159,13 @@ nav ul li a:hover {
 }
 
 footer {
+    width: 100%;
     text-align: center;
-    padding: 20px;
-    background-color: #f5f5f5;
-    color: #555;
-    margin-top: 40px;
+    padding: 10px;
+    background: #2e5d34;
+    color: white;
+    margin-top: auto;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
 }
