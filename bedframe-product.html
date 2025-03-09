@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedframe A - Lakotawoodworks</title>
+    <link rel="stylesheet" href="product-style.css">
+    <script src="product-script.js" defer></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="furniture.html">Furniture</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+    <div class="product-container">
+        <div class="product-gallery">
+            <img id="main-image" src="images/furniture/bedframe1.jpg" alt="Bedframe A">
+            <div class="thumbnails">
+                <img src="images/furniture/bedframe1.jpg" onclick="changeImage(this.src)">
+                <img src="images/furniture/bedframe11.jpg" onclick="changeImage(this.src)">
+                <img src="images/furniture/bedframe111.jpg" onclick="changeImage(this.src)">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1>Bedframe A</h1>
+            <p class="price">$450.00</p>
+            <p class="sku">SKU: BF001</p>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+            <button class="add-to-cart">Add to Cart</button>
+
+            <p class="description">
+                This handcrafted bedframe is made from the finest materials, designed for durability and style. Perfect for elevating your bedroom aesthetic.
+            </p>
+        </div>
+    </div>
+
+    <section class="related-products">
+        <h2>Related Products</h2>
+        <div class="related-products-grid">
+            <a href="bedframe-b.html">
+                <img src="images/furniture/bedframe2.jpg" alt="Bedframe B">
+                <p>Bedframe B</p>
+            </a>
+            <a href="bedframe-c.html">
+                <img src="images/furniture/placeholder.jpg" alt="Placeholder">
+                <p>Bedframe C</p>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
