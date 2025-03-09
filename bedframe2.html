@@ -11,35 +11,70 @@
 
     <!-- Navigation -->
     <nav>
-        <ul>
+    <div class="nav-container">
+        <ul id="nav-menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="furniture.html">Furniture</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li class="dropdown">
+                <a href="#" id="furniture-dropdown-btn">Furniture</a>
+                <ul class="dropdown-menu">
+                    <li><a href="furniture.html?category=all">All</a></li>
+                    <li><a href="furniture.html?category=bedframes">Bedframes</a></li>
+                    <li><a href="furniture.html?category=st-andrews-crosses">St. Andrew's Crosses</a></li>
+                    <li><a href="furniture.html?category=fetish-boxes">Fetish Boxes</a></li>
+                    <li><a href="furniture.html?category=benches">Benches</a></li>
+                    <li><a href="furniture.html?category=pillories">Pillories</a></li>
+                    <li><a href="furniture.html?category=chairs">Chairs</a></li>
+                    <li><a href="furniture.html?category=more">More</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" id="bdsm-gear-dropdown-btn">BDSM Gear</a>
+                <ul class="dropdown-menu">
+                    <li><a href="bdsm-gear.html?category=all">All</a></li>
+                    <li><a href="bdsm-gear.html?category=restraints">Restraints</a></li>
+                    <li><a href="bdsm-gear.html?category=harnesses">Harnesses</a></li>
+                    <li><a href="bdsm-gear.html?category=hoods-blindfolds">Hoods and Blindfolds</a></li>
+                    <li><a href="bdsm-gear.html?category=gags-muzzles">Gags and Muzzles</a></li>
+                    <li><a href="bdsm-gear.html?category=chastity">Chastity</a></li>
+                    <li><a href="bdsm-gear.html?category=cbt">CBT</a></li>
+                    <li><a href="bdsm-gear.html?category=more">More</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="cart"><a href="cart.html">🏍️ Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
-    </nav>
-
-    <div class="product-container">
-        <div class="product-gallery">
-            <img id="main-image" src="images/furniture/bedframe2.jpg" alt="Bedframe 2">
-            <div class="thumbnails">
-                <img src="images/furniture/bedframe2.jpg" onclick="changeImage(this.src)">
-                <img src="images/furniture/bedframe22.jpg" onclick="changeImage(this.src)">
-                <img src="images/furniture/bedframe222.jpg" onclick="changeImage(this.src)">
+        <div class="right-side">
+            <div class="login">
+                <a href="#" class="login-link">Log in</a>
+            </div>
+            <div class="search-bar">
+                <form id="search-form" action="search.html" method="GET">
+                    <input type="text" id="search" name="search" placeholder="Search..." required>
+                    <button type="submit">Search</button>
+                </form>
             </div>
         </div>
+    </div>
+</nav>
 
-        <div class="product-details">
-            <h1>Luxury Bedframe</h1>
-            <p class="price">$550.00</p>
-            <p class="sku">SKU: BF002</p>
-
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" value="1">
-            <button class="add-to-cart">Add to Cart</button>
-
-            <p class="description">
-                This luxury bedframe is crafted with premium materials, offering exceptional durability and a sophisticated design.
-            </p>
+    <div class="container">
+        <h2>Luxury Bedframe</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <div class="image-container">
+                    <img src="images/furniture/bedframe2.jpg" alt="Bedframe 2">
+                    <img class="hover-img" src="images/furniture/bedframe22.jpg" alt="Bedframe 2 Hover">
+                </div>
+                <p class="price">$550.00</p>
+                <p class="sku">SKU: BF002</p>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                <button class="add-to-cart">Add to Cart</button>
+                <p class="description">
+                    This luxury bedframe is crafted with premium materials, offering exceptional durability and a sophisticated design.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -64,6 +99,10 @@
             </a>
         </div>
     </section>
+
+    <footer>
+        <p>&copy; 2024 Lakotawoodworks. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
