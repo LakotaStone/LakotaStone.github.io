@@ -259,6 +259,68 @@ nav ul li a:hover {
     color: #2e5d34;
 }
 
+/* Related Products Section */
+.related-products {
+    margin: 40px auto;
+    max-width: 1100px;
+}
+
+/* Related Products Heading */
+.related-products h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2e5d34;
+}
+
+/* Related Products Grid */
+.related-products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual Product Card */
+.related-products-grid a {
+    width: 30%;  /* Ensures they align horizontally */
+    min-width: 200px;  /* Ensures they don't get too small */
+    max-width: 300px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Product Image */
+.related-products-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Product Name */
+.related-products-grid p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #2e5d34;
+}
+
+/* Hover Effect for Product Cards */
+.related-products-grid a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect for Images */
+.related-products-grid img:hover {
+    transform: scale(1.05);
+}
+
 /* Footer - Ensures it stays at the bottom */
 footer {
     width: 100%;
