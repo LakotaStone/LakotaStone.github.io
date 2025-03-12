@@ -9,14 +9,13 @@ body, h1, p, ul, li, a {
 html, body {
     height: 100%;
     width: 100%;
-    min-height: 100vh; /* Ensures content fills full screen */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    min-height: 100vh;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     font-family: 'Merriweather', serif;
-    background: no-repeat center center fixed;
-    background-size: cover;
-    color: white;
+    background-color: #fff;  /* Set a plain white background */
+    color: black;  /* Use black text for better contrast */
 }
 
 /* Top Bar */
