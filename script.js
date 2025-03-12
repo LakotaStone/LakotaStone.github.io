@@ -155,3 +155,25 @@ document.addEventListener("DOMContentLoaded", function () {
         renderCart(); // Ensure cart loads when page is opened
     }
 });
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+// Auto Slide Every 5 Seconds
+setInterval(() => {
+    nextSlide();
+}, 5000);
+
+// Next Slide Function
+function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+
+// Previous Slide Function
+function prevSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
