@@ -7,15 +7,15 @@ body, h1, p, ul, li, a {
 
 /* Full-page layout */
 html, body {
-    height: 100%;
+    height: auto;
     width: 100%;
-    min-height: 100vh;
     overflow-x: hidden;
+    overflow-y: auto;  /* Enables vertical scrolling */
     display: flex;
     flex-direction: column;
     font-family: 'Merriweather', serif;
-    background-color: #fff;  /* Set a plain white background */
-    color: black;  /* Use black text for better contrast */
+    background-color: #fff;
+    color: black;
 }
 
 /* Top Bar */
@@ -225,7 +225,6 @@ footer {
 .slider {
     position: relative;
     width: 100%;
-    max-height: 600px;
     overflow: hidden;
     margin-bottom: 20px;
 }
@@ -245,7 +244,8 @@ footer {
 /* Slide Images */
 .slide img {
     width: 100%;
-    max-height: 600px;
+    height: auto;
+    max-height: 500px;  /* Smaller height for better visibility */
     object-fit: contain;
 }
 
@@ -260,11 +260,6 @@ footer {
     color: #fff;
     max-width: 400px;
     z-index: 10;
-}
-
-/* Enable Full Page Scrolling */
-body, html {
-    overflow-y: auto;
 }
 
 /* Navigation Arrows */
@@ -292,4 +287,16 @@ body, html {
 
 .prev:hover, .next:hover {
     background: #2e5d34;
+}
+
+/* Footer - Stays at the bottom but allows scrolling */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: #2e5d34;
+    color: white;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
 }
