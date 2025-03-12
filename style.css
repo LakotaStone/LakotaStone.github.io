@@ -224,17 +224,17 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    max-width: 100%;
-    height: 600px;
+    width: 100%;
+    max-height: 500px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 /* Individual Slides */
 .slide {
     display: none;
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 100%;
 }
 
 /* Display the Active Slide */
@@ -245,16 +245,16 @@ footer {
 /* Slide Images */
 .slide img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain; /* Ensures full image is shown without cropping */
 }
 
 /* Description Overlay */
 .description {
     position: absolute;
-    top: 50%;
+    bottom: 20px;
     left: 10%;
-    transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
     border-radius: 8px;
@@ -262,31 +262,9 @@ footer {
     max-width: 400px;
 }
 
-/* Description Heading */
-.description h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-/* Description Paragraph */
-.description p {
-    font-size: 16px;
-    margin-bottom: 15px;
-}
-
-/* Small Clickable Word (Button) */
-.slide-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #2e5d34;
-    color: #fff;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.slide-button:hover {
-    background-color: #D2B48C;
+/* Enable Full Page Scrolling */
+body, html {
+    overflow-y: auto;
 }
 
 /* Navigation Arrows */
@@ -295,7 +273,7 @@ footer {
     top: 50%;
     transform: translateY(-50%);
     font-size: 30px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 10px;
     cursor: pointer;
