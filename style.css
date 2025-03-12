@@ -252,19 +252,19 @@ footer {
     box-sizing: border-box;        /* Include padding in width calculation */
 }
 
-/* Description Overlay */
+/* Description Overlay - Middle Left with Equal Side Spacing */
 .description {
     position: absolute;
-    bottom: 20px;
-    left: 50%;  
-    transform: translateX(-50%);
+    top: 50%;
+    left: 30px; /* Matches the side spacing of the image */
+    transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
-    border-radius: 8px;
     color: #fff;
     max-width: 400px;
     z-index: 10;
-    text-align: center;
+    text-align: left;
+    border-radius: 0; /* Removes rounded edges */
 }
 
 /* Navigation Arrows */
