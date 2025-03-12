@@ -224,13 +224,10 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    width: 90%;  /* Ensures equal space on left and right */
-    max-width: 1200px;
-    margin: 30px auto;  /* Equal margin on top, bottom, left, and right */
+    width: 100%;  /* Full width, no container effect */
+    margin-top: 30px;  /* Spacing from the top */
+    margin-bottom: 30px;
     overflow: hidden;
-    padding: 20px;  /* Ensures equal spacing inside the container */
-    background-color: #f9f9f9;  /* Optional: Background for better image contrast */
-    border-radius: 8px;
 }
 
 /* Individual Slides */
@@ -248,22 +245,26 @@ footer {
 /* Slide Images */
 .slide img {
     width: 100%;
-    height: 600px;   /* Increased height for larger image */
-    object-fit: cover;  /* Ensures image covers the area without stretching */
-    border-radius: 8px;
+    height: auto;
+    max-height: 600px; /* Controls image height without cropping */
+    object-fit: contain;  /* Ensures the full image is always visible */
+    display: block;
+    margin: auto;  /* Centers the image */
 }
 
 /* Description Overlay */
 .description {
     position: absolute;
     bottom: 20px;
-    left: 10%;
+    left: 50%;  
+    transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
     border-radius: 8px;
     color: #fff;
     max-width: 400px;
     z-index: 10;
+    text-align: center;
 }
 
 /* Navigation Arrows */
