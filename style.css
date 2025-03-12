@@ -224,8 +224,9 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    width: calc(100% - 100px);  /* Equal spacing on the sides (50px each side) */
-    margin: 50px auto;          /* Equal spacing on top, bottom, and sides */
+    width: calc(100% - 60px);  /* Equal spacing on the sides (30px each side) */
+    max-width: 1200px;         /* Maximum width for large screens */
+    margin: 30px auto;         /* Equal top and bottom spacing */
     overflow: hidden;
 }
 
@@ -243,19 +244,19 @@ footer {
 
 /* Slide Images */
 .slide img {
-    width: 100%;
-    height: auto;
-    max-height: 750px;     /* Larger height for better visibility */
-    object-fit: contain;   /* Ensures the image fits without cropping */
-    display: block;
-    margin: auto;
+    width: 100%;                  /* Full width of the slider */
+    height: auto;                  /* Maintain aspect ratio */
+    aspect-ratio: 4 / 3;           /* Ensure 4:3 ratio */
+    object-fit: contain;           /* Avoid cropping */
+    padding: 30px;                 /* Equal spacing inside the slider */
+    box-sizing: border-box;        /* Include padding in width calculation */
 }
 
 /* Description Overlay */
 .description {
     position: absolute;
     bottom: 20px;
-    left: 50%;
+    left: 50%;  
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
@@ -282,11 +283,11 @@ footer {
 }
 
 .prev {
-    left: 15px;
+    left: 10px;
 }
 
 .next {
-    right: 15px;
+    right: 10px;
 }
 
 .prev:hover, .next:hover {
