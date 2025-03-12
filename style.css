@@ -224,9 +224,8 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    width: 100%;  /* Full width, no container effect */
-    margin-top: 30px;  /* Spacing from the top */
-    margin-bottom: 30px;
+    width: calc(100% - 60px);  /* Equal spacing on the sides (30px each side) */
+    margin: 30px auto;         /* Equal spacing on top, bottom, and sides */
     overflow: hidden;
 }
 
@@ -246,10 +245,10 @@ footer {
 .slide img {
     width: 100%;
     height: auto;
-    max-height: 600px; /* Controls image height without cropping */
-    object-fit: contain;  /* Ensures the full image is always visible */
+    max-height: 700px; /* Larger image for better visibility */
+    object-fit: contain; /* Ensures full image is visible without cropping */
     display: block;
-    margin: auto;  /* Centers the image */
+    margin: auto;
 }
 
 /* Description Overlay */
