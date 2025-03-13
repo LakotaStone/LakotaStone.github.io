@@ -45,7 +45,7 @@ header p.catchphrase {
 }
 
 @font-face {
-    font-family: 'CustomFont'; /* Give it a name */
+    font-family: 'Quicksand'; /* Use the same name here */
     src: url('fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
