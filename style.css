@@ -252,6 +252,26 @@ footer {
     box-sizing: border-box;        /* Include padding in width calculation */
 }
 
+/* Slide Button Style */
+.slide-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Matches free shipping background */
+    color: white;                          /* Text color */
+    border: none;
+    border-radius: 0;                      /* Removes rounded edges */
+    text-decoration: none;                 /* Removes underline */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect */
+.slide-button:hover {
+    background-color: #2e5d34;              /* Hover color */
+    color: #fff;
+}
+
 /* Description Overlay - Middle Left with Equal Side Spacing */
 .description {
     position: absolute;
