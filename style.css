@@ -252,15 +252,15 @@ footer {
     box-sizing: border-box;        /* Include padding in width calculation */
 }
 
-/* Slide Button Style */
+/* Style for the Button */
 .slide-button {
-    display: inline-block;
+    align-self: flex-end;                   /* Aligns button to the bottom right */
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Matches free shipping background */
-    color: white;                          /* Text color */
+    background-color: rgba(0, 0, 0, 0.7);    /* Matches the free shipping message */
+    color: white;
     border: none;
-    border-radius: 0;                      /* Removes rounded edges */
-    text-decoration: none;                 /* Removes underline */
+    border-radius: 0;
+    text-decoration: none;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -272,19 +272,22 @@ footer {
     color: #fff;
 }
 
-/* Description Overlay - Middle Left with Equal Side Spacing */
+/* Description Overlay */
 .description {
     position: absolute;
     top: 50%;
-    left: 30px; /* Matches the side spacing of the image */
+    left: 30px;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
+    border-radius: 0;
     color: #fff;
     max-width: 400px;
     z-index: 10;
     text-align: left;
-    border-radius: 0; /* Removes rounded edges */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Navigation Arrows */
