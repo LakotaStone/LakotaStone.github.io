@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const category = this.getAttribute("href").split("=")[1];
             const mainCategory = this.closest(".dropdown").querySelector("a").textContent.toLowerCase();
             const targetPage = mainCategory.includes("furniture") ? "furniture.html" : "bdsm-gear.html";
-            window.location.href = ${targetPage}?category=${category};
+            window.location.href = `${targetPage}?category=${category}`;
         });
     });
 
@@ -111,17 +111,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const cartItem = document.createElement("div");
                 cartItem.classList.add("cart-item");
-                cartItem.innerHTML = 
-                    <img src="images/placeholder.jpg" alt="${item.name}" class="cart-item-image">
-                    <p>${item.name} - $${item.price}</p>
-                    <div class="cart-controls">
-                        <button class="decrease-qty" data-index="${index}">-</button>
-                        <span>${item.quantity}</span>
-                        <button class="increase-qty" data-index="${index}">+</button>
-                    </div>
-                    <p class="item-total">Total: $${itemTotal.toFixed(2)}</p>
-                    <button class="remove-item" data-index="${index}">Remove</button>
-                ;
+cartItem.innerHTML = `
+    <img src="images/placeholder.jpg" alt="${item.name}" class="cart-item-image">
+    <p>${item.name} - $${item.price}</p>
+    <div class="cart-controls">
+        <button class="decrease-qty" data-index="${index}">-</button>
+        <span>${item.quantity}</span>
+        <button class="increase-qty" data-index="${index}">+</button>
+    </div>
+    <p class="item-total">Total: $${itemTotal.toFixed(2)}</p>
+    <button class="remove-item" data-index="${index}">Remove</button>
+`;
                 cartItemsContainer.appendChild(cartItem);
             });
 
@@ -164,16 +164,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".slider").appendChild(dotsContainer);
 
     // Create dot indicators
-    slides.forEach((_, index) => {
-        const dot = document.createElement("span");
-        dot.classList.add("dot");
-        dot.dataset.index = index;
-        dot.addEventListener("click", () => goToSlide(index));
-        dotsContainer.appendChild(dot);
-    });
+slides.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    dot.dataset.index = index;
+    dot.addEventListener("click", () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+});
 
-    const dots = document.querySelectorAll(".dot");
-
+// Now query dots after they've been added
+const dots = document.querySelectorAll(".dot");
+    
     function showSlide(index) {
         slides.forEach((slide, i) => {
             slide.classList.remove("active");
