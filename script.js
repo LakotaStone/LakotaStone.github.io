@@ -156,24 +156,56 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
+document.addEventListener("DOMContentLoaded", function () {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const dotsContainer = document.createElement("div");
+    dotsContainer.classList.add("slider-dots");
+    document.querySelector(".slider").appendChild(dotsContainer);
 
-// Auto Slide Every 10 Seconds
-setInterval(() => {
-    nextSlide();
-}, 10000); // 10000 milliseconds = 10 seconds
+    // Create dot indicators
+    slides.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.dataset.index = index;
+        dot.addEventListener("click", () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
 
-// Next Slide Function
-function nextSlide() {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-}
+    const dots = document.querySelectorAll(".dot");
 
-// Previous Slide Function
-function prevSlide() {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-}  
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove("active");
+            dots[i].classList.remove("active");
+        });
+
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        showSlide(currentSlide);
+    }
+
+    // Initialize first slide as active
+    showSlide(currentSlide);
+
+    // Auto Slide Every 10 Seconds
+    setInterval(nextSlide, 10000);
+
+    // Button Controls
+    document.querySelector(".prev").addEventListener("click", prevSlide);
+    document.querySelector(".next").addEventListener("click", nextSlide);
+});
