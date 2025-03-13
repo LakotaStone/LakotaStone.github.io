@@ -46,7 +46,7 @@ header p.catchphrase {
 
 @font-face {
     font-family: 'CustomFont'; /* Give it a name */
-    src: url('fonts.ttf') format('truetype');
+    src: url('fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -79,7 +79,7 @@ nav ul li {
 }
 
 nav ul li a {
-    font-family: 'fonts.ttf', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     text-decoration: none;
     color: white;
     padding: 6px 10px;
