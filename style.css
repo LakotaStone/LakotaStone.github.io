@@ -44,6 +44,13 @@ header p.catchphrase {
     color: white;
 }
 
+@font-face {
+    font-family: 'CustomFont'; /* Give it a name */
+    src: url('fonts.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Navigation */
 nav {
     background-color: black;
@@ -72,6 +79,7 @@ nav ul li {
 }
 
 nav ul li a {
+    font-family: 'fonts.ttf', sans-serif;
     text-decoration: none;
     color: white;
     padding: 6px 10px;
