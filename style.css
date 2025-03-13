@@ -229,25 +229,49 @@ footer {
     opacity: 0;
 }
 
-/* Slider Wrapper */
+/* Ensure slides stack on top of each other */
 .slider {
     position: relative;
-    width: calc(100% - 60px);  /* Equal spacing on the sides (30px each side) */
-    max-width: 1200px;         /* Maximum width for large screens */
-    margin: 30px auto;         /* Equal top and bottom spacing */
+    width: calc(100% - 60px);
+    max-width: 1200px;
+    margin: 30px auto;
     overflow: hidden;
 }
 
 /* Individual Slides */
 .slide {
-    display: none;
-    position: relative;
+    position: absolute;
     width: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Smooth fade effect */
 }
 
-/* Display the Active Slide */
+/* Show active slide */
 .slide.active {
-    display: block;
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+}
+
+/* Dot Indicators */
+.slider-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.slider-dots .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.slider-dots .dot.active {
+    background-color: white; /* Highlight active slide */
 }
 
 /* Slide Images */
