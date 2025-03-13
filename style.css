@@ -243,11 +243,13 @@ footer {
     width: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    z-index: 1;
 }
 
 /* Active Slide */
 .slide.active {
     opacity: 1;
+    z-index: 2;
 }
 
 /* Slide Images */
@@ -280,18 +282,6 @@ footer {
     color: #fff;
 }
 
-/* Fade-In Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px); /* Slight upward start */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Description Overlay */
 .description {
     position: absolute;
@@ -310,13 +300,13 @@ footer {
     gap: 10px;
     opacity: 0;
     animation: fadeIn 2s ease forwards;
-    animation-delay: 1s; /* Delay before fade-in starts */
+    animation-delay: 1s;
 }
 
 /* Navigation Arrows */
 .prev, .next {
     position: absolute;
-    top: 50%; 
+    top: 50%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
@@ -330,16 +320,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* Remove border-radius for perfect square */
-.prev, .next {
     border-radius: 0;
 }
 
 /* Position arrows on the right side */
 .prev {
-    right: 70px;  /* Spaced to avoid overlap */
+    right: 70px;
 }
 
 .next {
