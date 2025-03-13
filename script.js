@@ -1,4 +1,4 @@
-ok what the difference because this code works window.getCategoryFromURL = function () {
+window.getCategoryFromURL = function () {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get("category") || "all";
 };
