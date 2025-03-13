@@ -159,21 +159,30 @@ document.addEventListener("DOMContentLoaded", function () {
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
-// Auto Slide Every 10 Seconds
+// Function to show a slide with fade effect
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+}
+
+// Auto Slide Every 10 Seconds with Fade
 setInterval(() => {
-    nextSlide();
-}, 10000); // 10000 milliseconds = 10 seconds
-
-// Next Slide Function
-function nextSlide() {
-    slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
+    showSlide(currentSlide);
+}, 10000); // 10 seconds
+
+// Manual Slide Controls
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
 }
 
-// Previous Slide Function
 function prevSlide() {
-    slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
+    showSlide(currentSlide);
 }
+
