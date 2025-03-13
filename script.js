@@ -1,4 +1,4 @@
-window.getCategoryFromURL = function () {
+ok what the difference because this code works window.getCategoryFromURL = function () {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get("category") || "all";
 };
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const category = this.getAttribute("href").split("=")[1];
             const mainCategory = this.closest(".dropdown").querySelector("a").textContent.toLowerCase();
             const targetPage = mainCategory.includes("furniture") ? "furniture.html" : "bdsm-gear.html";
-            window.location.href = `${targetPage}?category=${category}`;
+            window.location.href = ${targetPage}?category=${category};
         });
     });
 
@@ -111,17 +111,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const cartItem = document.createElement("div");
                 cartItem.classList.add("cart-item");
-cartItem.innerHTML = `
-    <img src="images/placeholder.jpg" alt="${item.name}" class="cart-item-image">
-    <p>${item.name} - $${item.price}</p>
-    <div class="cart-controls">
-        <button class="decrease-qty" data-index="${index}">-</button>
-        <span>${item.quantity}</span>
-        <button class="increase-qty" data-index="${index}">+</button>
-    </div>
-    <p class="item-total">Total: $${itemTotal.toFixed(2)}</p>
-    <button class="remove-item" data-index="${index}">Remove</button>
-`;
+                cartItem.innerHTML = 
+                    <img src="images/placeholder.jpg" alt="${item.name}" class="cart-item-image">
+                    <p>${item.name} - $${item.price}</p>
+                    <div class="cart-controls">
+                        <button class="decrease-qty" data-index="${index}">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="increase-qty" data-index="${index}">+</button>
+                    </div>
+                    <p class="item-total">Total: $${itemTotal.toFixed(2)}</p>
+                    <button class="remove-item" data-index="${index}">Remove</button>
+                ;
                 cartItemsContainer.appendChild(cartItem);
             });
 
@@ -156,57 +156,24 @@ cartItem.innerHTML = `
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".slide");
-    const dotsContainer = document.createElement("div");
-    dotsContainer.classList.add("slider-dots");
-    document.querySelector(".slider").appendChild(dotsContainer);
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
 
-    // Create dot indicators
-slides.forEach((_, index) => {
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    dot.dataset.index = index;
-    dot.addEventListener("click", () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-});
+// Auto Slide Every 10 Seconds
+setInterval(() => {
+    nextSlide();
+}, 10000); // 10000 milliseconds = 10 seconds
 
-// Now query dots after they've been added
-const dots = document.querySelectorAll(".dot");
-    
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove("active");
-            dots[i].classList.remove("active");
-        });
+// Next Slide Function
+function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
 
-        slides[index].classList.add("active");
-        dots[index].classList.add("active");
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function goToSlide(index) {
-        currentSlide = index;
-        showSlide(currentSlide);
-    }
-
-    // Initialize first slide as active
-    showSlide(currentSlide);
-
-    // Auto Slide Every 10 Seconds
-    setInterval(nextSlide, 10000);
-
-    // Button Controls
-    document.querySelector(".prev").addEventListener("click", prevSlide);
-    document.querySelector(".next").addEventListener("click", nextSlide);
-});
+// Previous Slide Function
+function prevSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+}   
