@@ -232,22 +232,22 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    width: calc(100% - 60px);  /* Equal spacing on the sides (30px each side) */
-    max-width: 1200px;         /* Maximum width for large screens */
-    margin: 30px auto;         /* Equal top and bottom spacing */
+    width: calc(100% - 60px);
+    margin: 30px auto;
     overflow: hidden;
 }
 
 /* Individual Slides */
 .slide {
-    display: none;
-    position: relative;
+    position: absolute;
     width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-/* Display the Active Slide */
+/* Active Slide */
 .slide.active {
-    display: block;
+    opacity: 1;
 }
 
 /* Slide Images */
