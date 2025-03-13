@@ -240,18 +240,14 @@ footer {
 
 /* Individual Slides */
 .slide {
-    position: absolute;
+    display: none;
+    position: relative;
     width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
 }
 
-/* Active Slide */
+/* Display the Active Slide */
 .slide.active {
-    opacity: 1;
-    z-index: 1;
+    display: block;
 }
 
 /* Slide Images */
