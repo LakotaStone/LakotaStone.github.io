@@ -159,10 +159,10 @@ document.addEventListener("DOMContentLoaded", function () {
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
-// Auto Slide Every 5 Seconds
+// Auto Slide Every 10 Seconds
 setInterval(() => {
     nextSlide();
-}, 5000);
+}, 10000); // 10000 milliseconds = 10 seconds
 
 // Next Slide Function
 function nextSlide() {
