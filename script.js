@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         categoryTitle.textContent = found
             ? (normalizedCategory === "all" ? "All Products" : category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()))
-            : No products found for "${category}";
+            : `No products found for "${category}"`;
     }
 
     const category = getCategoryFromURL();
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const category = this.getAttribute("href").split("=")[1];
             const mainCategory = this.closest(".dropdown").querySelector("a").textContent.toLowerCase();
             const targetPage = mainCategory.includes("furniture") ? "furniture.html" : "bdsm-gear.html";
-            window.location.href = ${targetPage}?category=${category};
+            window.location.href = `${targetPage}?category=${category}`;
         });
     });
 
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const cartItem = document.createElement("div");
                 cartItem.classList.add("cart-item");
-                cartItem.innerHTML = 
+                cartItem.innerHTML = `
                     <img src="images/placeholder.jpg" alt="${item.name}" class="cart-item-image">
                     <p>${item.name} - $${item.price}</p>
                     <div class="cart-controls">
@@ -121,11 +121,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <p class="item-total">Total: $${itemTotal.toFixed(2)}</p>
                     <button class="remove-item" data-index="${index}">Remove</button>
-                ;
+                `;
                 cartItemsContainer.appendChild(cartItem);
             });
 
-            cartTotal.textContent = Total: $${totalPrice.toFixed(2)};
+            cartTotal.textContent = `Total: $${totalPrice.toFixed(2)}`;
             updateCartDisplay();
         }
 
@@ -176,4 +176,4 @@ function prevSlide() {
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
     slides[currentSlide].classList.add('active');
-}   
+}
