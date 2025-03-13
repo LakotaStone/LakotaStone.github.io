@@ -252,9 +252,9 @@ footer {
     box-sizing: border-box;        /* Include padding in width calculation */
 }
 
-/* Style for the Button */
+/* Button Styling */
 .slide-button {
-    align-self: flex-end;                   /* Aligns button to the bottom right */
+    align-self: flex-end;
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.7);    /* Matches the free shipping message */
     color: white;
@@ -268,8 +268,20 @@ footer {
 
 /* Hover Effect */
 .slide-button:hover {
-    background-color: #2e5d34;              /* Hover color */
+    background-color: #2e5d34;
     color: #fff;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Slight upward start */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Description Overlay */
@@ -288,6 +300,9 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 2s; /* Delay before fade-in starts */
 }
 
 /* Navigation Arrows */
