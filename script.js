@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalSlides = slides.length;
     const slideInterval = 10000; // 10 seconds
 
-    // Set initial active slide
+    // Show initial slide
     slides[currentSlide].classList.add('active');
 
     function showSlide(index) {
