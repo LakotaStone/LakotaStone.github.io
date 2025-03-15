@@ -236,7 +236,9 @@ footer {
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
-    min-height: 600px;  /* Increased to give more vertical space */
+    height: auto;
+    padding: 30px;  /* Ensures equal padding around the slider */
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -246,9 +248,7 @@ footer {
 .slide {
     position: absolute;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    height: auto;
     opacity: 0;
     visibility: hidden;
     transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
@@ -267,11 +267,14 @@ footer {
 
 /* Images in Slider */
 .slide img {
-    max-height: 80%;     /* Controls vertical size for equal spacing */
-    max-width: 80%;      /* Ensures horizontal spacing */
-    object-fit: contain; /* Maintains aspect ratio */
-    padding: 30px;       /* Ensures equal space around the image */
-    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    max-width: 80%;      /* Ensures consistent horizontal spacing */
+    max-height: 80vh;    /* Viewport-based to ensure vertical spacing */
+    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
+    object-fit: contain; /* Ensures no cropping */
+    display: block;
+    margin: auto;
 }
 
 /* Navigation Arrows */
@@ -301,7 +304,5 @@ footer {
 }
 
 .next {
-    right: 10px;
-}
     right: 10px;
 }
