@@ -231,29 +231,25 @@ footer {
 
 /* Slider Wrapper */
 .slider {
-    background-color: red;
     position: relative;
     width: 100%;
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
-    min-height: 400px;  /* 🔥 Ensures the container has height */
 }
 
 /* Individual Slides */
 .slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
     opacity: 0;
     visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: auto;
     transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
     z-index: 0;
 }
 
-/* Display Active Slide */
+/* Active Slide with Fade */
 .slide.active {
     opacity: 1;
     visibility: visible;
@@ -263,9 +259,11 @@ footer {
 /* Images in Slider */
 .slide img {
     width: 100%;
-    height: 100%;   /* 🔥 Forces images to fill the slide */
-    object-fit: contain;
+    height: auto;
     display: block;
+    object-fit: contain;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 /* Navigation Arrows */
