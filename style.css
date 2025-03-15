@@ -257,11 +257,12 @@ footer {
 
 /* Slide Images */
 .slide img {
-    width: 100vw;           /* Full viewport width */
-    height: 100vh;          /* Full viewport height */
-    max-width: 1200px;      /* Prevents it from getting too large */
-    max-height: 900px;      /* Set a max height for balance */
-    object-fit: cover;      /* Ensures it fills space, even if cropped */
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    max-height: 700px;
+    object-fit: contain;        /* Avoids cropping, fills as much as possible */
+    padding: 10px 0;            /* Slight padding for balanced spacing */
     box-sizing: border-box;
 }
 
