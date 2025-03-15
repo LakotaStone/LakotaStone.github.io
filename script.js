@@ -162,23 +162,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalSlides = slides.length;
     const slideInterval = 10000; // 10 seconds
 
-    // Set initial active slide
+    // Show initial slide
     slides[currentSlide].classList.add('active');
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
+            if (i === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
         });
     }
 
     function nextSlide() {
+        slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % totalSlides;
-        showSlide(currentSlide);
+        slides[currentSlide].classList.add('active');
     }
 
     function prevSlide() {
+        slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        showSlide(currentSlide);
+        slides[currentSlide].classList.add('active');
     }
 
     // Auto Slide
