@@ -232,11 +232,11 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    width: calc(100% - 60px);  /* Equal spacing on the sides (30px each side) */
+    width: 100%;                /* Full width to eliminate side gaps */
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
-    min-height: 700px;         /* Increased height for a larger display */
+    min-height: 700px;          /* Keeps the perfect top spacing */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -257,16 +257,13 @@ footer {
 
 /* Slide Images */
 .slide img {
-    width: 100%;
-    height: 100%;               /* Let the image fill the slider height */
-    max-width: none;             /* Prevents max-width restriction */
-    max-height: none;            /* Prevents max-height restriction */
-    object-fit: contain;         /* Ensure no cropping */
-    aspect-ratio: 4 / 3;         /* Maintain 4:3 ratio */
-    padding: 0 30px;             /* Side padding only for equal spacing */
+    width: 100%;                /* Full width to maximize image */
+    height: 100%;               /* Full height to match slider */
+    max-width: none;
+    max-height: none;
+    object-fit: contain;        /* Maintain 4:3 aspect ratio */
     box-sizing: border-box;
 }
-
 /* Navigation Arrows */
 .prev, .next {
     position: absolute;
