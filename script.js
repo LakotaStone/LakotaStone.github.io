@@ -172,13 +172,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function nextSlide() {
+        slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % totalSlides;
-        showSlide(currentSlide);
+        slides[currentSlide].classList.add('active');
     }
 
     function prevSlide() {
+        slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        showSlide(currentSlide);
+        slides[currentSlide].classList.add('active');
     }
 
     // Auto Slide
