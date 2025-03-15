@@ -236,32 +236,36 @@ footer {
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
+    min-height: 400px;  /* Ensures the container has height */
 }
 
 /* Individual Slides */
 .slide {
-    opacity: 0;
     position: absolute;
     width: 100%;
-    height: auto;
-    transition: opacity 1s ease-in-out;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 0s linear 1s; /* Visibility delay matches opacity duration */
     z-index: 0;
 }
 
-/* Active Slide with Fade */
+/* Display Active Slide */
 .slide.active {
     opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-in-out, visibility 0s linear 0s; /* Visibility immediately shown */
     z-index: 1;
 }
 
 /* Images in Slider */
 .slide img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;   /* Ensures images fill the slide */
     object-fit: contain;
-    padding: 30px;
-    box-sizing: border-box;
+    display: block;
 }
 
 /* Navigation Arrows */
