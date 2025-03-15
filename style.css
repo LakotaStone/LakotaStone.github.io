@@ -232,91 +232,43 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    width: calc(100% - 60px);  /* Equal spacing on the sides (30px each side) */
-    max-width: 1200px;         /* Maximum width for large screens */
-    margin: 30px auto;         /* Equal top and bottom spacing */
+    width: calc(100% - 60px);
+    max-width: 1200px;
+    margin: 30px auto;
     overflow: hidden;
+    height: auto;
 }
 
 /* Individual Slides */
 .slide {
-    display: none;
-    position: relative;
-    width: 100%;
-}
-
-/* Display the Active Slide */
-.slide.active {
-    display: block;
-}
-
-/* Slide Images */
-.slide img {
-    width: 100%;                  /* Full width of the slider */
-    height: auto;                  /* Maintain aspect ratio */
-    aspect-ratio: 4 / 3;           /* Ensure 4:3 ratio */
-    object-fit: contain;           /* Avoid cropping */
-    padding: 30px;                 /* Equal spacing inside the slider */
-    box-sizing: border-box;        /* Include padding in width calculation */
-}
-
-/* Button Styling */
-.slide-button {
-    align-self: flex-end;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7);    /* Matches the free shipping message */
-    color: white;
-    border: none;
-    border-radius: 0;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Hover Effect */
-.slide-button:hover {
-    background-color: #2e5d34;
-    color: #fff;
-}
-
-/* Fade-In Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px); /* Slight upward start */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Description Overlay */
-.description {
     position: absolute;
-    top: 50%;
-    left: 30px;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px 30px;
-    border-radius: 0;
-    color: #fff;
-    max-width: 400px;
-    z-index: 10;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    width: 100%;
+    height: auto;
     opacity: 0;
-    animation: fadeIn 2s ease forwards;
-    animation-delay: 1s; /* Delay before fade-in starts */
+    z-index: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Display the First Slide Initially */
+.slide:first-child {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Slider Images */
+.slide img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 /* Navigation Arrows */
 .prev, .next {
     position: absolute;
-    top: 50%; 
+    top: 50%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
@@ -332,21 +284,14 @@ footer {
     align-items: center;
 }
 
-/* Remove border-radius for perfect square */
-.prev, .next {
-    border-radius: 0;
+.prev:hover, .next:hover {
+    background-color: #2e5d34;
 }
 
-/* Position arrows on the right side */
 .prev {
-    right: 70px;  /* Spaced to avoid overlap */
+    right: 70px;
 }
 
 .next {
     right: 10px;
-}
-
-/* Hover Effect */
-.prev:hover, .next:hover {
-    background-color: #2e5d34;
 }
