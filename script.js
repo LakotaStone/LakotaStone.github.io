@@ -159,26 +159,18 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
-    const slideInterval = 10000; // 10 seconds
     const totalSlides = slides.length;
+    const slideInterval = 10000; // 10 seconds
 
-    // Initialize slides with opacity and z-index
-    slides.forEach((slide, index) => {
-        slide.style.opacity = index === 0 ? '1' : '0';
-        slide.style.zIndex = index === 0 ? '1' : '0';
-    });
+    // Initialize - Add 'active' class to first slide
+    slides[currentSlide].classList.add('active');
 
-    // Show the current slide with fade effect
+    // Function to show the current slide
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.style.opacity = '1';
-                slide.style.zIndex = '1';
-            } else {
-                slide.style.opacity = '0';
-                slide.style.zIndex = '0';
-            }
+            slide.classList.remove('active');
         });
+        slides[index].classList.add('active');
     }
 
     // Move to the next slide
