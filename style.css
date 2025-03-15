@@ -236,7 +236,7 @@ footer {
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
-    min-height: 600px;  /* Adjust height for 4:3 aspect ratio */
+    min-height: 600px;  /* Keeps the slider height consistent */
 }
 
 /* Individual Slides */
@@ -262,13 +262,14 @@ footer {
 
 /* Images in Slider */
 .slide img {
+    max-width: 90%;     /* Ensures image takes up most of the width */
+    max-height: 90%;    /* Ensures image takes up most of the height */
     width: auto;
-    height: 100%;             
+    height: auto;
+    aspect-ratio: 4 / 3;
     object-fit: contain;
     display: block;
-    margin: auto;              /* Centers the image */
-    padding: 30px;             /* Equal spacing around the image */
-    box-sizing: border-box;
+    margin: auto;       /* Centering the image horizontally and vertically */
 }
 
 /* Navigation Arrows */
