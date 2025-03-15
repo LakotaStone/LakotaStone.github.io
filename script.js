@@ -167,7 +167,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
+            if (i === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
         });
     }
 
