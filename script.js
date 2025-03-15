@@ -162,45 +162,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalSlides = slides.length;
     const slideInterval = 10000; // 10 seconds
 
-    // Ensure all slides start hidden
-    slides.forEach(slide => {
-        slide.style.opacity = '0';
-        slide.style.zIndex = '0';
-    });
-
-    // Activate the first slide immediately
+    // Set initial active slide
     slides[currentSlide].classList.add('active');
-    slides[currentSlide].style.opacity = '1';
-    slides[currentSlide].style.zIndex = '1';
 
-    // Function to show the current slide
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.classList.add('active');
-                slide.style.opacity = '1';
-                slide.style.zIndex = '1';
-            } else {
-                slide.classList.remove('active');
-                slide.style.opacity = '0';
-                slide.style.zIndex = '0';
-            }
+            slide.classList.toggle('active', i === index);
         });
     }
 
-    // Move to the next slide
     function nextSlide() {
         currentSlide = (currentSlide + 1) % totalSlides;
         showSlide(currentSlide);
     }
 
-    // Move to the previous slide
     function prevSlide() {
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         showSlide(currentSlide);
     }
 
-    // Auto Slide Every 10 Seconds
+    // Auto Slide
     setInterval(nextSlide, slideInterval);
 
     // Button Controls
