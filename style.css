@@ -249,8 +249,8 @@ footer {
     transition: opacity 1.5s ease-in-out;
 }
 
-/* Display the First Slide Initially */
-.slide:first-child {
+/* Display Active Slide */
+.slide.active {
     opacity: 1;
     z-index: 1;
 }
