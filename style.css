@@ -236,7 +236,7 @@ footer {
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
-    min-height: 600px;  /* 🔥 Increased height for better 4:3 aspect ratio */
+    min-height: 600px;  /* Adjust height for 4:3 aspect ratio */
 }
 
 /* Individual Slides */
@@ -262,13 +262,13 @@ footer {
 
 /* Images in Slider */
 .slide img {
-    width: auto;              /* 🔥 Auto width for natural scaling */
-    height: 100%;             /* 🔥 Full height to fit the slide */
-    aspect-ratio: 4 / 3;      /* 🔥 Maintain the 4:3 aspect ratio */
-    object-fit: contain;      /* 🔥 Ensure the image fits without cropping */
-    padding: 30px;            /* 🔥 Equal padding for spacing */
-    margin: auto;             /* 🔥 Center the image horizontally */
+    width: auto;
+    height: 100%;             
+    object-fit: contain;
     display: block;
+    margin: auto;              /* Centers the image */
+    padding: 30px;             /* Equal spacing around the image */
+    box-sizing: border-box;
 }
 
 /* Navigation Arrows */
