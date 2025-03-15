@@ -240,12 +240,19 @@ footer {
 
 /* Individual Slides */
 .slide {
-    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 0;
 }
 
-/* Display Active Slide */
+/* Active Slide with Fade */
 .slide.active {
-    display: block;
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 1s ease-in-out;
 }
 
 /* Images in Slider */
