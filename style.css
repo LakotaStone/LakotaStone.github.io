@@ -232,7 +232,7 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    width: calc(100% - 60px);
+    width: 100%;
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
@@ -243,7 +243,6 @@ footer {
 .slide {
     position: absolute;
     width: 100%;
-    height: auto;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     z-index: 0;
@@ -259,7 +258,9 @@ footer {
 .slide img {
     width: 100%;
     height: auto;
+    display: block;
     object-fit: contain;
+    max-height: 600px; 
     padding: 30px;
     box-sizing: border-box;
 }
