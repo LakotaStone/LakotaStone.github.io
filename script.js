@@ -162,15 +162,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalSlides = slides.length;
     const slideInterval = 10000; // 10 seconds
 
-    // Initialize - Add 'active' class to first slide
+    // Ensure all slides start hidden
+    slides.forEach(slide => {
+        slide.style.opacity = '0';
+        slide.style.zIndex = '0';
+    });
+
+    // Activate the first slide immediately
     slides[currentSlide].classList.add('active');
+    slides[currentSlide].style.opacity = '1';
+    slides[currentSlide].style.zIndex = '1';
 
     // Function to show the current slide
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+                slide.style.opacity = '1';
+                slide.style.zIndex = '1';
+            } else {
+                slide.classList.remove('active');
+                slide.style.opacity = '0';
+                slide.style.zIndex = '0';
+            }
         });
-        slides[index].classList.add('active');
     }
 
     // Move to the next slide
