@@ -236,7 +236,10 @@ footer {
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
-    min-height: 600px;  /* Keeps the slider height consistent */
+    min-height: 700px;  /* Increased height for more space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Individual Slides */
@@ -250,6 +253,9 @@ footer {
     visibility: hidden;
     transition: opacity 1s ease-in-out, visibility 0s linear 1s;
     z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Display Active Slide */
@@ -262,14 +268,14 @@ footer {
 
 /* Images in Slider */
 .slide img {
-    max-width: 90%;     /* Ensures image takes up most of the width */
-    max-height: 90%;    /* Ensures image takes up most of the height */
+    max-width: 95%;     /* Slightly larger */
+    max-height: 95vh;   /* Use almost the full viewport height */
     width: auto;
     height: auto;
     aspect-ratio: 4 / 3;
     object-fit: contain;
     display: block;
-    margin: auto;       /* Centering the image horizontally and vertically */
+    margin: auto;
 }
 
 /* Navigation Arrows */
