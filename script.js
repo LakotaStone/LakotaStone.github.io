@@ -167,24 +167,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
+            slide.classList.toggle('active', i === index);
         });
     }
 
     function nextSlide() {
-        slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % totalSlides;
-        slides[currentSlide].classList.add('active');
+        showSlide(currentSlide);
     }
 
     function prevSlide() {
-        slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        slides[currentSlide].classList.add('active');
+        showSlide(currentSlide);
     }
 
     // Auto Slide
