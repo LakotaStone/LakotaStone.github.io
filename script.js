@@ -156,24 +156,47 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
+document.addEventListener("DOMContentLoaded", function () {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideInterval = 10000; // 10 seconds
+    const totalSlides = slides.length;
 
-// Auto Slide Every 10 Seconds
-setInterval(() => {
-    nextSlide();
-}, 10000); // 10000 milliseconds = 10 seconds
+    // Initialize slides with opacity and z-index
+    slides.forEach((slide, index) => {
+        slide.style.opacity = index === 0 ? '1' : '0';
+        slide.style.zIndex = index === 0 ? '1' : '0';
+    });
 
-// Next Slide Function
-function nextSlide() {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-}
+    // Show the current slide with fade effect
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.style.opacity = '1';
+                slide.style.zIndex = '1';
+            } else {
+                slide.style.opacity = '0';
+                slide.style.zIndex = '0';
+            }
+        });
+    }
 
-// Previous Slide Function
-function prevSlide() {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-}
+    // Move to the next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    // Move to the previous slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    // Auto Slide Every 10 Seconds
+    setInterval(nextSlide, slideInterval);
+
+    // Button Controls
+    document.querySelector(".prev").addEventListener("click", prevSlide);
+    document.querySelector(".next").addEventListener("click", nextSlide);
+});
