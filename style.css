@@ -241,18 +241,16 @@ footer {
 /* Individual Slides */
 .slide {
     opacity: 0;
-    visibility: hidden;
     position: absolute;
     width: 100%;
     height: auto;
-    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
     z-index: 0;
 }
 
 /* Active Slide with Fade */
 .slide.active {
     opacity: 1;
-    visibility: visible;
     z-index: 1;
 }
 
