@@ -245,11 +245,11 @@ footer {
     width: 100%;
     height: auto;
     opacity: 0;
-    z-index: 0;
     transition: opacity 1.5s ease-in-out;
+    z-index: 0;
 }
 
-/* Display Active Slide */
+/* Active Slide */
 .slide.active {
     opacity: 1;
     z-index: 1;
@@ -259,7 +259,6 @@ footer {
 .slide img {
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
     object-fit: contain;
     padding: 30px;
     box-sizing: border-box;
@@ -278,7 +277,6 @@ footer {
     cursor: pointer;
     border: none;
     z-index: 10;
-    transition: background-color 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -289,7 +287,7 @@ footer {
 }
 
 .prev {
-    right: 70px;
+    left: 10px;
 }
 
 .next {
