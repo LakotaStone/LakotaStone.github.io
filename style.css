@@ -232,50 +232,38 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 30px auto;
+    width: calc(100% - 60px);  /* Equal spacing on the sides (30px each side) */
+    max-width: 1200px;         /* Maximum width for large screens */
+    margin: 30px auto;         /* Equal top and bottom spacing */
     overflow: hidden;
-    min-height: 700px;  /* Increased height for more space */
+    min-height: 600px;         /* Ensure the slider has a set height */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: center;       /* Center images vertically */
+    justify-content: center;   /* Center images horizontally */
 }
 
 /* Individual Slides */
 .slide {
+    display: none;
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1s ease-in-out, visibility 0s linear 1s;
-    z-index: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Display Active Slide */
+/* Display the Active Slide */
 .slide.active {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 1s ease-in-out, visibility 0s linear 0s;
-    z-index: 1;
+    display: block;
 }
 
-/* Images in Slider */
+/* Slide Images */
 .slide img {
-    max-width: 95%;     /* Slightly larger */
-    max-height: 95vh;   /* Use almost the full viewport height */
-    width: auto;
+    width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: contain;
-    display: block;
-    margin: auto;
+    aspect-ratio: 4 / 3;         /* Maintain the 4:3 ratio */
+    object-fit: contain;         /* Avoid cropping */
+    padding: 30px;               /* Equal spacing inside the slider */
+    box-sizing: border-box;      /* Include padding in width calculation */
+    max-height: 100%;            /* Ensures it doesn't overflow vertically */
 }
 
 /* Navigation Arrows */
