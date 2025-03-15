@@ -232,49 +232,39 @@ footer {
 /* Slider Wrapper */
 .slider {
     position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 30px auto;
+    width: calc(100% - 60px); /* Equal 30px spacing on the sides */
+    max-width: 1200px;        /* Maximum width for large screens */
+    margin: 30px auto;        /* Equal top and bottom spacing */
     overflow: hidden;
-    height: auto;
-    padding: 30px;  /* Ensures equal padding around the slider */
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* Individual Slides */
 .slide {
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
     width: 100%;
     height: auto;
-    opacity: 0;
-    visibility: hidden;
     transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
     z-index: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Display Active Slide */
+/* Active Slide */
 .slide.active {
     opacity: 1;
     visibility: visible;
     z-index: 1;
 }
 
-/* Images in Slider */
+/* Slide Images */
 .slide img {
-    width: auto;
-    height: auto;
-    max-width: 80%;      /* Ensures consistent horizontal spacing */
-    max-height: 80vh;    /* Viewport-based to ensure vertical spacing */
-    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
-    object-fit: contain; /* Ensures no cropping */
+    width: 100%;               /* Full width of the slider */
+    height: auto;               /* Maintain aspect ratio */
+    aspect-ratio: 4 / 3;        /* Keep the 4:3 ratio */
+    object-fit: contain;        /* Ensure no cropping */
+    padding: 30px;              /* Equal padding inside the slide */
+    box-sizing: border-box;     /* Include padding in width calculations */
     display: block;
-    margin: auto;
 }
 
 /* Navigation Arrows */
