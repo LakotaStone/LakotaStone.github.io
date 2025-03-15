@@ -236,7 +236,10 @@ footer {
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
-    min-height: 400px;  /* Ensures the container has height */
+    min-height: 600px;  /* Increased to give more vertical space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Individual Slides */
@@ -248,24 +251,27 @@ footer {
     left: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1s ease-in-out, visibility 0s linear 1s; /* Visibility delay matches opacity duration */
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
     z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Display Active Slide */
 .slide.active {
     opacity: 1;
     visibility: visible;
-    transition: opacity 1s ease-in-out, visibility 0s linear 0s; /* Visibility immediately shown */
     z-index: 1;
 }
 
 /* Images in Slider */
 .slide img {
-    width: 100%;
-    height: 100%;   /* Ensures images fill the slide */
-    object-fit: contain;
-    display: block;
+    max-height: 80%;     /* Controls vertical size for equal spacing */
+    max-width: 80%;      /* Ensures horizontal spacing */
+    object-fit: contain; /* Maintains aspect ratio */
+    padding: 30px;       /* Ensures equal space around the image */
+    box-sizing: border-box;
 }
 
 /* Navigation Arrows */
@@ -295,5 +301,7 @@ footer {
 }
 
 .next {
+    right: 10px;
+}
     right: 10px;
 }
