@@ -236,31 +236,24 @@ footer {
     max-width: 1200px;
     margin: 30px auto;
     overflow: hidden;
-    height: auto;
 }
 
 /* Individual Slides */
 .slide {
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    z-index: 0;
+    display: none;
 }
 
-/* Active Slide */
+/* Display Active Slide */
 .slide.active {
-    opacity: 1;
-    z-index: 1;
+    display: block;
 }
 
-/* Slider Images */
+/* Images in Slider */
 .slide img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: contain;
-    max-height: 600px; 
     padding: 30px;
     box-sizing: border-box;
 }
