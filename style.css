@@ -296,6 +296,28 @@ footer {
     animation-delay: 1s; /* Delay before fade-in starts */
 }
 
+/* Button Inside Message Box */
+.slide-button {
+    align-self: flex-end;  /* 🔥 Moves the button to the bottom right */
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.8);  /* Dark background for visibility */
+    color: white;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    margin-top: 15px;  /* 🔥 Adds space between text & button */
+}
+
+/* Hover Effect */
+.slide-button:hover {
+    background-color: #2e5d34;
+    color: #fff;
+}
+
 /* Fade-In Animation */
 @keyframes fadeIn {
     from {
