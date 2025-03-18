@@ -233,10 +233,10 @@ footer {
 .slider {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 30px auto;
     overflow: hidden;
-    min-height: 800px; /* 🔥 Increased height for larger images */
+    min-height: 1000px; /* 🔥 Increased height for larger images */
     display: flex;
     justify-content: center;
     align-items: center;
