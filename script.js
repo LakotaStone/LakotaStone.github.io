@@ -39,8 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ====== FILTER PRODUCTS BASED ON CATEGORY ======
     function normalizeCategory(category) {
-        return category.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and").replace(/[^a-z0-9-]/g, "");
-    }
+    return category.toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/and/g, "-")  // 🔥 This ensures "hoods-and-blindfolds" matches "hoods-blindfolds"
+        .replace(/&/g, "and")
+        .replace(/[^a-z0-9-]/g, "");
+}
 
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".product-item");
