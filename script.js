@@ -161,26 +161,46 @@ document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
     const slideInterval = 10000; // 10 seconds
+    const descriptionBoxes = document.querySelectorAll(".description"); // Get all message boxes
 
-    // Show initial slide
-    slides[currentSlide].classList.add('active');
+    // Function to show message box with delay
+    function showMessageBox() {
+        descriptionBoxes.forEach(box => {
+            box.style.opacity = "0";
+            box.style.transform = "translateY(-20px)";
+        });
 
+        // Fade in only the active slide's message box after 3 seconds
+        setTimeout(() => {
+            const activeMessage = slides[currentSlide].querySelector(".description");
+            if (activeMessage) {
+                activeMessage.style.opacity = "1";
+                activeMessage.style.transform = "translateY(0)";
+            }
+        }, 3000);
+    }
+
+    // Function to update slides and message box
     function showSlide(index) {
         slides.forEach((slide, i) => {
             slide.classList.toggle('active', i === index);
         });
+
+        showMessageBox(); // Reset and show message box after delay
     }
 
     function nextSlide() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % totalSlides;
         slides[currentSlide].classList.add('active');
+        showSlide(currentSlide);
     }
 
     function prevSlide() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         slides[currentSlide].classList.add('active');
+        showSlide(currentSlide);
     }
 
     // Auto Slide
@@ -189,4 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Button Controls
     document.querySelector(".prev").addEventListener("click", prevSlide);
     document.querySelector(".next").addEventListener("click", nextSlide);
+
+    // Show first slide and message box with delay
+    showSlide(currentSlide);
 });
