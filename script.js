@@ -161,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
     const slideInterval = 10000; // 10 seconds
+    const descriptionBox = document.querySelector(".description");
 
     // Show initial slide
     slides[currentSlide].classList.add('active');
@@ -169,18 +170,30 @@ document.addEventListener("DOMContentLoaded", function () {
         slides.forEach((slide, i) => {
             slide.classList.toggle('active', i === index);
         });
+
+        // Hide message box immediately
+        descriptionBox.style.opacity = "0";
+        descriptionBox.style.transform = "translateY(-20px)";
+
+        // Show message box after 3 seconds
+        setTimeout(() => {
+            descriptionBox.style.opacity = "1";
+            descriptionBox.style.transform = "translateY(0)";
+        }, 3000);
     }
 
     function nextSlide() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % totalSlides;
         slides[currentSlide].classList.add('active');
+        showSlide(currentSlide);
     }
 
     function prevSlide() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         slides[currentSlide].classList.add('active');
+        showSlide(currentSlide);
     }
 
     // Auto Slide
@@ -189,4 +202,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Button Controls
     document.querySelector(".prev").addEventListener("click", prevSlide);
     document.querySelector(".next").addEventListener("click", nextSlide);
+
+    // Show message box 3 seconds after first page load
+    setTimeout(() => {
+        descriptionBox.style.opacity = "1";
+        descriptionBox.style.transform = "translateY(0)";
+    }, 3000);
 });
