@@ -275,14 +275,15 @@ footer {
     display: block;
 }
 
-/* Description Overlay (Message Box) */
+/* Description Overlay */
 .description {
     position: absolute;
-    top: 45%; /* Adjusted slightly higher */
+    top: 35%;  /* 🔥 Moves it higher up */
     left: 30px;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
+    border-radius: 0;
     color: #fff;
     max-width: 400px;
     z-index: 10;
@@ -291,8 +292,8 @@ footer {
     flex-direction: column;
     gap: 10px;
     opacity: 0;
-    animation: fadeIn 1.5s ease forwards;
-    animation-delay: 0.5s; /* Slightly faster fade-in */
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1s; /* Delay before fade-in starts */
 }
 
 /* Fade-In Animation */
