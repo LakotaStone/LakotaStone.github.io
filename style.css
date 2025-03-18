@@ -293,7 +293,7 @@ footer {
     gap: 10px;
     opacity: 0;
     animation: fadeIn 2s ease forwards;
-    animation-delay: 4s; /* Delay before fade-in starts */
+    animation-delay: 3s; /* Delay before fade-in starts */
 }
 
 /* Button Inside Message Box */
